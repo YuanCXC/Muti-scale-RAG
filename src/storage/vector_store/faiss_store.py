@@ -84,10 +84,10 @@ class FAISSVectorStore(VectorStoreBase):
         """
         config = get_config()
         
-        self.dimension = dimension or config.vector_dim
+        self.dimension = config.vector_dim
         super().__init__(self.dimension, metric, **kwargs)
         
-        self.index_path = index_path or config.faiss_index_path
+        self.index_path = config.faiss_index_path
         
         # 解析索引类型
         try:

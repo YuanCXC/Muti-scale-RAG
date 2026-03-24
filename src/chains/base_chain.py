@@ -13,6 +13,7 @@ from src.llms import create_client, create_embedding_client
 from src.retrievers.base_retriever import RetrieverBase, SearchResult
 from src.utils.config import get_config
 from src.utils.logger import get_logger
+from src.utils.context_formatter import format_search_results
 
 logger = get_logger(__name__)
 
@@ -212,23 +213,8 @@ class RAGChainBase(ABC):
         Returns:
             上下文字符串
         """
-        context_parts = []
-        total_length = 0
         max_len = max_length or 4000
-        
-        for i, result in enumerate(results, start=1):
-            content = result.content
-            if total_length + len(content) > max_len:
-                remaining = max_len - total_length
-                if remaining > 100:
-                    content = content[:remaining] + "..."
-                else:
-                    break
-            
-            context_parts.append(f"[文档 {i}]\n{content}")
-            total_length += len(content)
-        
-        return "\n\n".join(context_parts)
+        return format_search_results(results, max_len)
     
     def _build_prompt(
         self,

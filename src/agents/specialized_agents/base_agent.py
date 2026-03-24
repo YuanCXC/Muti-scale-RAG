@@ -11,6 +11,7 @@ from typing import Any, Dict, List, Optional
 
 from src.utils.config import get_config
 from src.utils.logger import get_logger
+from src.utils.context_formatter import format_agent_sources
 
 logger = get_logger(__name__)
 
@@ -308,18 +309,7 @@ class SpecializedAgentBase(ABC):
         Returns:
             格式化后的字符串
         """
-        formatted = []
-        total_length = 0
-        
-        for i, source in enumerate(sources):
-            content = source.content.strip()
-            if total_length + len(content) > max_length:
-                break
-            
-            formatted.append(f"[来源 {i+1}]\n{content}\n")
-            total_length += len(content)
-        
-        return "\n".join(formatted)
+        return format_agent_sources(sources, max_length)
     
     def calculate_confidence(self, sources: List[Source]) -> float:
         """计算置信度

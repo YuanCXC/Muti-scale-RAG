@@ -12,7 +12,7 @@ import time
 from pathlib import Path
 from tqdm import tqdm
 
-from src.evaluation.metrics import RetrievalMetrics, GenerationMetrics
+from src.evaluation.metrics import RetrievalMetrics, GenerationMetrics, SystemMetrics
 from src.llms import create_embedding_client
 from src.utils.config import get_config
 from src.utils.logger import get_logger
@@ -55,6 +55,7 @@ class EvaluationReport:
         avg_latency: 平均延迟
         avg_retrieval_metrics: 平均检索指标
         avg_generation_metrics: 平均生成指标
+        avg_system_metrics: 平均系统指标
         workflow_type: 工作流类型
         timestamp: 时间戳
     """
@@ -64,6 +65,7 @@ class EvaluationReport:
     avg_latency: float = 0.0
     avg_retrieval_metrics: Dict[str, Any] = field(default_factory=dict)
     avg_generation_metrics: Dict[str, Any] = field(default_factory=dict)
+    avg_system_metrics: Dict[str, Any] = field(default_factory=dict)
     workflow_type: str = "unknown"
     timestamp: str = field(default_factory=lambda: time.strftime("%Y-%m-%d %H:%M:%S"))
     
@@ -76,6 +78,7 @@ class EvaluationReport:
             "avg_latency": self.avg_latency,
             "avg_retrieval_metrics": self.avg_retrieval_metrics,
             "avg_generation_metrics": self.avg_generation_metrics,
+            "avg_system_metrics": self.avg_system_metrics,
             "workflow_type": self.workflow_type,
             "timestamp": self.timestamp,
         }
@@ -120,6 +123,7 @@ class RAGEvaluator:
         
         self.retrieval_metrics = RetrievalMetrics(k_values=self.k_values)
         self.generation_metrics = GenerationMetrics()
+        self.system_metrics = SystemMetrics()
         
         logger.info(
             f"初始化 RAGEvaluator: workflow_type={workflow_type.value}, "
@@ -150,6 +154,8 @@ class RAGEvaluator:
         success_count = 0
         failed_count = 0
         
+        self.system_metrics.reset()
+        
         start_idx = 0
         if resume and self.checkpoint_path:
             start_idx = self._load_checkpoint()
@@ -178,6 +184,25 @@ class RAGEvaluator:
                         embedding_client=self.embedding_client,
                     )
                     all_generation_metrics.append(gen_metrics.to_dict())
+                    
+                    context = getattr(chain_result, 'context', '') or ''
+                    context_length = self.system_metrics.calculate_context_length(context)
+                    token_cost = self.system_metrics.calculate_token_count(
+                        context + chain_result.answer
+                    )
+                    evidence_count = self.system_metrics.calculate_evidence_count(
+                        chain_result.sources
+                    )
+                    parent_recall_count = getattr(chain_result, 'parent_recall_count', 0) or 0
+                    graph_expansion_count = getattr(chain_result, 'graph_expansion_count', 0) or 0
+                    
+                    self.system_metrics.add_sample(
+                        context_length=context_length,
+                        token_cost=token_cost,
+                        evidence_count=evidence_count,
+                        parent_recall_count=parent_recall_count,
+                        graph_expansion_count=graph_expansion_count,
+                    )
                 else:
                     failed_count += 1
                     
@@ -192,6 +217,7 @@ class RAGEvaluator:
         
         avg_retrieval = self._aggregate_metrics(all_retrieval_metrics)
         avg_generation = self._aggregate_metrics(all_generation_metrics)
+        avg_system = self.system_metrics.compute().to_dict()
         
         report = EvaluationReport(
             total_samples=len(samples),
@@ -200,6 +226,7 @@ class RAGEvaluator:
             avg_latency=avg_latency,
             avg_retrieval_metrics=avg_retrieval,
             avg_generation_metrics=avg_generation,
+            avg_system_metrics=avg_system,
             workflow_type=self.workflow_type.value,
         )
         

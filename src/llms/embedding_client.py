@@ -43,10 +43,10 @@ class EmbeddingClient:
         """
         config = get_config()
         
-        self.model = model or config.embedding_model
-        self.provider = provider or config.embedding_mode
-        self.api_key = api_key or config.embed_api_key
-        self.base_url = base_url or config.embed_base_url
+        self.model = config.embedding_model
+        self.provider = config.embedding_mode
+        self.api_key = config.embed_api_key
+        self.base_url = config.embed_base_url
         self.kwargs = kwargs
         
         self._model = None

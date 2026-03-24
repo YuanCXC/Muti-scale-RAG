@@ -15,6 +15,7 @@ from src.storage.graph_store.neo4j_store import Neo4jGraphStore
 from src.llms import create_client, create_embedding_client
 from src.utils.config import get_config
 from src.utils.logger import get_logger
+from src.utils.context_formatter import format_graph_context
 
 from src.chains.base_chain import ChainResult, RAGChainBase
 
@@ -168,16 +169,7 @@ class GraphRAGChain(RAGChainBase):
         Returns:
             图谱上下文字符串
         """
-        context_parts = ["【知识图谱检索结果】\n"]
-        
-        for i, result in enumerate(results, start=1):
-            context_parts.append(f"\n--- 实体 {i} ---")
-            context_parts.append(result.content)
-            
-            if result.metadata.get("neighbor_count"):
-                context_parts.append(f"关联实体数: {result.metadata['neighbor_count']}")
-        
-        return "\n".join(context_parts)
+        return format_graph_context(results)
     
     def find_related_entities(
         self,

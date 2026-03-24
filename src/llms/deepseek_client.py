@@ -40,9 +40,9 @@ class DeepSeekClient(BaseLLMClient):
         """
         config = get_config()
         
-        model = model or config.llm_model
-        api_key = api_key or config.openai_api_key
-        base_url = base_url or config.openai_api_base or "https://api.deepseek.com"
+        model = config.llm_model
+        api_key = config.openai_api_key
+        base_url = config.openai_api_base
         
         super().__init__(model, api_key, base_url, **kwargs)
         
@@ -77,8 +77,8 @@ class DeepSeekClient(BaseLLMClient):
             LLMResponse 实例
         """
         config = get_config()
-        temperature = temperature if temperature is not None else config.llm_temperature
-        max_tokens = max_tokens or config.llm_max_tokens
+        temperature = config.llm_temperature
+        max_tokens = config.llm_max_tokens
         
         start_time = time.time()
         
@@ -144,8 +144,8 @@ class DeepSeekClient(BaseLLMClient):
             生成的文本片段
         """
         config = get_config()
-        temperature = temperature if temperature is not None else config.llm_temperature
-        max_tokens = max_tokens or config.llm_max_tokens
+        temperature = config.llm_temperature
+        max_tokens = config.llm_max_tokens
         
         try:
             stream = self._client.chat.completions.create(
