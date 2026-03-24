@@ -1,0 +1,47 @@
+# RAG 系统依赖
+
+# 核心依赖
+pydantic>=2.0.0
+pydantic-settings>=2.0.0
+python-dotenv>=1.0.0
+
+# 数值计算
+numpy>=1.24.0
+
+# LLM 客户端
+openai>=1.0.0
+httpx>=0.25.0
+
+# 向量检索
+faiss-cpu>=1.7.4
+# faiss-gpu>=1.7.4  # GPU 版本，按需安装
+
+# 关键词检索
+rank-bm25>=0.2.2
+jieba>=0.42.1
+
+# 图数据库
+neo4j>=5.0.0
+networkx>=3.0
+
+# 重排序模型
+sentence-transformers>=2.2.0
+# FlagEmbedding>=1.0.0  # BGE reranker，按需安装
+
+# 文本处理
+tiktoken>=0.5.0
+
+# 日志
+colorlog>=6.7.0
+
+# 可选依赖
+# ollama>=0.1.0  # Ollama Python SDK
+# transformers>=4.35.0
+# torch>=2.0.0
+# scipy>=1.11.0
+
+# 开发依赖
+# pytest>=7.4.0
+# pytest-asyncio>=0.21.0
+# black>=23.0.0
+# ruff>=0.1.0
