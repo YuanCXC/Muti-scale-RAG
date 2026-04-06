@@ -270,7 +270,7 @@ if __name__ == "__main__":
         llm_client=mock_llm,
         use_reranker=False,
     )
-    print(f"✓ 创建 HybridRAGChain")
+    print(f"[OK] 创建 HybridRAGChain")
     
     docs = [
         {"doc_id": "d1", "content": "人工智能是计算机科学的一个分支。", "metadata": {"source": "wiki"}},
@@ -279,14 +279,14 @@ if __name__ == "__main__":
         {"doc_id": "d4", "content": "自然语言处理是人工智能的重要应用。", "metadata": {"source": "wiki"}},
     ]
     chain.add_documents(docs)
-    print(f"✓ 添加文档: vector_count={vector_store.count()}, keyword_count={len(chain.keyword_retriever.documents)}")
+    print(f"[OK] 添加文档: vector_count={vector_store.count()}, keyword_count={len(chain.keyword_retriever.documents)}")
     
     result = chain.run("人工智能有哪些技术？")
-    print(f"✓ 执行 RAG: answer='{result.answer[:50]}...'")
+    print(f"[OK] 执行 RAG: answer='{result.answer[:50]}...'")
     print(f"  - 检索结果数: {len(result.retrieval_results)}")
     print(f"  - 来源数: {len(result.sources)}")
     
     stats = chain.get_stats()
-    print(f"✓ 统计信息: {stats}")
+    print(f"[OK] 统计信息: {stats}")
     
     print("\n所有测试通过!")

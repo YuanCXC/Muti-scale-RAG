@@ -88,6 +88,7 @@ class DeepSeekClient(BaseLLMClient):
                 messages=[m.to_dict() for m in messages],
                 temperature=temperature,
                 max_tokens=max_tokens,
+                extra_body={"enable_thinking": False},
                 **kwargs,
             )
             
@@ -148,12 +149,12 @@ class DeepSeekClient(BaseLLMClient):
         max_tokens = config.llm_max_tokens
         
         try:
-            stream = self._client.chat.completions.create(
+            response = self._client.chat.completions.create(
                 model=self.model,
                 messages=[m.to_dict() for m in messages],
                 temperature=temperature,
                 max_tokens=max_tokens,
-                stream=True,
+                extra_body={"enable_thinking": False},
                 **kwargs,
             )
             

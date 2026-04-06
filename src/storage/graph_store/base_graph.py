@@ -28,6 +28,8 @@ class EdgeType(Enum):
     SIMILAR_TO = "similar_to"       # 相似关系
     DERIVED_FROM = "derived_from"   # 派生关系
     REFERENCES = "references"       # 引用关系
+    INCLUDES = "includes"           # 包含关系
+    APPLIES_TO = "applies_to"       # 应用于关系
     OTHER = "other"                 # 其他类型
 
 

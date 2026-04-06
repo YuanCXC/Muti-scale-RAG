@@ -144,15 +144,13 @@ class LocalGraphStore(GraphStoreBase):
     
     def add_edge(self, edge: Edge) -> bool:
         """添加边"""
-        # 检查源节点和目标节点是否存在
         if edge.source_id not in self._nodes or edge.target_id not in self._nodes:
             return False
         
         if edge.id in self._edges:
-            # 更新现有边
             self._edges[edge.id] = edge
-            # 删除旧边，添加新边
-            self._graph.remove_edge(edge.source_id, edge.target_id, key=edge.id)
+            if self._graph.has_edge(edge.source_id, edge.target_id, key=edge.id):
+                self._graph.remove_edge(edge.source_id, edge.target_id, key=edge.id)
             self._graph.add_edge(
                 edge.source_id,
                 edge.target_id,
@@ -162,7 +160,6 @@ class LocalGraphStore(GraphStoreBase):
                 weight=edge.weight,
             )
         else:
-            # 添加新边
             self._edges[edge.id] = edge
             self._graph.add_edge(
                 edge.source_id,

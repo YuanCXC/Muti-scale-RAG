@@ -1,0 +1,4653 @@
+[
+  {
+    "id": "5adc53f75542996e6852530a",
+    "question": "Are both Cypress and Ajuga genera?",
+    "answer": "no",
+    "relevant_titles": [
+      "Cypress",
+      "Ajuga"
+    ],
+    "retrieved_titles": [
+      "Ajuga",
+      "Cypress",
+      "Ajugeae",
+      "Cupressus",
+      "Cedrol",
+      "Cupressaceae",
+      "Cypress-pine"
+    ],
+    "generated_answer": "根据文档内容，Ajuga 是一个属（genus），而 Cypress 不是一个属，而是一个树或灌木的通用名称，通常指的是属于 Cupressaceae 家族的植物。因此，答案是：\n\n**No, Cypress is not a genus, but Ajuga is a genus.**",
+    "metrics": {
+      "recall_at_k": {
+        "7": 1.0
+      },
+      "precision_at_k": {
+        "7": 0.2857142857142857
+      },
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "map_score": 1.0,
+      "hit_rate": 1.0
+    },
+    "generation_metrics": {
+      "exact_match": 1.0,
+      "f1_score": 0.14285714285714288,
+      "semantic_similarity": 0.516714764639175,
+      "correctness": 0.0,
+      "faithfulness": 0.0,
+      "relevance": 0.0
+    },
+    "title_recall": 1.0,
+    "title_precision": 0.2857142857142857,
+    "context_length": 1940,
+    "stats": {
+      "vector_results": 10,
+      "keywords": [
+        "Cypress",
+        "Ajuga",
+        "genus"
+      ],
+      "graph_results": 10,
+      "expanded_results": 15,
+      "reranked_results": 7,
+      "final_results": 7,
+      "latency": {
+        "vector": 2.1801445484161377,
+        "keywords": 0.780846118927002,
+        "graph": 0.14353418350219727,
+        "expansion": 0.6903131008148193,
+        "rerank": 0.5322952270507812,
+        "mapping": 0.0,
+        "scoring": 1.7672386169433594,
+        "update": 0.027742385864257812
+      },
+      "routing_triggered": {
+        "vector": true,
+        "keywords": true,
+        "graph": true,
+        "expansion": true,
+        "rerank": true,
+        "scoring": true,
+        "update": true
+      }
+    }
+  },
+  {
+    "id": "5ab642845542995eadeeff8e",
+    "question": "Are Broughtonia and Laeliocattleya both orchids?",
+    "answer": "yes",
+    "relevant_titles": [
+      "Laeliocattleya",
+      "Broughtonia"
+    ],
+    "retrieved_titles": [
+      "Broughtonia",
+      "Hawkinsara",
+      "Otaara",
+      "Broughtonia sanguinea",
+      "Cattleytonia",
+      "Sudamerlycaste",
+      "Dahlia"
+    ],
+    "generated_answer": "Yes, Broughtonia and Laeliocattleya are both orchids. \n\n- **Broughtonia** is explicitly mentioned as a genus of orchids in the first document.  \n- **Laeliocattleya** is referred to as an intergeneric hybrid of orchids in the second and third documents, indicating that it is a type of orchid created by crossing different orchid genera, including Laelia and Cattleya.  \n\nTherefore, both are orchids.",
+    "metrics": {
+      "recall_at_k": {
+        "7": 0.5
+      },
+      "precision_at_k": {
+        "7": 0.14285714285714285
+      },
+      "mrr": 1.0,
+      "ndcg": 0.6131471927654584,
+      "map_score": 0.5,
+      "hit_rate": 1.0
+    },
+    "generation_metrics": {
+      "exact_match": 1.0,
+      "f1_score": 0.04878048780487806,
+      "semantic_similarity": 0.3747870222636194,
+      "correctness": 0.0,
+      "faithfulness": 0.0,
+      "relevance": 0.0
+    },
+    "title_recall": 0.5,
+    "title_precision": 0.14285714285714285,
+    "context_length": 2219,
+    "stats": {
+      "vector_results": 10,
+      "keywords": [
+        "Broughtonia",
+        "Laeliocattleya",
+        "orchids"
+      ],
+      "graph_results": 2,
+      "expanded_results": 7,
+      "reranked_results": 7,
+      "final_results": 7,
+      "latency": {
+        "vector": 0.38833069801330566,
+        "keywords": 1.1472687721252441,
+        "graph": 0.12915849685668945,
+        "expansion": 0.3460254669189453,
+        "rerank": 0.35096192359924316,
+        "mapping": 0.0,
+        "scoring": 1.9153754711151123,
+        "update": 0.0362703800201416
+      },
+      "routing_triggered": {
+        "vector": true,
+        "keywords": true,
+        "graph": true,
+        "expansion": true,
+        "rerank": true,
+        "scoring": true,
+        "update": true
+      }
+    }
+  },
+  {
+    "id": "5a76387d554299109176e6ba",
+    "question": "Who was born first Am Rong or Ava DuVernay ?",
+    "answer": "Am Rong",
+    "relevant_titles": [
+      "Ava DuVernay",
+      "Am Rong"
+    ],
+    "retrieved_titles": [
+      "Ava DuVernay",
+      "Am Rong",
+      "Howard Barish",
+      "Emayatzy Corinealdi",
+      "Spencer Averick",
+      "ARRAY",
+      "A Wrinkle in Time (2018 film)"
+    ],
+    "generated_answer": "Based on the information provided in the documents:\n\n- Ava DuVernay was born on **August 24, 1972**.\n- Am Rong was born in **1929**.\n\nTherefore, **Am Rong was born first**.",
+    "metrics": {
+      "recall_at_k": {
+        "7": 1.0
+      },
+      "precision_at_k": {
+        "7": 0.2857142857142857
+      },
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "map_score": 1.0,
+      "hit_rate": 1.0
+    },
+    "generation_metrics": {
+      "exact_match": 1.0,
+      "f1_score": 0.1904761904761905,
+      "semantic_similarity": 0.6812418306929876,
+      "correctness": 0.0,
+      "faithfulness": 0.0,
+      "relevance": 0.0
+    },
+    "title_recall": 1.0,
+    "title_precision": 0.2857142857142857,
+    "context_length": 1798,
+    "stats": {
+      "vector_results": 10,
+      "keywords": [
+        "Am Rong",
+        "Ava DuVernay"
+      ],
+      "graph_results": 2,
+      "expanded_results": 8,
+      "reranked_results": 7,
+      "final_results": 7,
+      "latency": {
+        "vector": 4.581324338912964,
+        "keywords": 0.7918715476989746,
+        "graph": 0.14356303215026855,
+        "expansion": 0.41877079010009766,
+        "rerank": 0.40320348739624023,
+        "mapping": 0.001005411148071289,
+        "scoring": 2.416621208190918,
+        "update": 0.031125783920288086
+      },
+      "routing_triggered": {
+        "vector": true,
+        "keywords": true,
+        "graph": true,
+        "expansion": true,
+        "rerank": true,
+        "scoring": true,
+        "update": true
+      }
+    }
+  },
+  {
+    "id": "5a8b770f5542995d1e6f13a7",
+    "question": "Where is the singer of \"B Boy\" raised?",
+    "answer": "Philadelphia",
+    "relevant_titles": [
+      "Meek Mill",
+      "B Boy (song)"
+    ],
+    "retrieved_titles": [
+      "B Boy (song)",
+      "Marcos Hernandez (singer)",
+      "Billy Joel",
+      "Julius Kahn (inventor)",
+      "Mos Def",
+      "Port Jefferson, New York",
+      "Cofield Mundi"
+    ],
+    "generated_answer": "根据文档内容，\"B Boy\" 的歌手是 Meek Mill，而文档中并未提及 Meek Mill 的成长背景或被抚养的地方。因此，无法从文档中得知 Meek Mill 是在哪里被抚养长大的。\n\n答案: 文档中没有提供关于 Meek Mill 的成长背景信息。",
+    "metrics": {
+      "recall_at_k": {
+        "7": 0.5
+      },
+      "precision_at_k": {
+        "7": 0.14285714285714285
+      },
+      "mrr": 1.0,
+      "ndcg": 0.6131471927654584,
+      "map_score": 0.5,
+      "hit_rate": 1.0
+    },
+    "generation_metrics": {
+      "exact_match": 0.0,
+      "f1_score": 0.0,
+      "semantic_similarity": 0.4442291699419599,
+      "correctness": 0.0,
+      "faithfulness": 0.0,
+      "relevance": 0.0
+    },
+    "title_recall": 0.5,
+    "title_precision": 0.14285714285714285,
+    "context_length": 2524,
+    "stats": {
+      "vector_results": 10,
+      "keywords": [
+        "singer",
+        "B Boy",
+        "raised"
+      ],
+      "graph_results": 20,
+      "expanded_results": 18,
+      "reranked_results": 7,
+      "final_results": 7,
+      "latency": {
+        "vector": 0.3117992877960205,
+        "keywords": 0.7184932231903076,
+        "graph": 0.05177903175354004,
+        "expansion": 1.0683000087738037,
+        "rerank": 0.7919738292694092,
+        "mapping": 0.0,
+        "scoring": 1.5791807174682617,
+        "update": 0.04790639877319336
+      },
+      "routing_triggered": {
+        "vector": true,
+        "keywords": true,
+        "graph": true,
+        "expansion": true,
+        "rerank": true,
+        "scoring": true,
+        "update": true
+      }
+    }
+  },
+  {
+    "id": "5a7574e25542996c70cfaf01",
+    "question": "Who was born first Mahbub ul Haq or Ibn Arabi?",
+    "answer": "ibnʿArabī",
+    "relevant_titles": [
+      "Ibn Arabi",
+      "Mahbub ul Haq"
+    ],
+    "retrieved_titles": [
+      "Mahbub ul Haq",
+      "Human Development Index",
+      "Akbariyya",
+      "Averroes",
+      "Ibn Tufail",
+      "Rumi"
+    ],
+    "generated_answer": "根据文档内容，Mahbub ul Haq 出生于 1934 年，而 Ibn Arabi 出生于 1165 年。因此，Ibn Arabi 比 Mahbub ul Haq 早出生。  \n\n答案: Ibn Arabi was born first.",
+    "metrics": {
+      "recall_at_k": {
+        "7": 0.5
+      },
+      "precision_at_k": {
+        "7": 0.14285714285714285
+      },
+      "mrr": 1.0,
+      "ndcg": 0.6131471927654584,
+      "map_score": 0.5,
+      "hit_rate": 1.0
+    },
+    "generation_metrics": {
+      "exact_match": 0.0,
+      "f1_score": 0.0,
+      "semantic_similarity": 0.5858259542188395,
+      "correctness": 0.0,
+      "faithfulness": 0.0,
+      "relevance": 0.0
+    },
+    "title_recall": 0.5,
+    "title_precision": 0.16666666666666666,
+    "context_length": 3128,
+    "stats": {
+      "vector_results": 10,
+      "keywords": [
+        "Mahbub ul Haq",
+        "Ibn Arabi"
+      ],
+      "graph_results": 1,
+      "expanded_results": 4,
+      "reranked_results": 7,
+      "final_results": 6,
+      "latency": {
+        "vector": 0.2765774726867676,
+        "keywords": 0.7585082054138184,
+        "graph": 0.06928706169128418,
+        "expansion": 0.28870058059692383,
+        "rerank": 0.6026861667633057,
+        "mapping": 0.0,
+        "scoring": 2.3723816871643066,
+        "update": 0.0444180965423584
+      },
+      "routing_triggered": {
+        "vector": true,
+        "keywords": true,
+        "graph": true,
+        "expansion": true,
+        "rerank": true,
+        "scoring": true,
+        "update": true
+      }
+    }
+  },
+  {
+    "id": "5a78bc6b554299148911f979",
+    "question": "Woman's Era and Naj are what kind of magazines?",
+    "answer": "fortnightly women interest magazine",
+    "relevant_titles": [
+      "Naj",
+      "Woman's Era"
+    ],
+    "retrieved_titles": [
+      "Woman's Era",
+      "Naj",
+      "Sekai (magazine)",
+      "Gariyoshi",
+      "Woman's Day",
+      "List of magazines in Malaysia",
+      "List of magazines in Austria"
+    ],
+    "generated_answer": "Woman's Era 是一本印度出版的英文女性兴趣杂志，而 Naj 是一本在波兰华沙出版的波兰语生活方式和女性杂志。两者都是周刊类型的杂志。",
+    "metrics": {
+      "recall_at_k": {
+        "7": 1.0
+      },
+      "precision_at_k": {
+        "7": 0.2857142857142857
+      },
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "map_score": 1.0,
+      "hit_rate": 1.0
+    },
+    "generation_metrics": {
+      "exact_match": 0.0,
+      "f1_score": 0.0,
+      "semantic_similarity": 0.623816943980745,
+      "correctness": 0.0,
+      "faithfulness": 0.0,
+      "relevance": 0.0
+    },
+    "title_recall": 1.0,
+    "title_precision": 0.2857142857142857,
+    "context_length": 3044,
+    "stats": {
+      "vector_results": 10,
+      "keywords": [
+        "Woman's Era",
+        "Naj",
+        "magazines"
+      ],
+      "graph_results": 13,
+      "expanded_results": 15,
+      "reranked_results": 7,
+      "final_results": 7,
+      "latency": {
+        "vector": 0.2953460216522217,
+        "keywords": 0.6666758060455322,
+        "graph": 0.09120321273803711,
+        "expansion": 0.7610578536987305,
+        "rerank": 0.5511746406555176,
+        "mapping": 0.0,
+        "scoring": 1.6298022270202637,
+        "update": 0.037888526916503906
+      },
+      "routing_triggered": {
+        "vector": true,
+        "keywords": true,
+        "graph": true,
+        "expansion": true,
+        "rerank": true,
+        "scoring": true,
+        "update": true
+      }
+    }
+  },
+  {
+    "id": "5a86113355429960ec39b618",
+    "question": "Who had the lowest vocal range in Cosmos?",
+    "answer": "Jānis Strazdiņš",
+    "relevant_titles": [
+      "Cosmos (band)",
+      "Bass (voice type)"
+    ],
+    "retrieved_titles": [
+      "Bass (voice type)",
+      "Basso profondo",
+      "List of basses in non-classical music",
+      "Vocal fry register",
+      "Cosmos: A Spacetime Odyssey",
+      "Jump (Madonna song)",
+      "List of contraltos in non-classical music"
+    ],
+    "generated_answer": "根据文档内容，**basso profondo**（深低音）是男声中音域最低的声部类型。因此，在《Cosmos》中，如果存在此类角色，**basso profondo** 的演唱者可能拥有最低的 vocal range。但文档中并未明确提到《Cosmos》中的具体角色或演员的音域信息。所以，无法确定具体是谁拥有最低的 vocal range。",
+    "metrics": {
+      "recall_at_k": {
+        "7": 0.5
+      },
+      "precision_at_k": {
+        "7": 0.14285714285714285
+      },
+      "mrr": 1.0,
+      "ndcg": 0.6131471927654584,
+      "map_score": 0.5,
+      "hit_rate": 1.0
+    },
+    "generation_metrics": {
+      "exact_match": 0.0,
+      "f1_score": 0.0,
+      "semantic_similarity": 0.34575079459211244,
+      "correctness": 0.0,
+      "faithfulness": 0.0,
+      "relevance": 0.0
+    },
+    "title_recall": 0.5,
+    "title_precision": 0.14285714285714285,
+    "context_length": 3096,
+    "stats": {
+      "vector_results": 10,
+      "keywords": [
+        "vocal range",
+        "Cosmos"
+      ],
+      "graph_results": 4,
+      "expanded_results": 11,
+      "reranked_results": 7,
+      "final_results": 7,
+      "latency": {
+        "vector": 0.2988443374633789,
+        "keywords": 0.7772507667541504,
+        "graph": 0.07410216331481934,
+        "expansion": 0.5150208473205566,
+        "rerank": 0.4531822204589844,
+        "mapping": 0.0,
+        "scoring": 2.8920071125030518,
+        "update": 0.03815126419067383
+      },
+      "routing_triggered": {
+        "vector": true,
+        "keywords": true,
+        "graph": true,
+        "expansion": true,
+        "rerank": true,
+        "scoring": true,
+        "update": true
+      }
+    }
+  },
+  {
+    "id": "5ae3fd2c5542995dadf2428f",
+    "question": "Are Ian Brown and Dee Snider both actors?",
+    "answer": "no",
+    "relevant_titles": [
+      "Dee Snider",
+      "Ian Brown"
+    ],
+    "retrieved_titles": [
+      "Dee Snider",
+      "Ian Brown",
+      "The House of Hair with Dee Snider",
+      "The Terrible Thunderlizards",
+      "Ian Browne (musician)",
+      "Widowmaker (Dee Snider band)",
+      "Jesse Blaze Snider"
+    ],
+    "generated_answer": "Yes, Dee Snider is an actor, as mentioned in document 1. However, Ian Brown is a musician, as stated in document 2. Therefore, Ian Brown is not an actor.",
+    "metrics": {
+      "recall_at_k": {
+        "7": 1.0
+      },
+      "precision_at_k": {
+        "7": 0.2857142857142857
+      },
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "map_score": 1.0,
+      "hit_rate": 1.0
+    },
+    "generation_metrics": {
+      "exact_match": 1.0,
+      "f1_score": 0.0,
+      "semantic_similarity": 0.4616989583177116,
+      "correctness": 0.0,
+      "faithfulness": 0.0,
+      "relevance": 0.0
+    },
+    "title_recall": 1.0,
+    "title_precision": 0.2857142857142857,
+    "context_length": 1508,
+    "stats": {
+      "vector_results": 10,
+      "keywords": [
+        "Ian Brown",
+        "Dee Snider",
+        "actors"
+      ],
+      "graph_results": 11,
+      "expanded_results": 4,
+      "reranked_results": 7,
+      "final_results": 7,
+      "latency": {
+        "vector": 1.726377010345459,
+        "keywords": 4.312263488769531,
+        "graph": 0.09450578689575195,
+        "expansion": 0.5568559169769287,
+        "rerank": 0.990877628326416,
+        "mapping": 0.0,
+        "scoring": 1.9695022106170654,
+        "update": 0.027874231338500977
+      },
+      "routing_triggered": {
+        "vector": true,
+        "keywords": true,
+        "graph": true,
+        "expansion": true,
+        "rerank": true,
+        "scoring": true,
+        "update": true
+      }
+    }
+  },
+  {
+    "id": "5ae675245542991bbc9760dc",
+    "question": "What is the name of the father of Childericus?",
+    "answer": "Merovech",
+    "relevant_titles": [
+      "Childeric I",
+      "Merovingian dynasty"
+    ],
+    "retrieved_titles": [
+      "Childeric I",
+      "Hadrian",
+      "Gustavus Adolphus of Sweden",
+      "Martin Luther",
+      "Henry III of France",
+      "Pope Julius II",
+      "Matthias Corvinus"
+    ],
+    "generated_answer": "根据文档内容，Childeric I 是 Clovis I 的父亲，因此 Childericus 的父亲是 Childeric I。答案：Childeric I。",
+    "metrics": {
+      "recall_at_k": {
+        "7": 0.5
+      },
+      "precision_at_k": {
+        "7": 0.14285714285714285
+      },
+      "mrr": 1.0,
+      "ndcg": 0.6131471927654584,
+      "map_score": 0.5,
+      "hit_rate": 1.0
+    },
+    "generation_metrics": {
+      "exact_match": 0.0,
+      "f1_score": 0.0,
+      "semantic_similarity": 0.4786980232654302,
+      "correctness": 0.0,
+      "faithfulness": 0.0,
+      "relevance": 0.0
+    },
+    "title_recall": 0.5,
+    "title_precision": 0.14285714285714285,
+    "context_length": 3449,
+    "stats": {
+      "vector_results": 10,
+      "keywords": [
+        "Childericus",
+        "father"
+      ],
+      "graph_results": 7,
+      "expanded_results": 10,
+      "reranked_results": 7,
+      "final_results": 7,
+      "latency": {
+        "vector": 0.4493119716644287,
+        "keywords": 0.7705466747283936,
+        "graph": 0.07049560546875,
+        "expansion": 0.68276047706604,
+        "rerank": 0.5769896507263184,
+        "mapping": 0.0,
+        "scoring": 3.959895610809326,
+        "update": 0.043175697326660156
+      },
+      "routing_triggered": {
+        "vector": true,
+        "keywords": true,
+        "graph": true,
+        "expansion": true,
+        "rerank": true,
+        "scoring": true,
+        "update": true
+      }
+    }
+  },
+  {
+    "id": "5a85a2845542997175ce1fe1",
+    "question": "Are both Aloinopsis and Eriogonum ice plants?",
+    "answer": "no",
+    "relevant_titles": [
+      "Eriogonum",
+      "Aloinopsis"
+    ],
+    "retrieved_titles": [
+      "Aloinopsis",
+      "Eriogonum",
+      "Conicosia",
+      "Eriogonum crosbyae",
+      "Eriogonum heracleoides",
+      "Cymbidium tracyanum",
+      "Apodemia mormo"
+    ],
+    "generated_answer": "No, not both Aloinopsis and Eriogonum are ice plants. \n\n- Aloinopsis is a genus of ice plants from South Africa. \n- Eriogonum is a genus of flowering plants in the family Polygonaceae, known as wild buckwheat, and is found in North America. \n\nWhile both genera are sometimes referred to as \"ice plants\" in common names, they belong to different families and are not botanically classified as the same type of plant.",
+    "metrics": {
+      "recall_at_k": {
+        "7": 1.0
+      },
+      "precision_at_k": {
+        "7": 0.2857142857142857
+      },
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "map_score": 1.0,
+      "hit_rate": 1.0
+    },
+    "generation_metrics": {
+      "exact_match": 1.0,
+      "f1_score": 0.044444444444444446,
+      "semantic_similarity": 0.3913667290032513,
+      "correctness": 0.0,
+      "faithfulness": 0.0,
+      "relevance": 0.0
+    },
+    "title_recall": 1.0,
+    "title_precision": 0.2857142857142857,
+    "context_length": 1959,
+    "stats": {
+      "vector_results": 10,
+      "keywords": [
+        "Aloinopsis",
+        "Eriogonum",
+        "ice plants"
+      ],
+      "graph_results": 5,
+      "expanded_results": 18,
+      "reranked_results": 7,
+      "final_results": 7,
+      "latency": {
+        "vector": 0.2944025993347168,
+        "keywords": 0.9190001487731934,
+        "graph": 0.07675623893737793,
+        "expansion": 0.5171430110931396,
+        "rerank": 0.5133106708526611,
+        "mapping": 0.0,
+        "scoring": 2.377408504486084,
+        "update": 0.04486346244812012
+      },
+      "routing_triggered": {
+        "vector": true,
+        "keywords": true,
+        "graph": true,
+        "expansion": true,
+        "rerank": true,
+        "scoring": true,
+        "update": true
+      }
+    }
+  },
+  {
+    "id": "5ab44ab25542991779162c58",
+    "question": "What are both Camel Up and Outrage!?",
+    "answer": "board game",
+    "relevant_titles": [
+      "Outrage! (game)",
+      "Camel Up"
+    ],
+    "retrieved_titles": [
+      "Camel Up",
+      "Up (2009 film)",
+      "Hoover Moratorium",
+      "And/oar",
+      "Unexpected Productions",
+      "Langston Hughes Performing Arts Center"
+    ],
+    "generated_answer": "Camel Up 是一款适合 2 到 8 名玩家的桌游，它在 2014 年赢得了 Spiel des Jahres 大奖。而 Outrage! 并未在提供的文档中提及，因此无法提供相关信息。",
+    "metrics": {
+      "recall_at_k": {
+        "7": 0.5
+      },
+      "precision_at_k": {
+        "7": 0.14285714285714285
+      },
+      "mrr": 1.0,
+      "ndcg": 0.6131471927654584,
+      "map_score": 0.5,
+      "hit_rate": 1.0
+    },
+    "generation_metrics": {
+      "exact_match": 0.0,
+      "f1_score": 0.0,
+      "semantic_similarity": 0.5961260909455167,
+      "correctness": 0.0,
+      "faithfulness": 0.0,
+      "relevance": 0.0
+    },
+    "title_recall": 0.5,
+    "title_precision": 0.16666666666666666,
+    "context_length": 2856,
+    "stats": {
+      "vector_results": 10,
+      "keywords": [
+        "Camel Up",
+        "Outrage!"
+      ],
+      "graph_results": 1,
+      "expanded_results": 7,
+      "reranked_results": 7,
+      "final_results": 6,
+      "latency": {
+        "vector": 0.28104591369628906,
+        "keywords": 0.7630429267883301,
+        "graph": 0.10012960433959961,
+        "expansion": 0.354428768157959,
+        "rerank": 0.380856990814209,
+        "mapping": 0.0010056495666503906,
+        "scoring": 1.6362888813018799,
+        "update": 0.04776954650878906
+      },
+      "routing_triggered": {
+        "vector": true,
+        "keywords": true,
+        "graph": true,
+        "expansion": true,
+        "rerank": true,
+        "scoring": true,
+        "update": true
+      }
+    }
+  },
+  {
+    "id": "5a8ec4875542995a26add508",
+    "question": "What county was Tom Hewitt born in?",
+    "answer": "Ravalli County, Montana",
+    "relevant_titles": [
+      "Victor, Montana",
+      "Tom Hewitt (actor)"
+    ],
+    "retrieved_titles": [
+      "Tom Hewitt (actor)",
+      "Tom Hewitt (footballer)",
+      "Bill Anderson (American football, born 1925)",
+      "Henri, Count of Paris (born 1933)",
+      "Frank I. Osborne",
+      "In Death Reborn",
+      "Prince Christian of Hanover (born 1985)"
+    ],
+    "generated_answer": "Tom Hewitt was born in Victor, Montana, which is in the county of Roosevelt County. \n\n答案: Roosevelt County.",
+    "metrics": {
+      "recall_at_k": {
+        "7": 0.5
+      },
+      "precision_at_k": {
+        "7": 0.14285714285714285
+      },
+      "mrr": 1.0,
+      "ndcg": 0.6131471927654584,
+      "map_score": 0.5,
+      "hit_rate": 1.0
+    },
+    "generation_metrics": {
+      "exact_match": 0.0,
+      "f1_score": 0.23529411764705882,
+      "semantic_similarity": 0.5505913239675233,
+      "correctness": 0.0,
+      "faithfulness": 0.0,
+      "relevance": 0.0
+    },
+    "title_recall": 0.5,
+    "title_precision": 0.14285714285714285,
+    "context_length": 5130,
+    "stats": {
+      "vector_results": 10,
+      "keywords": [
+        "Tom Hewitt",
+        "county",
+        "born"
+      ],
+      "graph_results": 20,
+      "expanded_results": 24,
+      "reranked_results": 7,
+      "final_results": 7,
+      "latency": {
+        "vector": 0.29660892486572266,
+        "keywords": 0.8673241138458252,
+        "graph": 0.04736208915710449,
+        "expansion": 0.8756825923919678,
+        "rerank": 0.801565408706665,
+        "mapping": 0.0,
+        "scoring": 1.841773271560669,
+        "update": 0.03742337226867676
+      },
+      "routing_triggered": {
+        "vector": true,
+        "keywords": true,
+        "graph": true,
+        "expansion": true,
+        "rerank": true,
+        "scoring": true,
+        "update": true
+      }
+    }
+  },
+  {
+    "id": "5ac11201554299294b21908c",
+    "question": "What county is Ron Teachworth from?",
+    "answer": "Oakland County",
+    "relevant_titles": [
+      "Ron Teachworth",
+      "Rochester Hills, Michigan"
+    ],
+    "retrieved_titles": [
+      "John Glenn",
+      "1980 Damascus Titan missile explosion",
+      "Sigourney, Iowa",
+      "Tonya Schuitmaker",
+      "Van Buren County, Arkansas",
+      "Maryland county executive elections, 2006",
+      "List of county routes in Albany County, New York"
+    ],
+    "generated_answer": "文档中没有提到Ron Teachworth的出身县。因此，无法根据提供的信息回答这个问题。",
+    "metrics": {
+      "recall_at_k": {
+        "7": 0.0
+      },
+      "precision_at_k": {
+        "7": 0.0
+      },
+      "mrr": 0.0,
+      "ndcg": 0.0,
+      "map_score": 0.0,
+      "hit_rate": 0.0
+    },
+    "generation_metrics": {
+      "exact_match": 0.0,
+      "f1_score": 0.0,
+      "semantic_similarity": 0.45296849663556454,
+      "correctness": 0.0,
+      "faithfulness": 0.0,
+      "relevance": 0.0
+    },
+    "title_recall": 0.0,
+    "title_precision": 0.0,
+    "context_length": 2904,
+    "stats": {
+      "vector_results": 10,
+      "keywords": [
+        "Ron Teachworth",
+        "county"
+      ],
+      "graph_results": 4,
+      "expanded_results": 22,
+      "reranked_results": 7,
+      "final_results": 7,
+      "latency": {
+        "vector": 0.3194591999053955,
+        "keywords": 0.5317623615264893,
+        "graph": 0.05971837043762207,
+        "expansion": 0.5068771839141846,
+        "rerank": 0.5683455467224121,
+        "mapping": 0.0,
+        "scoring": 2.1336658000946045,
+        "update": 0.029523611068725586
+      },
+      "routing_triggered": {
+        "vector": true,
+        "keywords": true,
+        "graph": true,
+        "expansion": true,
+        "rerank": true,
+        "scoring": true,
+        "update": true
+      }
+    }
+  },
+  {
+    "id": "5a7dff595542997cc2c474eb",
+    "question": "Who was the husband of Kalanipauahi's niece?",
+    "answer": "Charles Reed Bishop",
+    "relevant_titles": [
+      "Bernice Pauahi Bishop",
+      "Kalanipauahi"
+    ],
+    "retrieved_titles": [
+      "Kalanipauahi",
+      "Bernice Pauahi Bishop",
+      "Liliuokalani",
+      "Franklin Seaver Pratt",
+      "Kamehameha III",
+      "James Younghusband"
+    ],
+    "generated_answer": "根据文档内容，Kalanipauahi 的侄女是 Bernice Pauahi Bishop。然而，文档中并未提及 Bernice Pauahi Bishop 的丈夫是谁。因此，无法从提供的信息中确定 Kalanipauahi 的侄女的丈夫是谁。",
+    "metrics": {
+      "recall_at_k": {
+        "7": 1.0
+      },
+      "precision_at_k": {
+        "7": 0.2857142857142857
+      },
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "map_score": 1.0,
+      "hit_rate": 1.0
+    },
+    "generation_metrics": {
+      "exact_match": 0.0,
+      "f1_score": 0.16666666666666666,
+      "semantic_similarity": 0.5028595492898223,
+      "correctness": 0.0,
+      "faithfulness": 0.0,
+      "relevance": 0.0
+    },
+    "title_recall": 1.0,
+    "title_precision": 0.3333333333333333,
+    "context_length": 2010,
+    "stats": {
+      "vector_results": 10,
+      "keywords": [
+        "Kalanipauahi",
+        "niece",
+        "husband"
+      ],
+      "graph_results": 2,
+      "expanded_results": 1,
+      "reranked_results": 7,
+      "final_results": 6,
+      "latency": {
+        "vector": 0.27472591400146484,
+        "keywords": 1.2389588356018066,
+        "graph": 0.0625617504119873,
+        "expansion": 0.35242342948913574,
+        "rerank": 0.4815952777862549,
+        "mapping": 0.0,
+        "scoring": 1.53267240524292,
+        "update": 0.03950047492980957
+      },
+      "routing_triggered": {
+        "vector": true,
+        "keywords": true,
+        "graph": true,
+        "expansion": true,
+        "rerank": true,
+        "scoring": true,
+        "update": true
+      }
+    }
+  },
+  {
+    "id": "5a7a36e65542990198eaf0ea",
+    "question": "When was the creator of Bully Boy born?",
+    "answer": "3 May 1958",
+    "relevant_titles": [
+      "Sandi Toksvig",
+      "Bully Boy"
+    ],
+    "retrieved_titles": [
+      "Bully Boy",
+      "Rio Ferdinand",
+      "Prince Harry",
+      "Henri, Count of Paris (born 1933)",
+      "Charlotte of Mecklenburg-Strelitz",
+      "Roald Dahl",
+      "Osborne Cowles"
+    ],
+    "generated_answer": "The creator of *Bully Boy* is Sandi Toksvig. According to the document, she is a British-Danish playwright and comedian, but it does not provide her date of birth. Therefore, the information about her birthdate is not available in the given documents.",
+    "metrics": {
+      "recall_at_k": {
+        "7": 0.5
+      },
+      "precision_at_k": {
+        "7": 0.14285714285714285
+      },
+      "mrr": 1.0,
+      "ndcg": 0.6131471927654584,
+      "map_score": 0.5,
+      "hit_rate": 1.0
+    },
+    "generation_metrics": {
+      "exact_match": 0.0,
+      "f1_score": 0.0,
+      "semantic_similarity": 0.37109328952047227,
+      "correctness": 0.0,
+      "faithfulness": 0.0,
+      "relevance": 0.0
+    },
+    "title_recall": 0.5,
+    "title_precision": 0.14285714285714285,
+    "context_length": 3653,
+    "stats": {
+      "vector_results": 10,
+      "keywords": [
+        "Bully Boy",
+        "creator",
+        "born",
+        "birth date"
+      ],
+      "graph_results": 20,
+      "expanded_results": 29,
+      "reranked_results": 7,
+      "final_results": 7,
+      "latency": {
+        "vector": 0.2800910472869873,
+        "keywords": 0.6943433284759521,
+        "graph": 0.06584787368774414,
+        "expansion": 0.8450093269348145,
+        "rerank": 0.9410524368286133,
+        "mapping": 0.0,
+        "scoring": 1.8908929824829102,
+        "update": 0.053018808364868164
+      },
+      "routing_triggered": {
+        "vector": true,
+        "keywords": true,
+        "graph": true,
+        "expansion": true,
+        "rerank": true,
+        "scoring": true,
+        "update": true
+      }
+    }
+  },
+  {
+    "id": "5adfa6c7554299025d62a326",
+    "question": "What is the birthday of the Earl of Merioneth?",
+    "answer": "10 June 1921",
+    "relevant_titles": [
+      "Earl of Merioneth",
+      "Prince Philip, Duke of Edinburgh"
+    ],
+    "retrieved_titles": [
+      "Elvis Presley",
+      "Earl of Merioneth",
+      "Karl-Konstantin von Habsburg",
+      "Prince Harry",
+      "Edward II of England",
+      "Amelia Cary, Viscountess Falkland"
+    ],
+    "generated_answer": "The document does not provide the birthday of the Earl of Merioneth. It only mentions that the title was created in 1947 for Philip Mountbatten, who was the husband of Princess Elizabeth. There is no specific date given for the Earl of Merioneth's birthday.",
+    "metrics": {
+      "recall_at_k": {
+        "7": 0.5
+      },
+      "precision_at_k": {
+        "7": 0.14285714285714285
+      },
+      "mrr": 0.5,
+      "ndcg": 0.38685280723454163,
+      "map_score": 0.25,
+      "hit_rate": 1.0
+    },
+    "generation_metrics": {
+      "exact_match": 0.0,
+      "f1_score": 0.0,
+      "semantic_similarity": 0.40481653589042343,
+      "correctness": 0.0,
+      "faithfulness": 0.0,
+      "relevance": 0.0
+    },
+    "title_recall": 0.5,
+    "title_precision": 0.16666666666666666,
+    "context_length": 2887,
+    "stats": {
+      "vector_results": 10,
+      "keywords": [
+        "Earl of Merioneth",
+        "birthday"
+      ],
+      "graph_results": 1,
+      "expanded_results": 13,
+      "reranked_results": 7,
+      "final_results": 6,
+      "latency": {
+        "vector": 0.30436110496520996,
+        "keywords": 0.849097728729248,
+        "graph": 0.0641317367553711,
+        "expansion": 0.25497007369995117,
+        "rerank": 0.46705126762390137,
+        "mapping": 0.0,
+        "scoring": 2.3964667320251465,
+        "update": 0.033399343490600586
+      },
+      "routing_triggered": {
+        "vector": true,
+        "keywords": true,
+        "graph": true,
+        "expansion": true,
+        "rerank": true,
+        "scoring": true,
+        "update": true
+      }
+    }
+  },
+  {
+    "id": "5ae473545542995dadf2433d",
+    "question": "When was the writer of Seesaw born? ",
+    "answer": "April 8, 1943",
+    "relevant_titles": [
+      "Seesaw (musical)",
+      "Michael Bennett (theater)"
+    ],
+    "retrieved_titles": [
+      "Rio Ferdinand",
+      "Charlotte of Mecklenburg-Strelitz",
+      "Prince Harry",
+      "H. P. Lovecraft",
+      "Henri, Count of Paris (born 1933)",
+      "John Alexander (footballer, born 1955)"
+    ],
+    "generated_answer": "根据文档内容，Rio Gavin Ferdinand 出生于 1978 年 11 月 7 日。因此，Seesaw 的作者（假设指的是 Rio Gavin Ferdinand）的出生日期是 1978 年 11 月 7 日。",
+    "metrics": {
+      "recall_at_k": {
+        "7": 0.0
+      },
+      "precision_at_k": {
+        "7": 0.0
+      },
+      "mrr": 0.0,
+      "ndcg": 0.0,
+      "map_score": 0.0,
+      "hit_rate": 0.0
+    },
+    "generation_metrics": {
+      "exact_match": 0.0,
+      "f1_score": 0.0,
+      "semantic_similarity": 0.4508967741372585,
+      "correctness": 0.0,
+      "faithfulness": 0.0,
+      "relevance": 0.0
+    },
+    "title_recall": 0.0,
+    "title_precision": 0.0,
+    "context_length": 3358,
+    "stats": {
+      "vector_results": 10,
+      "keywords": [
+        "Seesaw",
+        "writer",
+        "born",
+        "birth date"
+      ],
+      "graph_results": 20,
+      "expanded_results": 18,
+      "reranked_results": 7,
+      "final_results": 6,
+      "latency": {
+        "vector": 0.2807033061981201,
+        "keywords": 0.7313542366027832,
+        "graph": 0.0546412467956543,
+        "expansion": 1.0298902988433838,
+        "rerank": 0.8705494403839111,
+        "mapping": 0.0,
+        "scoring": 1.9867634773254395,
+        "update": 0.04004669189453125
+      },
+      "routing_triggered": {
+        "vector": true,
+        "keywords": true,
+        "graph": true,
+        "expansion": true,
+        "rerank": true,
+        "scoring": true,
+        "update": true
+      }
+    }
+  },
+  {
+    "id": "5adf39765542993a75d26435",
+    "question": "Who was the son and heir of Henry Beauclerc?",
+    "answer": "William Adelin",
+    "relevant_titles": [
+      "Matilda of Anjou",
+      "Henry I of England"
+    ],
+    "retrieved_titles": [
+      "Henry I of England",
+      "Henry II of England",
+      "Henry III of France",
+      "Prince Harry",
+      "Black spider memos",
+      "Aubrey-Fletcher baronets"
+    ],
+    "generated_answer": "根据文档内容，亨利一世（Henry I，又称亨利·博克兰）的继承人是他的儿子亨利二世（Henry II）。文档中并没有提到亨利一世的其他儿子或继承人。",
+    "metrics": {
+      "recall_at_k": {
+        "7": 0.5
+      },
+      "precision_at_k": {
+        "7": 0.14285714285714285
+      },
+      "mrr": 1.0,
+      "ndcg": 0.6131471927654584,
+      "map_score": 0.5,
+      "hit_rate": 1.0
+    },
+    "generation_metrics": {
+      "exact_match": 0.0,
+      "f1_score": 0.0,
+      "semantic_similarity": 0.4402914202663046,
+      "correctness": 0.0,
+      "faithfulness": 0.0,
+      "relevance": 0.0
+    },
+    "title_recall": 0.5,
+    "title_precision": 0.16666666666666666,
+    "context_length": 2427,
+    "stats": {
+      "vector_results": 10,
+      "keywords": [
+        "Henry Beauclerc",
+        "son",
+        "heir"
+      ],
+      "graph_results": 20,
+      "expanded_results": 7,
+      "reranked_results": 7,
+      "final_results": 6,
+      "latency": {
+        "vector": 0.3155179023742676,
+        "keywords": 0.6681981086730957,
+        "graph": 0.034698486328125,
+        "expansion": 0.974646806716919,
+        "rerank": 0.9064738750457764,
+        "mapping": 0.0,
+        "scoring": 1.762683629989624,
+        "update": 0.039965152740478516
+      },
+      "routing_triggered": {
+        "vector": true,
+        "keywords": true,
+        "graph": true,
+        "expansion": true,
+        "rerank": true,
+        "scoring": true,
+        "update": true
+      }
+    }
+  },
+  {
+    "id": "5a7324205542994cef4bc478",
+    "question": "Who is a poet, Rumi or Farouk El-Baz?",
+    "answer": "Rumi (30 September 1207 – 17 December 1273), was a 13th-century Persian Sunni Muslim poet",
+    "relevant_titles": [
+      "Rumi",
+      "Farouk El-Baz"
+    ],
+    "retrieved_titles": [
+      "Farouk El-Baz",
+      "Rumi",
+      "Shahram Shiva",
+      "Rumi District",
+      "Moses and the Shepherd (story)",
+      "Passage development (Egypt)"
+    ],
+    "generated_answer": "根据文档内容：\n\n- **Rumi** 是一位13世纪的波斯诗人和哲学家，全名 Jalāl ad-Dīn Muhammad Rūmī。\n- **Farouk El-Baz** 是一位埃及裔美国太空科学家，曾与 NASA 合作，参与月球探索计划，包括选择阿波罗任务的着陆点和培训宇航员。\n\n因此，**Rumi 是一位诗人**，而 **Farouk El-Baz 不是诗人**，而是科学家。答案是：**Rumi**。",
+    "metrics": {
+      "recall_at_k": {
+        "7": 1.0
+      },
+      "precision_at_k": {
+        "7": 0.2857142857142857
+      },
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "map_score": 1.0,
+      "hit_rate": 1.0
+    },
+    "generation_metrics": {
+      "exact_match": 0.0,
+      "f1_score": 0.0689655172413793,
+      "semantic_similarity": 0.6528287933575577,
+      "correctness": 0.0,
+      "faithfulness": 0.0,
+      "relevance": 0.0
+    },
+    "title_recall": 1.0,
+    "title_precision": 0.3333333333333333,
+    "context_length": 1963,
+    "stats": {
+      "vector_results": 10,
+      "keywords": [
+        "Rumi",
+        "Farouk El-Baz",
+        "poet"
+      ],
+      "graph_results": 19,
+      "expanded_results": 14,
+      "reranked_results": 7,
+      "final_results": 6,
+      "latency": {
+        "vector": 0.31951332092285156,
+        "keywords": 0.7572603225708008,
+        "graph": 0.19405913352966309,
+        "expansion": 0.9827327728271484,
+        "rerank": 0.6265869140625,
+        "mapping": 0.0,
+        "scoring": 1.9381678104400635,
+        "update": 0.0298004150390625
+      },
+      "routing_triggered": {
+        "vector": true,
+        "keywords": true,
+        "graph": true,
+        "expansion": true,
+        "rerank": true,
+        "scoring": true,
+        "update": true
+      }
+    }
+  },
+  {
+    "id": "5ab93262554299131ca422b6",
+    "question": " Om and SIx Organs of Admittance are both what?",
+    "answer": "heavy metal band",
+    "relevant_titles": [
+      "Om / Six Organs of Admittance",
+      "Om (band)"
+    ],
+    "retrieved_titles": [
+      "Om (band)",
+      "Six Organs of Admittance (album)",
+      "Six Organs of Admittance",
+      "Ben Chasny",
+      "Om / Six Organs of Admittance",
+      "Conference of the Birds (Om album)"
+    ],
+    "generated_answer": "根据文档内容，Om和Six Organs of Admittance都是音乐乐队。具体来说：\n\n- **Om** 是一支来自美国旧金山的重金屬乐队，成立于2003年，最初是双人组合，现在是三人组合。\n- **Six Organs of Admittance** 是一支实验性独立摇滚乐队，其首张专辑于1998年发行。\n\n因此，Om和Six Organs of Admittance都是**乐队**。",
+    "metrics": {
+      "recall_at_k": {
+        "7": 1.0
+      },
+      "precision_at_k": {
+        "7": 0.2857142857142857
+      },
+      "mrr": 1.0,
+      "ndcg": 0.8503449055347546,
+      "map_score": 0.7,
+      "hit_rate": 1.0
+    },
+    "generation_metrics": {
+      "exact_match": 0.0,
+      "f1_score": 0.0,
+      "semantic_similarity": 0.4675593645031161,
+      "correctness": 0.0,
+      "faithfulness": 0.0,
+      "relevance": 0.0
+    },
+    "title_recall": 1.0,
+    "title_precision": 0.3333333333333333,
+    "context_length": 1448,
+    "stats": {
+      "vector_results": 10,
+      "keywords": [
+        "Om",
+        "SIx Organs of Admittance",
+        "音乐乐队",
+        "音乐风格",
+        "类别"
+      ],
+      "graph_results": 20,
+      "expanded_results": 15,
+      "reranked_results": 7,
+      "final_results": 6,
+      "latency": {
+        "vector": 0.26670122146606445,
+        "keywords": 1.8843319416046143,
+        "graph": 0.08206534385681152,
+        "expansion": 1.0213327407836914,
+        "rerank": 0.9927020072937012,
+        "mapping": 0.0,
+        "scoring": 2.4473373889923096,
+        "update": 0.03309965133666992
+      },
+      "routing_triggered": {
+        "vector": true,
+        "keywords": true,
+        "graph": true,
+        "expansion": true,
+        "rerank": true,
+        "scoring": true,
+        "update": true
+      }
+    }
+  },
+  {
+    "id": "5addf3d65542990dbb2f7f0e",
+    "question": "Are Ballota and Myosotis both evergreens?",
+    "answer": "no",
+    "relevant_titles": [
+      "Ballota",
+      "Myosotis"
+    ],
+    "retrieved_titles": [
+      "Ballota",
+      "Myosotis",
+      "Ballota undulata",
+      "Myosotis scorpioides",
+      "Temperate coniferous forest",
+      "Myosotis stricta",
+      "Myosotidium"
+    ],
+    "generated_answer": "根据文档内容：\n\n- Ballota 是一种常绿的多年生植物和亚灌木（文档1）。\n- Myosotis 是一种开花植物，但文档中没有明确说明它是常绿的还是落叶的（文档2）。\n\n因此，答案是：**不确定**。文档没有提供足够的信息说明 Myosotis 是否为常绿植物。而 Ballota 是常绿的。",
+    "metrics": {
+      "recall_at_k": {
+        "7": 1.0
+      },
+      "precision_at_k": {
+        "7": 0.2857142857142857
+      },
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "map_score": 1.0,
+      "hit_rate": 1.0
+    },
+    "generation_metrics": {
+      "exact_match": 0.0,
+      "f1_score": 0.0,
+      "semantic_similarity": 0.4845489052679042,
+      "correctness": 0.0,
+      "faithfulness": 0.0,
+      "relevance": 0.0
+    },
+    "title_recall": 1.0,
+    "title_precision": 0.2857142857142857,
+    "context_length": 2074,
+    "stats": {
+      "vector_results": 10,
+      "keywords": [
+        "Ballota",
+        "Myosotis",
+        "evergreens"
+      ],
+      "graph_results": 7,
+      "expanded_results": 12,
+      "reranked_results": 7,
+      "final_results": 7,
+      "latency": {
+        "vector": 1.470228910446167,
+        "keywords": 1.7758936882019043,
+        "graph": 0.10087180137634277,
+        "expansion": 0.36197566986083984,
+        "rerank": 0.6040031909942627,
+        "mapping": 0.0,
+        "scoring": 2.2216124534606934,
+        "update": 0.0446619987487793
+      },
+      "routing_triggered": {
+        "vector": true,
+        "keywords": true,
+        "graph": true,
+        "expansion": true,
+        "rerank": true,
+        "scoring": true,
+        "update": true
+      }
+    }
+  },
+  {
+    "id": "5ae24b165542996483e64962",
+    "question": "Who created the first rule of chemistry?",
+    "answer": "Friedrich Hermann Hund",
+    "relevant_titles": [
+      "Hund's rules",
+      "Friedrich Hund"
+    ],
+    "retrieved_titles": [
+      "Hund's rules",
+      "Socrates",
+      "Laws of association",
+      "List of Nobel laureates in Chemistry",
+      "Francis Bacon",
+      "Atomism (social)",
+      "Epicureanism"
+    ],
+    "generated_answer": "根据文档内容，第一规则（Hund's Rule）是化学中的一个重要规则，但文档中并未明确说明是谁创造了它。Hund's Rule 是由德国物理学家 Friedrich Hund 提出的，用于描述电子在原子轨道中的排布原则。然而，这一信息未在提供的文档中出现。\n\n因此，基于所提供的文档内容，无法确定谁创造了第一规则。",
+    "metrics": {
+      "recall_at_k": {
+        "7": 0.5
+      },
+      "precision_at_k": {
+        "7": 0.14285714285714285
+      },
+      "mrr": 1.0,
+      "ndcg": 0.6131471927654584,
+      "map_score": 0.5,
+      "hit_rate": 1.0
+    },
+    "generation_metrics": {
+      "exact_match": 0.0,
+      "f1_score": 0.36363636363636365,
+      "semantic_similarity": 0.5863338839480198,
+      "correctness": 0.0,
+      "faithfulness": 0.0,
+      "relevance": 0.0
+    },
+    "title_recall": 0.5,
+    "title_precision": 0.14285714285714285,
+    "context_length": 4469,
+    "stats": {
+      "vector_results": 10,
+      "keywords": [
+        "chemistry",
+        "rule",
+        "creator",
+        "first"
+      ],
+      "graph_results": 20,
+      "expanded_results": 11,
+      "reranked_results": 7,
+      "final_results": 7,
+      "latency": {
+        "vector": 0.37732934951782227,
+        "keywords": 0.6758508682250977,
+        "graph": 0.07649660110473633,
+        "expansion": 1.101806640625,
+        "rerank": 0.6667706966400146,
+        "mapping": 0.0,
+        "scoring": 1.8260188102722168,
+        "update": 0.05007052421569824
+      },
+      "routing_triggered": {
+        "vector": true,
+        "keywords": true,
+        "graph": true,
+        "expansion": true,
+        "rerank": true,
+        "scoring": true,
+        "update": true
+      }
+    }
+  },
+  {
+    "id": "5ac508205542994611c8b32e",
+    "question": "The M1919 and the M1 was used by what military?",
+    "answer": "U.S.",
+    "relevant_titles": [
+      "M1919 Browning machine gun",
+      "M1 link"
+    ],
+    "retrieved_titles": [
+      "M1919 Browning machine gun",
+      "M1 Combat Car",
+      "M1 helmet",
+      "M1 link",
+      "M115 howitzer",
+      "M1 carbine"
+    ],
+    "generated_answer": "The M1919 and the M1 were used by the U.S. military. \n\n- The M1919 Browning machine gun was used during World War II, the Korean War, and the Vietnam War.  \n- The M1 Combat Car (Light Tank) was a light tank used by the U.S. military.  \n- The M1 helmet was used by the U.S. military from World War II until 1985.",
+    "metrics": {
+      "recall_at_k": {
+        "7": 1.0
+      },
+      "precision_at_k": {
+        "7": 0.2857142857142857
+      },
+      "mrr": 1.0,
+      "ndcg": 0.8772153153380493,
+      "map_score": 0.75,
+      "hit_rate": 1.0
+    },
+    "generation_metrics": {
+      "exact_match": 1.0,
+      "f1_score": 0.0689655172413793,
+      "semantic_similarity": 0.4583254069861178,
+      "correctness": 0.0,
+      "faithfulness": 0.0,
+      "relevance": 0.0
+    },
+    "title_recall": 1.0,
+    "title_precision": 0.3333333333333333,
+    "context_length": 2273,
+    "stats": {
+      "vector_results": 10,
+      "keywords": [
+        "M1919",
+        "M1",
+        "military"
+      ],
+      "graph_results": 19,
+      "expanded_results": 23,
+      "reranked_results": 7,
+      "final_results": 6,
+      "latency": {
+        "vector": 0.29462695121765137,
+        "keywords": 0.6962580680847168,
+        "graph": 0.0662684440612793,
+        "expansion": 0.845909595489502,
+        "rerank": 0.7335927486419678,
+        "mapping": 0.0,
+        "scoring": 2.099086284637451,
+        "update": 0.03469491004943848
+      },
+      "routing_triggered": {
+        "vector": true,
+        "keywords": true,
+        "graph": true,
+        "expansion": true,
+        "rerank": true,
+        "scoring": true,
+        "update": true
+      }
+    }
+  },
+  {
+    "id": "5a81f10055429903bc27ba06",
+    "question": "Sum 41 and Passion Pit have what in common?",
+    "answer": "Passion Pit is an American indietronica band",
+    "relevant_titles": [
+      "Passion Pit",
+      "Sum 41"
+    ],
+    "retrieved_titles": [
+      "Sum 41",
+      "Passion Pit",
+      "Jason McCaslin",
+      "13 Voices",
+      "No Reason",
+      "Don't Call It a Sum-Back Tour",
+      "Tom Thacker (musician)"
+    ],
+    "generated_answer": "Sum 41 和 Passion Pit 的共同点是它们都是乐队，并且都包含键盘乐器的使用。此外，它们都属于音乐领域，但风格不同：Sum 41 是摇滚乐队，而 Passion Pit 是 indietronica（独立电子）乐队。",
+    "metrics": {
+      "recall_at_k": {
+        "7": 1.0
+      },
+      "precision_at_k": {
+        "7": 0.2857142857142857
+      },
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "map_score": 1.0,
+      "hit_rate": 1.0
+    },
+    "generation_metrics": {
+      "exact_match": 0.0,
+      "f1_score": 0.25,
+      "semantic_similarity": 0.7523406390630839,
+      "correctness": 0.0,
+      "faithfulness": 0.0,
+      "relevance": 0.0
+    },
+    "title_recall": 1.0,
+    "title_precision": 0.2857142857142857,
+    "context_length": 2970,
+    "stats": {
+      "vector_results": 10,
+      "keywords": [
+        "Sum 41",
+        "Passion Pit",
+        "common",
+        "band",
+        "music",
+        "genre",
+        "style"
+      ],
+      "graph_results": 20,
+      "expanded_results": 11,
+      "reranked_results": 7,
+      "final_results": 7,
+      "latency": {
+        "vector": 0.29552698135375977,
+        "keywords": 1.8999948501586914,
+        "graph": 0.06379413604736328,
+        "expansion": 1.0997288227081299,
+        "rerank": 0.7205648422241211,
+        "mapping": 0.0,
+        "scoring": 1.7597250938415527,
+        "update": 0.03245139122009277
+      },
+      "routing_triggered": {
+        "vector": true,
+        "keywords": true,
+        "graph": true,
+        "expansion": true,
+        "rerank": true,
+        "scoring": true,
+        "update": true
+      }
+    }
+  },
+  {
+    "id": "5ade982f554299728e26c753",
+    "question": "Where was the rapper in 13 Dead Men from?",
+    "answer": "New Orleans",
+    "relevant_titles": [
+      "Mystikal",
+      "13 Dead Men"
+    ],
+    "retrieved_titles": [
+      "13 Dead Men",
+      "Mos Def",
+      "B.G. (rapper)",
+      "Future (rapper)",
+      "AZ (rapper)",
+      "Domino (rapper)",
+      "Canon (rapper)"
+    ],
+    "generated_answer": "根据文档内容，**13 Dead Men** 这部电影中的 rapper 是 **Mystikal**，而文档中没有明确说明 Mystikal 所在的具体地点。因此，无法从文档中得知该 rapper 在电影中的具体位置。",
+    "metrics": {
+      "recall_at_k": {
+        "7": 0.5
+      },
+      "precision_at_k": {
+        "7": 0.14285714285714285
+      },
+      "mrr": 1.0,
+      "ndcg": 0.6131471927654584,
+      "map_score": 0.5,
+      "hit_rate": 1.0
+    },
+    "generation_metrics": {
+      "exact_match": 0.0,
+      "f1_score": 0.0,
+      "semantic_similarity": 0.4582577858122015,
+      "correctness": 0.0,
+      "faithfulness": 0.0,
+      "relevance": 0.0
+    },
+    "title_recall": 0.5,
+    "title_precision": 0.14285714285714285,
+    "context_length": 4633,
+    "stats": {
+      "vector_results": 10,
+      "keywords": [
+        "rapper",
+        "13 Dead Men from"
+      ],
+      "graph_results": 18,
+      "expanded_results": 14,
+      "reranked_results": 7,
+      "final_results": 7,
+      "latency": {
+        "vector": 0.30042481422424316,
+        "keywords": 1.4654114246368408,
+        "graph": 0.11468648910522461,
+        "expansion": 1.0394582748413086,
+        "rerank": 0.7033312320709229,
+        "mapping": 0.0021181106567382812,
+        "scoring": 2.4309475421905518,
+        "update": 0.03597521781921387
+      },
+      "routing_triggered": {
+        "vector": true,
+        "keywords": true,
+        "graph": true,
+        "expansion": true,
+        "rerank": true,
+        "scoring": true,
+        "update": true
+      }
+    }
+  },
+  {
+    "id": "5a754fc35542996c70cfaedc",
+    "question": "Who was the last king of the Shahiya?",
+    "answer": "Trilochanpala",
+    "relevant_titles": [
+      "Kabul Shahi",
+      "Trilochanapala"
+    ],
+    "retrieved_titles": [
+      "Narathihapate",
+      "Ptolemaic dynasty",
+      "Cleopatra",
+      "Kabul Shahi",
+      "List of the last monarchs in the Americas",
+      "Turk Shahi",
+      "Mehmed VI"
+    ],
+    "generated_answer": "根据文档1，Narathihapate是蒲甘帝国的最后一位国王，他在1256年至1287年在位。因此，蒲甘帝国的最后一位国王是Narathihapate。",
+    "metrics": {
+      "recall_at_k": {
+        "7": 0.5
+      },
+      "precision_at_k": {
+        "7": 0.14285714285714285
+      },
+      "mrr": 0.25,
+      "ndcg": 0.2640681225725909,
+      "map_score": 0.125,
+      "hit_rate": 1.0
+    },
+    "generation_metrics": {
+      "exact_match": 0.0,
+      "f1_score": 0.0,
+      "semantic_similarity": 0.40759586341035203,
+      "correctness": 0.0,
+      "faithfulness": 0.0,
+      "relevance": 0.0
+    },
+    "title_recall": 0.5,
+    "title_precision": 0.14285714285714285,
+    "context_length": 2702,
+    "stats": {
+      "vector_results": 10,
+      "keywords": [
+        "Shahiya",
+        "king",
+        "last"
+      ],
+      "graph_results": 20,
+      "expanded_results": 13,
+      "reranked_results": 7,
+      "final_results": 7,
+      "latency": {
+        "vector": 0.3123602867126465,
+        "keywords": 0.6318545341491699,
+        "graph": 0.04932761192321777,
+        "expansion": 1.0954899787902832,
+        "rerank": 0.7366034984588623,
+        "mapping": 0.0,
+        "scoring": 1.6593618392944336,
+        "update": 0.04187655448913574
+      },
+      "routing_triggered": {
+        "vector": true,
+        "keywords": true,
+        "graph": true,
+        "expansion": true,
+        "rerank": true,
+        "scoring": true,
+        "update": true
+      }
+    }
+  },
+  {
+    "id": "5a8bc0485542995d1e6f143d",
+    "question": "What continents are the Moneuptychia found in?",
+    "answer": "the Americas",
+    "relevant_titles": [
+      "Moneuptychia",
+      "Neotropical realm"
+    ],
+    "retrieved_titles": [
+      "Moneuptychia",
+      "Malva",
+      "Elatostema",
+      "Eragrostis pilosa",
+      "Pittosporum",
+      "Lollipop (Candyman)",
+      "In Blue Tour"
+    ],
+    "generated_answer": "The Moneuptychia genus of satyrid butterflies is found in the **Neotropical realm**, which includes regions such as Central and South America, the Caribbean, and parts of North America. \n\nAdditionally, based on the information provided in **Document 2**, the genus may also be found in **Africa, Asia, and Europe**, though this document does not specifically mention Moneuptychia. It is possible that Document 2 refers to a different genus (such as Elatostema, mentioned in Document 3), so the most accurate and specific answer based on the given documents is that **Moneuptychia is found in the Neotropical realm**.",
+    "metrics": {
+      "recall_at_k": {
+        "7": 0.5
+      },
+      "precision_at_k": {
+        "7": 0.14285714285714285
+      },
+      "mrr": 1.0,
+      "ndcg": 0.6131471927654584,
+      "map_score": 0.5,
+      "hit_rate": 1.0
+    },
+    "generation_metrics": {
+      "exact_match": 0.0,
+      "f1_score": 0.03278688524590164,
+      "semantic_similarity": 0.5913380967040645,
+      "correctness": 0.0,
+      "faithfulness": 0.0,
+      "relevance": 0.0
+    },
+    "title_recall": 0.5,
+    "title_precision": 0.14285714285714285,
+    "context_length": 1668,
+    "stats": {
+      "vector_results": 10,
+      "keywords": [
+        "Moneuptychia",
+        "continents"
+      ],
+      "graph_results": 1,
+      "expanded_results": 22,
+      "reranked_results": 7,
+      "final_results": 7,
+      "latency": {
+        "vector": 0.33032727241516113,
+        "keywords": 0.6265454292297363,
+        "graph": 0.05750226974487305,
+        "expansion": 0.4465203285217285,
+        "rerank": 0.49811792373657227,
+        "mapping": 0.0,
+        "scoring": 1.5874836444854736,
+        "update": 0.032739877700805664
+      },
+      "routing_triggered": {
+        "vector": true,
+        "keywords": true,
+        "graph": true,
+        "expansion": true,
+        "rerank": true,
+        "scoring": true,
+        "update": true
+      }
+    }
+  },
+  {
+    "id": "5a7b241b554299042af8f705",
+    "question": "Who died second, Averroes or Ibn Taymiyyah?",
+    "answer": "ibn Taymiyyah",
+    "relevant_titles": [
+      "Ibn Taymiyyah",
+      "Averroes"
+    ],
+    "retrieved_titles": [
+      "Ibn Taymiyyah",
+      "Averroes",
+      "Ibn Qayyim al-Jawziyya",
+      "Aristotelianism",
+      "The Book of Faith",
+      "Edward I of England"
+    ],
+    "generated_answer": "根据文档内容：\n\n- **Averroes**（即 Ibn Rushd）去世于 **10 December 1198**。\n- **Ibn Taymiyyah** 去世于 **26 September 1328**。\n\n因此，**Averroes 先于 Ibn Taymiyyah 去世**，所以 **Ibn Taymiyyah 是第二个去世的**。\n\n答案：**Ibn Taymiyyah**。",
+    "metrics": {
+      "recall_at_k": {
+        "7": 1.0
+      },
+      "precision_at_k": {
+        "7": 0.2857142857142857
+      },
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "map_score": 1.0,
+      "hit_rate": 1.0
+    },
+    "generation_metrics": {
+      "exact_match": 1.0,
+      "f1_score": 0.21052631578947367,
+      "semantic_similarity": 0.6544608247412805,
+      "correctness": 0.0,
+      "faithfulness": 0.0,
+      "relevance": 0.0
+    },
+    "title_recall": 1.0,
+    "title_precision": 0.3333333333333333,
+    "context_length": 2970,
+    "stats": {
+      "vector_results": 10,
+      "keywords": [
+        "Averroes",
+        "Ibn Taymiyyah",
+        "died",
+        "second"
+      ],
+      "graph_results": 10,
+      "expanded_results": 24,
+      "reranked_results": 7,
+      "final_results": 6,
+      "latency": {
+        "vector": 0.33544087409973145,
+        "keywords": 1.0018048286437988,
+        "graph": 0.09122085571289062,
+        "expansion": 0.5730974674224854,
+        "rerank": 0.6450417041778564,
+        "mapping": 0.0,
+        "scoring": 2.0068516731262207,
+        "update": 0.029584646224975586
+      },
+      "routing_triggered": {
+        "vector": true,
+        "keywords": true,
+        "graph": true,
+        "expansion": true,
+        "rerank": true,
+        "scoring": true,
+        "update": true
+      }
+    }
+  },
+  {
+    "id": "5abba91e554299642a094b10",
+    "question": "What languages did the son of Sacagawea speak?",
+    "answer": "French and English",
+    "relevant_titles": [
+      "Jean Baptiste Charbonneau",
+      "Charbonneau, Oregon"
+    ],
+    "retrieved_titles": [
+      "Jean Baptiste Charbonneau",
+      "Museum of Human Beings",
+      "Black Elk Speaks",
+      "Paul Williams (songwriter)",
+      "Harry Lushington Stephen",
+      "Quechuan languages",
+      "Apalachee"
+    ],
+    "generated_answer": "根据文档1，Sacagawea的儿子Jean-Baptiste Charbonneau会说Shoshone（他母语）和其他西部美洲原住民语言，这些语言是他多年从事捕兽和向导工作期间学会的。因此，答案是：他讲Shoshone以及其他西部美洲原住民语言。",
+    "metrics": {
+      "recall_at_k": {
+        "7": 0.5
+      },
+      "precision_at_k": {
+        "7": 0.14285714285714285
+      },
+      "mrr": 1.0,
+      "ndcg": 0.6131471927654584,
+      "map_score": 0.5,
+      "hit_rate": 1.0
+    },
+    "generation_metrics": {
+      "exact_match": 0.0,
+      "f1_score": 0.0,
+      "semantic_similarity": 0.532477437941246,
+      "correctness": 0.0,
+      "faithfulness": 0.0,
+      "relevance": 0.0
+    },
+    "title_recall": 0.5,
+    "title_precision": 0.14285714285714285,
+    "context_length": 2998,
+    "stats": {
+      "vector_results": 10,
+      "keywords": [
+        "Sacagawea",
+        "languages",
+        "son",
+        "speak"
+      ],
+      "graph_results": 20,
+      "expanded_results": 9,
+      "reranked_results": 7,
+      "final_results": 7,
+      "latency": {
+        "vector": 0.35425901412963867,
+        "keywords": 1.4881656169891357,
+        "graph": 0.04118967056274414,
+        "expansion": 0.9474072456359863,
+        "rerank": 0.6243143081665039,
+        "mapping": 0.0,
+        "scoring": 2.0186736583709717,
+        "update": 0.04242753982543945
+      },
+      "routing_triggered": {
+        "vector": true,
+        "keywords": true,
+        "graph": true,
+        "expansion": true,
+        "rerank": true,
+        "scoring": true,
+        "update": true
+      }
+    }
+  },
+  {
+    "id": "5a89dfcc55429946c8d6e9f0",
+    "question": "Are Cryptanthus and Gagea, both a genus?",
+    "answer": "yes",
+    "relevant_titles": [
+      "Cryptanthus",
+      "Gagea"
+    ],
+    "retrieved_titles": [
+      "Gagea",
+      "Cryptanthus",
+      "Lloydieae",
+      "Cryptanthus regius",
+      "Cryptanthus sinuosus",
+      "Cryptanthus bahianus",
+      "Cryptanthus tiradentesensis"
+    ],
+    "generated_answer": "是的，Cryptanthus 和 Gagea 都是属（genus）。  \n- **Gagea** 是百合科（Lily family）中的一个大属。  \n- **Cryptanthus** 是凤梨科（Bromeliaceae）中的一个属。  \n\n因此，它们都是植物分类学中的属。",
+    "metrics": {
+      "recall_at_k": {
+        "7": 1.0
+      },
+      "precision_at_k": {
+        "7": 0.2857142857142857
+      },
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "map_score": 1.0,
+      "hit_rate": 1.0
+    },
+    "generation_metrics": {
+      "exact_match": 0.0,
+      "f1_score": 0.0,
+      "semantic_similarity": 0.4067053235781775,
+      "correctness": 0.0,
+      "faithfulness": 0.0,
+      "relevance": 0.0
+    },
+    "title_recall": 1.0,
+    "title_precision": 0.2857142857142857,
+    "context_length": 1046,
+    "stats": {
+      "vector_results": 10,
+      "keywords": [
+        "Cryptanthus",
+        "Gagea",
+        "genus"
+      ],
+      "graph_results": 15,
+      "expanded_results": 10,
+      "reranked_results": 7,
+      "final_results": 7,
+      "latency": {
+        "vector": 0.29020237922668457,
+        "keywords": 0.696185827255249,
+        "graph": 0.09112095832824707,
+        "expansion": 0.4728410243988037,
+        "rerank": 0.6059348583221436,
+        "mapping": 0.0,
+        "scoring": 1.845346450805664,
+        "update": 0.03685808181762695
+      },
+      "routing_triggered": {
+        "vector": true,
+        "keywords": true,
+        "graph": true,
+        "expansion": true,
+        "rerank": true,
+        "scoring": true,
+        "update": true
+      }
+    }
+  },
+  {
+    "id": "5ac4f12d55429924173fb4f6",
+    "question": "Pravda and Stiffelio are both operas?",
+    "answer": "no",
+    "relevant_titles": [
+      "Stiffelio",
+      "Pravda"
+    ],
+    "retrieved_titles": [
+      "Stiffelio",
+      "Pravda (play)",
+      "José Cura",
+      "List of Argentine operas",
+      "Francesco Dominici (operatic tenor)",
+      "La Calliroe",
+      "Armida (Mysliveček)"
+    ],
+    "generated_answer": "根据文档内容：\n\n- **Stiffelio** 是一部由 Giuseppe Verdi 创作的三幕歌剧（opera in three acts），因此它是一部歌剧。\n- **Pravda** 是由 David Hare 和 Howard Brenton 创作的一部讽刺戏剧（satirical play），而不是歌剧。\n\n因此，答案是：**Pravda 不是歌剧，而 Stiffelio 是歌剧**。",
+    "metrics": {
+      "recall_at_k": {
+        "7": 0.5
+      },
+      "precision_at_k": {
+        "7": 0.14285714285714285
+      },
+      "mrr": 1.0,
+      "ndcg": 0.6131471927654584,
+      "map_score": 0.5,
+      "hit_rate": 1.0
+    },
+    "generation_metrics": {
+      "exact_match": 0.0,
+      "f1_score": 0.0,
+      "semantic_similarity": 0.4827277095440851,
+      "correctness": 0.0,
+      "faithfulness": 0.0,
+      "relevance": 0.0
+    },
+    "title_recall": 0.5,
+    "title_precision": 0.14285714285714285,
+    "context_length": 4968,
+    "stats": {
+      "vector_results": 10,
+      "keywords": [
+        "Pravda",
+        "Stiffelio",
+        "opera"
+      ],
+      "graph_results": 20,
+      "expanded_results": 6,
+      "reranked_results": 7,
+      "final_results": 7,
+      "latency": {
+        "vector": 0.2893698215484619,
+        "keywords": 0.6906135082244873,
+        "graph": 0.057831764221191406,
+        "expansion": 0.9044957160949707,
+        "rerank": 0.5745949745178223,
+        "mapping": 0.0,
+        "scoring": 3.9466795921325684,
+        "update": 0.04875349998474121
+      },
+      "routing_triggered": {
+        "vector": true,
+        "keywords": true,
+        "graph": true,
+        "expansion": true,
+        "rerank": true,
+        "scoring": true,
+        "update": true
+      }
+    }
+  },
+  {
+    "id": "5adc2ae5554299438c868d64",
+    "question": "Are Yucca and Rodgersia both perennials?",
+    "answer": "yes",
+    "relevant_titles": [
+      "Rodgersia",
+      "Yucca"
+    ],
+    "retrieved_titles": [
+      "Yucca",
+      "Rodgersia",
+      "Yucca glauca",
+      "Yucca baccata",
+      "Yucca × schottii",
+      "Yucca rupicola"
+    ],
+    "generated_answer": "Yes, both Yucca and Rodgersia are perennials. \n\n- Yucca is a genus of perennial shrubs and trees. \n- Rodgersia is a genus of herbaceous perennials. \n\nTherefore, the answer is: Yes.",
+    "metrics": {
+      "recall_at_k": {
+        "7": 1.0
+      },
+      "precision_at_k": {
+        "7": 0.2857142857142857
+      },
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "map_score": 1.0,
+      "hit_rate": 1.0
+    },
+    "generation_metrics": {
+      "exact_match": 1.0,
+      "f1_score": 0.10526315789473684,
+      "semantic_similarity": 0.38729599121895375,
+      "correctness": 0.0,
+      "faithfulness": 0.0,
+      "relevance": 0.0
+    },
+    "title_recall": 1.0,
+    "title_precision": 0.3333333333333333,
+    "context_length": 1562,
+    "stats": {
+      "vector_results": 10,
+      "keywords": [
+        "Yucca",
+        "Rodgersia",
+        "perennials"
+      ],
+      "graph_results": 10,
+      "expanded_results": 13,
+      "reranked_results": 7,
+      "final_results": 6,
+      "latency": {
+        "vector": 0.29787588119506836,
+        "keywords": 0.8307807445526123,
+        "graph": 0.08321714401245117,
+        "expansion": 0.46231937408447266,
+        "rerank": 0.4935488700866699,
+        "mapping": 0.0,
+        "scoring": 1.4303207397460938,
+        "update": 0.0
+      },
+      "routing_triggered": {
+        "vector": true,
+        "keywords": true,
+        "graph": true,
+        "expansion": true,
+        "rerank": true,
+        "scoring": true,
+        "update": false
+      }
+    }
+  },
+  {
+    "id": "5ae497595542995ad6573db7",
+    "question": "What are both Stauntonia and Pimelea?",
+    "answer": "plant",
+    "relevant_titles": [
+      "Stauntonia",
+      "Pimelea"
+    ],
+    "retrieved_titles": [
+      "Pimelea",
+      "Stauntonia",
+      "Pimelea longifolia",
+      "Pimelea rosea",
+      "Pimelea brachyphylla",
+      "Pimelea arenaria",
+      "Pimelea hispida"
+    ],
+    "generated_answer": "Stauntonia and Pimelea are both genera of plants. Stauntonia belongs to the Lardizabalaceae family, while Pimelea belongs to the Thymelaeaceae family.",
+    "metrics": {
+      "recall_at_k": {
+        "7": 1.0
+      },
+      "precision_at_k": {
+        "7": 0.2857142857142857
+      },
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "map_score": 1.0,
+      "hit_rate": 1.0
+    },
+    "generation_metrics": {
+      "exact_match": 1.0,
+      "f1_score": 0.0,
+      "semantic_similarity": 0.5152696814248181,
+      "correctness": 0.0,
+      "faithfulness": 0.0,
+      "relevance": 0.0
+    },
+    "title_recall": 1.0,
+    "title_precision": 0.2857142857142857,
+    "context_length": 790,
+    "stats": {
+      "vector_results": 10,
+      "keywords": [
+        "Stauntonia",
+        "Pimelea"
+      ],
+      "graph_results": 11,
+      "expanded_results": 11,
+      "reranked_results": 7,
+      "final_results": 7,
+      "latency": {
+        "vector": 0.30854058265686035,
+        "keywords": 0.6706149578094482,
+        "graph": 0.0834188461303711,
+        "expansion": 0.5102753639221191,
+        "rerank": 1.1571872234344482,
+        "mapping": 0.0,
+        "scoring": 2.630154848098755,
+        "update": 0.0
+      },
+      "routing_triggered": {
+        "vector": true,
+        "keywords": true,
+        "graph": true,
+        "expansion": true,
+        "rerank": true,
+        "scoring": true,
+        "update": false
+      }
+    }
+  },
+  {
+    "id": "5ab965f25542996be20204c3",
+    "question": "Teacher's Pet was both a movie and what?",
+    "answer": "television series",
+    "relevant_titles": [
+      "Timothy Björklund",
+      "Teacher's Pet (2004 film)"
+    ],
+    "retrieved_titles": [
+      "Teacher's Pet (2004 film)",
+      "Teacher's Pet (TV series)",
+      "Debra Jo Rupp",
+      "Teacher's Pet (1930 film)",
+      "Timothy Björklund",
+      "Teacher's Pet (comics)",
+      "Teacher's Pet (Buffy the Vampire Slayer)"
+    ],
+    "generated_answer": "答案: Teacher's Pet was both a movie and an American animated television series.",
+    "metrics": {
+      "recall_at_k": {
+        "7": 1.0
+      },
+      "precision_at_k": {
+        "7": 0.2857142857142857
+      },
+      "mrr": 1.0,
+      "ndcg": 0.8503449055347546,
+      "map_score": 0.7,
+      "hit_rate": 1.0
+    },
+    "generation_metrics": {
+      "exact_match": 1.0,
+      "f1_score": 0.2666666666666667,
+      "semantic_similarity": 0.5100720649431614,
+      "correctness": 0.0,
+      "faithfulness": 0.0,
+      "relevance": 0.0
+    },
+    "title_recall": 1.0,
+    "title_precision": 0.2857142857142857,
+    "context_length": 1552,
+    "stats": {
+      "vector_results": 10,
+      "keywords": [
+        "Teacher's Pet",
+        "movie"
+      ],
+      "graph_results": 9,
+      "expanded_results": 0,
+      "reranked_results": 7,
+      "final_results": 7,
+      "latency": {
+        "vector": 0.3090479373931885,
+        "keywords": 0.542107105255127,
+        "graph": 0.07425403594970703,
+        "expansion": 0.4698355197906494,
+        "rerank": 0.41625094413757324,
+        "mapping": 0.0,
+        "scoring": 2.4534354209899902,
+        "update": 0.04601240158081055
+      },
+      "routing_triggered": {
+        "vector": true,
+        "keywords": true,
+        "graph": true,
+        "expansion": false,
+        "rerank": true,
+        "scoring": true,
+        "update": true
+      }
+    }
+  },
+  {
+    "id": "5ae2979a554299495565dade",
+    "question": "Are Tweedia and Crossandra in separate families?",
+    "answer": "yes",
+    "relevant_titles": [
+      "Crossandra",
+      "Tweedia"
+    ],
+    "retrieved_titles": [
+      "Tweedia",
+      "Sarracenia",
+      "Gaillardia",
+      "List of Australian rules football families",
+      "Myiodynastes",
+      "Camellia sinensis"
+    ],
+    "generated_answer": "根据文档内容，Tweedia 属于 Apocynaceae 家族，而 Crossandra 并未在提供的文档中提及。因此，无法确定 Crossandra 是否属于与 Tweedia 不同的家族。如果文档中没有关于 Crossandra 的信息，那么我们不能回答这个问题。",
+    "metrics": {
+      "recall_at_k": {
+        "7": 0.5
+      },
+      "precision_at_k": {
+        "7": 0.14285714285714285
+      },
+      "mrr": 1.0,
+      "ndcg": 0.6131471927654584,
+      "map_score": 0.5,
+      "hit_rate": 1.0
+    },
+    "generation_metrics": {
+      "exact_match": 0.0,
+      "f1_score": 0.0,
+      "semantic_similarity": 0.4438584868642014,
+      "correctness": 0.0,
+      "faithfulness": 0.0,
+      "relevance": 0.0
+    },
+    "title_recall": 0.5,
+    "title_precision": 0.16666666666666666,
+    "context_length": 2418,
+    "stats": {
+      "vector_results": 10,
+      "keywords": [
+        "Tweedia",
+        "Crossandra",
+        "families"
+      ],
+      "graph_results": 2,
+      "expanded_results": 13,
+      "reranked_results": 7,
+      "final_results": 6,
+      "latency": {
+        "vector": 0.2965230941772461,
+        "keywords": 0.6614527702331543,
+        "graph": 0.06794548034667969,
+        "expansion": 0.39623260498046875,
+        "rerank": 0.4621293544769287,
+        "mapping": 0.0,
+        "scoring": 2.0309345722198486,
+        "update": 0.046341657638549805
+      },
+      "routing_triggered": {
+        "vector": true,
+        "keywords": true,
+        "graph": true,
+        "expansion": true,
+        "rerank": true,
+        "scoring": true,
+        "update": true
+      }
+    }
+  },
+  {
+    "id": "5add39ca5542992ae4cec4fb",
+    "question": "Which maker of Robatumumab is American?",
+    "answer": "Merck",
+    "relevant_titles": [
+      "Robatumumab",
+      "Merck &amp; Co."
+    ],
+    "retrieved_titles": [
+      "Merck &amp; Co.",
+      "Johnson &amp; Johnson",
+      "Sheri McCoy",
+      "Dow Chemical Company",
+      "Genzyme",
+      "The Passions (American band)",
+      "OncoMed"
+    ],
+    "generated_answer": "Based on the provided information:\n\n- **Document 1** mentions Merck Sharp & Dohme (MSD) as an American pharmaceutical company.\n- **Document 2** states that Johnson & Johnson is an American multinational company.\n- **Document 3** refers to Sherilyn S McCoy as a former executive at Johnson & Johnson, but does not mention Robatumumab or its maker.\n\nSince **Document 1** identifies **Merck Sharp & Dohme (MSD)** as an American company and **Document 2** identifies **Johnson & Johnson** as an American company, and **Document 3** is about a person associated with Johnson & Johnson, but not directly about Robatumumab, the answer is:\n\n**Merck Sharp & Dohme (MSD)** is the maker of Robatumumab that is American.",
+    "metrics": {
+      "recall_at_k": {
+        "7": 0.5
+      },
+      "precision_at_k": {
+        "7": 0.14285714285714285
+      },
+      "mrr": 1.0,
+      "ndcg": 0.6131471927654584,
+      "map_score": 0.5,
+      "hit_rate": 1.0
+    },
+    "generation_metrics": {
+      "exact_match": 1.0,
+      "f1_score": 0.038461538461538464,
+      "semantic_similarity": 0.6830557250363681,
+      "correctness": 0.0,
+      "faithfulness": 0.0,
+      "relevance": 0.0
+    },
+    "title_recall": 0.5,
+    "title_precision": 0.14285714285714285,
+    "context_length": 5223,
+    "stats": {
+      "vector_results": 10,
+      "keywords": [
+        "Robatumumab",
+        "American"
+      ],
+      "graph_results": 20,
+      "expanded_results": 21,
+      "reranked_results": 7,
+      "final_results": 7,
+      "latency": {
+        "vector": 0.30669069290161133,
+        "keywords": 0.6268007755279541,
+        "graph": 0.038967132568359375,
+        "expansion": 0.9802746772766113,
+        "rerank": 0.7845048904418945,
+        "mapping": 0.0,
+        "scoring": 2.201749324798584,
+        "update": 0.03685498237609863
+      },
+      "routing_triggered": {
+        "vector": true,
+        "keywords": true,
+        "graph": true,
+        "expansion": true,
+        "rerank": true,
+        "scoring": true,
+        "update": true
+      }
+    }
+  },
+  {
+    "id": "5a7f40de5542992e7d278cc8",
+    "question": "What star if the Burbs was Canadian?",
+    "answer": "Richard \"Rick\" Ducommun",
+    "relevant_titles": [
+      "Rick Ducommun",
+      "The 'Burbs"
+    ],
+    "retrieved_titles": [
+      "The 'Burbs",
+      "Keanu Reeves",
+      "Some Kind of Beautiful",
+      "The Godfather Part III",
+      "Walden Schmidt",
+      "Valerian and the City of a Thousand Planets",
+      "Walter Huston"
+    ],
+    "generated_answer": "文档中没有提到《What Star Is the Burbs》这部电影，因此无法回答该问题。如果问题是指《The 'Burbs》（1989年电影），则文档中也没有提到任何加拿大演员参演该片。",
+    "metrics": {
+      "recall_at_k": {
+        "7": 0.5
+      },
+      "precision_at_k": {
+        "7": 0.14285714285714285
+      },
+      "mrr": 1.0,
+      "ndcg": 0.6131471927654584,
+      "map_score": 0.5,
+      "hit_rate": 1.0
+    },
+    "generation_metrics": {
+      "exact_match": 0.0,
+      "f1_score": 0.0,
+      "semantic_similarity": 0.44596028737927873,
+      "correctness": 0.0,
+      "faithfulness": 0.0,
+      "relevance": 0.0
+    },
+    "title_recall": 0.5,
+    "title_precision": 0.14285714285714285,
+    "context_length": 2825,
+    "stats": {
+      "vector_results": 10,
+      "keywords": [
+        "What",
+        "star",
+        "if",
+        "the",
+        "Burbs",
+        "Canadian"
+      ],
+      "graph_results": 20,
+      "expanded_results": 8,
+      "reranked_results": 7,
+      "final_results": 7,
+      "latency": {
+        "vector": 0.2669486999511719,
+        "keywords": 0.8149259090423584,
+        "graph": 0.06772303581237793,
+        "expansion": 1.0520286560058594,
+        "rerank": 0.644580602645874,
+        "mapping": 0.0,
+        "scoring": 1.710970163345337,
+        "update": 0.039461374282836914
+      },
+      "routing_triggered": {
+        "vector": true,
+        "keywords": true,
+        "graph": true,
+        "expansion": true,
+        "rerank": true,
+        "scoring": true,
+        "update": true
+      }
+    }
+  },
+  {
+    "id": "5ac1b6845542994d76dccecb",
+    "question": "Are Jon Krakauer and M. P. Shiel both writers?",
+    "answer": "yes",
+    "relevant_titles": [
+      "Jon Krakauer",
+      "M. P. Shiel"
+    ],
+    "retrieved_titles": [
+      "Jon Krakauer",
+      "M. P. Shiel",
+      "The Works of M. P. Shiel",
+      "Culture of Ascent",
+      "The Call of the Wild (2007 film)",
+      "Into Thin Air"
+    ],
+    "generated_answer": "Yes, both Jon Krakauer and M. P. Shiel are writers. Jon Krakauer is an American writer known for his works about the outdoors and mountain climbing, while M. P. Shiel was a British writer of West Indian descent.",
+    "metrics": {
+      "recall_at_k": {
+        "7": 1.0
+      },
+      "precision_at_k": {
+        "7": 0.2857142857142857
+      },
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "map_score": 1.0,
+      "hit_rate": 1.0
+    },
+    "generation_metrics": {
+      "exact_match": 1.0,
+      "f1_score": 0.0625,
+      "semantic_similarity": 0.3749057815372811,
+      "correctness": 0.0,
+      "faithfulness": 0.0,
+      "relevance": 0.0
+    },
+    "title_recall": 1.0,
+    "title_precision": 0.3333333333333333,
+    "context_length": 1076,
+    "stats": {
+      "vector_results": 10,
+      "keywords": [
+        "Jon Krakauer",
+        "M. P. Shiel",
+        "writers"
+      ],
+      "graph_results": 5,
+      "expanded_results": 3,
+      "reranked_results": 7,
+      "final_results": 6,
+      "latency": {
+        "vector": 0.29282689094543457,
+        "keywords": 1.355405569076538,
+        "graph": 0.09837841987609863,
+        "expansion": 0.5315337181091309,
+        "rerank": 0.3971903324127197,
+        "mapping": 0.0,
+        "scoring": 2.8219690322875977,
+        "update": 0.02820611000061035
+      },
+      "routing_triggered": {
+        "vector": true,
+        "keywords": true,
+        "graph": true,
+        "expansion": true,
+        "rerank": true,
+        "scoring": true,
+        "update": true
+      }
+    }
+  },
+  {
+    "id": "5a84bda45542992a431d1a96",
+    "question": "Who was born in August and was a professor?",
+    "answer": "Fred MacMurray",
+    "relevant_titles": [
+      "The Absent-Minded Professor",
+      "Fred MacMurray"
+    ],
+    "retrieved_titles": [
+      "Five Times August",
+      "Margaret Atwood: Once in August",
+      "Augustus",
+      "August Otto Rühle von Lilienstern",
+      "Augusta National Golf Club",
+      "Augustus d'Este",
+      "Augustus Nicodemus Lopes"
+    ],
+    "generated_answer": "根据文档内容，**Brad Skistimas** 出生于8月5日，并且是一名教授。文档1提到他是独立歌手/词曲作者/吉他手，但未明确提到他是否是教授。然而，文档中提到他是“independent singer/songwriter/guitarist”，这可能意味着他从事音乐教学或相关学术工作，但没有直接证据表明他是教授。\n\n如果严格根据“教授”这一头衔，文档中并未明确指出任何人在8月出生且是教授。因此，**答案：文档中没有明确的信息说明有谁在8月出生并且是教授**。",
+    "metrics": {
+      "recall_at_k": {
+        "7": 0.0
+      },
+      "precision_at_k": {
+        "7": 0.0
+      },
+      "mrr": 0.0,
+      "ndcg": 0.0,
+      "map_score": 0.0,
+      "hit_rate": 0.0
+    },
+    "generation_metrics": {
+      "exact_match": 0.0,
+      "f1_score": 0.0,
+      "semantic_similarity": 0.474464868585185,
+      "correctness": 0.0,
+      "faithfulness": 0.0,
+      "relevance": 0.0
+    },
+    "title_recall": 0.0,
+    "title_precision": 0.0,
+    "context_length": 5708,
+    "stats": {
+      "vector_results": 10,
+      "keywords": [
+        "August",
+        "professor"
+      ],
+      "graph_results": 20,
+      "expanded_results": 26,
+      "reranked_results": 7,
+      "final_results": 7,
+      "latency": {
+        "vector": 0.3392195701599121,
+        "keywords": 0.9528977870941162,
+        "graph": 0.06049656867980957,
+        "expansion": 1.208057165145874,
+        "rerank": 0.841533899307251,
+        "mapping": 0.0,
+        "scoring": 1.7301998138427734,
+        "update": 0.049903154373168945
+      },
+      "routing_triggered": {
+        "vector": true,
+        "keywords": true,
+        "graph": true,
+        "expansion": true,
+        "rerank": true,
+        "scoring": true,
+        "update": true
+      }
+    }
+  },
+  {
+    "id": "5a90b1635542990a984936a9",
+    "question": "Who was the secretary to the Winter Queen?",
+    "answer": "Sir Francis Nethersole",
+    "relevant_titles": [
+      "Francis Nethersole",
+      "Elizabeth Stuart, Queen of Bohemia"
+    ],
+    "retrieved_titles": [
+      "The Winter Queen (novel)",
+      "Elizabeth Stuart, Queen of Bohemia",
+      "Canadian Secretary to the Queen",
+      "Priscilla Duffield",
+      "Azazel (film)",
+      "Christian VI of Denmark",
+      "Hortus Palatinus"
+    ],
+    "generated_answer": "根据提供的文档内容，文档中没有明确提到“Winter Queen”（冬女王）的秘书是谁。因此，无法从文档中得出具体答案。",
+    "metrics": {
+      "recall_at_k": {
+        "7": 0.5
+      },
+      "precision_at_k": {
+        "7": 0.14285714285714285
+      },
+      "mrr": 0.5,
+      "ndcg": 0.38685280723454163,
+      "map_score": 0.25,
+      "hit_rate": 1.0
+    },
+    "generation_metrics": {
+      "exact_match": 0.0,
+      "f1_score": 0.0,
+      "semantic_similarity": 0.3445453960137014,
+      "correctness": 0.0,
+      "faithfulness": 0.0,
+      "relevance": 0.0
+    },
+    "title_recall": 0.5,
+    "title_precision": 0.14285714285714285,
+    "context_length": 3063,
+    "stats": {
+      "vector_results": 10,
+      "keywords": [
+        "Winter Queen",
+        "secretary"
+      ],
+      "graph_results": 2,
+      "expanded_results": 13,
+      "reranked_results": 7,
+      "final_results": 7,
+      "latency": {
+        "vector": 0.32567429542541504,
+        "keywords": 0.5460972785949707,
+        "graph": 0.07440066337585449,
+        "expansion": 0.4768517017364502,
+        "rerank": 0.5698575973510742,
+        "mapping": 0.0,
+        "scoring": 8.75378131866455,
+        "update": 0.046365976333618164
+      },
+      "routing_triggered": {
+        "vector": true,
+        "keywords": true,
+        "graph": true,
+        "expansion": true,
+        "rerank": true,
+        "scoring": true,
+        "update": true
+      }
+    }
+  },
+  {
+    "id": "5ac39df8554299741d48a2b6",
+    "question": "Are Euptelea and Muehlenbeckia both genuses?",
+    "answer": "yes",
+    "relevant_titles": [
+      "Euptelea",
+      "Muehlenbeckia"
+    ],
+    "retrieved_titles": [
+      "Euptelea",
+      "Muehlenbeckia",
+      "Muehlenbeckia ephedroides",
+      "Muehlenbeckia australis",
+      "Peristoreus fulvus",
+      "Peristoreus viridipennis",
+      "Muehlenbeckia axillaris"
+    ],
+    "generated_answer": "Yes, both Euptelea and Muehlenbeckia are genuses. \n\n- **Euptelea** is explicitly referred to as a genus in the first document.\n- **Muehlenbeckia** is also referred to as a genus in the second document, though it is commonly known as the \"maidenhair genus.\" \n\nTherefore, the answer is: **Yes**.",
+    "metrics": {
+      "recall_at_k": {
+        "7": 1.0
+      },
+      "precision_at_k": {
+        "7": 0.2857142857142857
+      },
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "map_score": 1.0,
+      "hit_rate": 1.0
+    },
+    "generation_metrics": {
+      "exact_match": 1.0,
+      "f1_score": 0.07142857142857142,
+      "semantic_similarity": 0.4380046067396538,
+      "correctness": 0.0,
+      "faithfulness": 0.0,
+      "relevance": 0.0
+    },
+    "title_recall": 1.0,
+    "title_precision": 0.2857142857142857,
+    "context_length": 1254,
+    "stats": {
+      "vector_results": 10,
+      "keywords": [
+        "Euptelea",
+        "Muehlenbeckia",
+        "genuses"
+      ],
+      "graph_results": 8,
+      "expanded_results": 9,
+      "reranked_results": 7,
+      "final_results": 7,
+      "latency": {
+        "vector": 0.3030257225036621,
+        "keywords": 0.8242590427398682,
+        "graph": 0.16287827491760254,
+        "expansion": 0.47129297256469727,
+        "rerank": 0.425767183303833,
+        "mapping": 0.0,
+        "scoring": 1.854809045791626,
+        "update": 0.0
+      },
+      "routing_triggered": {
+        "vector": true,
+        "keywords": true,
+        "graph": true,
+        "expansion": true,
+        "rerank": true,
+        "scoring": true,
+        "update": false
+      }
+    }
+  },
+  {
+    "id": "5a83172455429954d2e2ec14",
+    "question": "Whose brother was a king of the East-Saxons?",
+    "answer": "Sæward",
+    "relevant_titles": [
+      "Sexred",
+      "Sæward of Essex"
+    ],
+    "retrieved_titles": [
+      "Prince Henry, Duke of Cumberland and Strathearn",
+      "Æthelweard (historian)",
+      "Harald II of Denmark",
+      "Eadbert I of Kent",
+      "Coenred of Mercia",
+      "Tostig Godwinson",
+      "William Henry (brother of Patrick Henry)"
+    ],
+    "generated_answer": "根据文档内容，Prince Henry, Duke of Cumberland and Strathearn 是 George III 的弟弟。因此，答案是：George III 的哥哥是丹麦国王，而他的弟弟是 Prince Henry, Duke of Cumberland and Strathearn。但问题问的是“谁的兄弟是东撒克逊国王”，文档中没有明确提到东撒克逊国王的信息。因此，无法直接回答该问题。",
+    "metrics": {
+      "recall_at_k": {
+        "7": 0.0
+      },
+      "precision_at_k": {
+        "7": 0.0
+      },
+      "mrr": 0.0,
+      "ndcg": 0.0,
+      "map_score": 0.0,
+      "hit_rate": 0.0
+    },
+    "generation_metrics": {
+      "exact_match": 0.0,
+      "f1_score": 0.0,
+      "semantic_similarity": 0.4639631566079333,
+      "correctness": 0.0,
+      "faithfulness": 0.0,
+      "relevance": 0.0
+    },
+    "title_recall": 0.0,
+    "title_precision": 0.0,
+    "context_length": 1350,
+    "stats": {
+      "vector_results": 10,
+      "keywords": [
+        "brother",
+        "king",
+        "East-Saxons"
+      ],
+      "graph_results": 19,
+      "expanded_results": 35,
+      "reranked_results": 7,
+      "final_results": 7,
+      "latency": {
+        "vector": 0.30465030670166016,
+        "keywords": 0.9431254863739014,
+        "graph": 0.08230090141296387,
+        "expansion": 1.0550181865692139,
+        "rerank": 0.8899219036102295,
+        "mapping": 0.0,
+        "scoring": 1.9342525005340576,
+        "update": 0.027517080307006836
+      },
+      "routing_triggered": {
+        "vector": true,
+        "keywords": true,
+        "graph": true,
+        "expansion": true,
+        "rerank": true,
+        "scoring": true,
+        "update": true
+      }
+    }
+  },
+  {
+    "id": "5ac3ac1855429939154138ab",
+    "question": "What are both Eleutherococcus and Amaryllis?",
+    "answer": "genus",
+    "relevant_titles": [
+      "Eleutherococcus",
+      "Amaryllis"
+    ],
+    "retrieved_titles": [
+      "Eleutherococcus",
+      "Amaryllis (given name)",
+      "Amaryllis",
+      "Eleutherococcus senticosus",
+      "Amaryllis (Shinedown album)"
+    ],
+    "generated_answer": "Eleutherococcus 是一个包含38个物种的刺丛生灌木和树木的属，属于五加科（Araliaceae）植物。Amaryllis 是一个古希腊女性名字，意为“闪耀的”，并且是亚麻莉莉亚族（Amaryllideae）中唯一的一个属，其植物也被称为“夜魅花”、“杰里赛百合”、“裸 lady”、“amarillo”、“复活节百合”（在澳大利亚南部）或“三月百合”（在南非，因其在三月开花的习性）。",
+    "metrics": {
+      "recall_at_k": {
+        "7": 1.0
+      },
+      "precision_at_k": {
+        "7": 0.2857142857142857
+      },
+      "mrr": 1.0,
+      "ndcg": 0.9197207891481876,
+      "map_score": 0.8333333333333333,
+      "hit_rate": 1.0
+    },
+    "generation_metrics": {
+      "exact_match": 0.0,
+      "f1_score": 0.0,
+      "semantic_similarity": 0.5612315379875066,
+      "correctness": 0.0,
+      "faithfulness": 0.0,
+      "relevance": 0.0
+    },
+    "title_recall": 1.0,
+    "title_precision": 0.4,
+    "context_length": 1223,
+    "stats": {
+      "vector_results": 10,
+      "keywords": [
+        "Eleutherococcus",
+        "Amaryllis"
+      ],
+      "graph_results": 5,
+      "expanded_results": 4,
+      "reranked_results": 7,
+      "final_results": 5,
+      "latency": {
+        "vector": 0.2898705005645752,
+        "keywords": 1.3304977416992188,
+        "graph": 0.06638741493225098,
+        "expansion": 0.36310648918151855,
+        "rerank": 0.3669915199279785,
+        "mapping": 0.0,
+        "scoring": 1.264143705368042,
+        "update": 0.03587937355041504
+      },
+      "routing_triggered": {
+        "vector": true,
+        "keywords": true,
+        "graph": true,
+        "expansion": true,
+        "rerank": true,
+        "scoring": true,
+        "update": true
+      }
+    }
+  },
+  {
+    "id": "5ac3ac8255429939154138ad",
+    "question": "APB and Sleeper are both from britain?",
+    "answer": "yes",
+    "relevant_titles": [
+      "APB (band)",
+      "Sleeper (band)"
+    ],
+    "retrieved_titles": [
+      "Sleeper (band)",
+      "APB (band)",
+      "Robert Ayres Barnet",
+      "Sleep Room",
+      "List of awards and nominations received by Oasis",
+      "James Bourne",
+      "Foals (band)"
+    ],
+    "generated_answer": "根据文档内容：\n\n- **Sleeper** 是一个来自英国的英式摇滚乐队，成立于伦敦。\n- **APB** 是一个来自苏格兰的后朋克乐队，成立于1979年。\n\n因此，APB 和 Sleeper 都来自英国吗？**不是**。APB 是来自苏格兰，而 Sleeper 是来自英国。苏格兰是英国的一部分，但通常被视为一个独立的地区。所以严格来说，APB 不是来自英国，而是来自苏格兰。答案：**不，APB 是来自苏格兰，而 Sleeper 是来自英国。**",
+    "metrics": {
+      "recall_at_k": {
+        "7": 1.0
+      },
+      "precision_at_k": {
+        "7": 0.2857142857142857
+      },
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "map_score": 1.0,
+      "hit_rate": 1.0
+    },
+    "generation_metrics": {
+      "exact_match": 0.0,
+      "f1_score": 0.0,
+      "semantic_similarity": 0.4637788787660227,
+      "correctness": 0.0,
+      "faithfulness": 0.0,
+      "relevance": 0.0
+    },
+    "title_recall": 1.0,
+    "title_precision": 0.2857142857142857,
+    "context_length": 2204,
+    "stats": {
+      "vector_results": 10,
+      "keywords": [
+        "APB",
+        "Sleeper",
+        "Britain"
+      ],
+      "graph_results": 20,
+      "expanded_results": 27,
+      "reranked_results": 7,
+      "final_results": 7,
+      "latency": {
+        "vector": 0.2694730758666992,
+        "keywords": 0.6324949264526367,
+        "graph": 0.08022785186767578,
+        "expansion": 1.1192166805267334,
+        "rerank": 0.8279078006744385,
+        "mapping": 0.0,
+        "scoring": 2.1229915618896484,
+        "update": 0.045247554779052734
+      },
+      "routing_triggered": {
+        "vector": true,
+        "keywords": true,
+        "graph": true,
+        "expansion": true,
+        "rerank": true,
+        "scoring": true,
+        "update": true
+      }
+    }
+  },
+  {
+    "id": "5a7af4bb55429927d897bf1d",
+    "question": "In what year was the son of Max Weinreich born?",
+    "answer": "1926",
+    "relevant_titles": [
+      "Max Weinreich",
+      "Uriel Weinreich"
+    ],
+    "retrieved_titles": [
+      "Max Weinreich",
+      "Uriel Weinreich",
+      "Mesut Özil",
+      "Leroy Sané",
+      "Bastian Schweinsteiger",
+      "Archduke Franz Ferdinand of Austria"
+    ],
+    "generated_answer": "根据文档内容，Max Weinreich 的儿子 Uriel Weinreich 出生于 1926 年。因此，答案是：1926 年。",
+    "metrics": {
+      "recall_at_k": {
+        "7": 1.0
+      },
+      "precision_at_k": {
+        "7": 0.2857142857142857
+      },
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "map_score": 1.0,
+      "hit_rate": 1.0
+    },
+    "generation_metrics": {
+      "exact_match": 1.0,
+      "f1_score": 0.2222222222222222,
+      "semantic_similarity": 0.6303022403816966,
+      "correctness": 0.0,
+      "faithfulness": 0.0,
+      "relevance": 0.0
+    },
+    "title_recall": 1.0,
+    "title_precision": 0.3333333333333333,
+    "context_length": 1278,
+    "stats": {
+      "vector_results": 10,
+      "keywords": [
+        "Max Weinreich",
+        "son",
+        "born",
+        "year"
+      ],
+      "graph_results": 20,
+      "expanded_results": 11,
+      "reranked_results": 7,
+      "final_results": 6,
+      "latency": {
+        "vector": 0.30114006996154785,
+        "keywords": 2.021733045578003,
+        "graph": 0.045044660568237305,
+        "expansion": 0.957843542098999,
+        "rerank": 0.7071540355682373,
+        "mapping": 0.0,
+        "scoring": 2.356412410736084,
+        "update": 0.03903532028198242
+      },
+      "routing_triggered": {
+        "vector": true,
+        "keywords": true,
+        "graph": true,
+        "expansion": true,
+        "rerank": true,
+        "scoring": true,
+        "update": true
+      }
+    }
+  },
+  {
+    "id": "5a72dcb45542992359bc31af",
+    "question": "What company did Rex Maughan aquire?",
+    "answer": "Aloe Vera of America",
+    "relevant_titles": [
+      "Forever Living Products",
+      "Rex Maughan"
+    ],
+    "retrieved_titles": [
+      "Forever Living Products",
+      "Yodel (company)",
+      "Lebedyansky (company)",
+      "Maverick (company)",
+      "Go-Op (train operating company)",
+      "King's Men (playing company)",
+      "REX American Resources"
+    ],
+    "generated_answer": "根据文档内容，Rex Maughan 创立了 Yodel 这家公司。文档中没有提到他收购了其他公司。因此，答案是：Rex Maughan 创立了 Yodel 公司，但没有提到他收购了其他公司。",
+    "metrics": {
+      "recall_at_k": {
+        "7": 0.5
+      },
+      "precision_at_k": {
+        "7": 0.14285714285714285
+      },
+      "mrr": 1.0,
+      "ndcg": 0.6131471927654584,
+      "map_score": 0.5,
+      "hit_rate": 1.0
+    },
+    "generation_metrics": {
+      "exact_match": 0.0,
+      "f1_score": 0.0,
+      "semantic_similarity": 0.3884370962148635,
+      "correctness": 0.0,
+      "faithfulness": 0.0,
+      "relevance": 0.0
+    },
+    "title_recall": 0.5,
+    "title_precision": 0.14285714285714285,
+    "context_length": 2286,
+    "stats": {
+      "vector_results": 10,
+      "keywords": [
+        "Rex Maughan",
+        "company",
+        "acquire"
+      ],
+      "graph_results": 20,
+      "expanded_results": 12,
+      "reranked_results": 7,
+      "final_results": 7,
+      "latency": {
+        "vector": 0.29668521881103516,
+        "keywords": 0.7315008640289307,
+        "graph": 0.09170842170715332,
+        "expansion": 0.9827139377593994,
+        "rerank": 0.6093060970306396,
+        "mapping": 0.0,
+        "scoring": 2.025421142578125,
+        "update": 0.029597759246826172
+      },
+      "routing_triggered": {
+        "vector": true,
+        "keywords": true,
+        "graph": true,
+        "expansion": true,
+        "rerank": true,
+        "scoring": true,
+        "update": true
+      }
+    }
+  },
+  {
+    "id": "5a7a5aea5542996c55b2dd6f",
+    "question": "What country is the Selun located in?",
+    "answer": "Switzerland",
+    "relevant_titles": [
+      "Canton of St. Gallen",
+      "Selun"
+    ],
+    "retrieved_titles": [
+      "Sudan",
+      "Yemen",
+      "Addis Ababa",
+      "Number of urban areas by country",
+      "Landlocked country",
+      "Camptown (country subdivision)",
+      "Tajik Soviet Socialist Republic"
+    ],
+    "generated_answer": "The Selun is located in Ethiopia.",
+    "metrics": {
+      "recall_at_k": {
+        "7": 0.0
+      },
+      "precision_at_k": {
+        "7": 0.0
+      },
+      "mrr": 0.0,
+      "ndcg": 0.0,
+      "map_score": 0.0,
+      "hit_rate": 0.0
+    },
+    "generation_metrics": {
+      "exact_match": 0.0,
+      "f1_score": 0.0,
+      "semantic_similarity": 0.518160397670775,
+      "correctness": 0.0,
+      "faithfulness": 0.0,
+      "relevance": 0.0
+    },
+    "title_recall": 0.0,
+    "title_precision": 0.0,
+    "context_length": 4153,
+    "stats": {
+      "vector_results": 10,
+      "keywords": [
+        "Selun",
+        "country"
+      ],
+      "graph_results": 9,
+      "expanded_results": 3,
+      "reranked_results": 7,
+      "final_results": 7,
+      "latency": {
+        "vector": 0.30426931381225586,
+        "keywords": 0.5803172588348389,
+        "graph": 0.09409093856811523,
+        "expansion": 0.71382737159729,
+        "rerank": 0.45934033393859863,
+        "mapping": 0.0,
+        "scoring": 1.738020420074463,
+        "update": 0.0501399040222168
+      },
+      "routing_triggered": {
+        "vector": true,
+        "keywords": true,
+        "graph": true,
+        "expansion": true,
+        "rerank": true,
+        "scoring": true,
+        "update": true
+      }
+    }
+  },
+  {
+    "id": "5ae0b4c15542993d6555ec21",
+    "question": "What are The Ready Set and Cell?",
+    "answer": "band",
+    "relevant_titles": [
+      "The Ready Set",
+      "Cell (American band)"
+    ],
+    "retrieved_titles": [
+      "Cell (American band)",
+      "The Ready Set",
+      "Jason Edwards: An Average Man",
+      "Sam Fisher (Splinter Cell)",
+      "Tom Clancy's Splinter Cell: Pandora Tomorrow",
+      "Stephen Laughton",
+      "The Very Best of Soft Cell"
+    ],
+    "generated_answer": "The Ready Set is a musical act, specifically a band, created by Jordan Mark Witzigreuter, an American singer-songwriter from Fort Wayne, Indiana. The Ready Set is often associated with alternative or college rock genres, though they have been tagged with the label of Grunge due to their time frame of existence.\n\nCell is a New York-based band that was also tagged with the label of Grunge, although college rock or alternative is considered a more accurate description of their musical style.",
+    "metrics": {
+      "recall_at_k": {
+        "7": 1.0
+      },
+      "precision_at_k": {
+        "7": 0.2857142857142857
+      },
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "map_score": 1.0,
+      "hit_rate": 1.0
+    },
+    "generation_metrics": {
+      "exact_match": 1.0,
+      "f1_score": 0.03571428571428572,
+      "semantic_similarity": 0.527066176062296,
+      "correctness": 0.0,
+      "faithfulness": 0.0,
+      "relevance": 0.0
+    },
+    "title_recall": 1.0,
+    "title_precision": 0.2857142857142857,
+    "context_length": 5093,
+    "stats": {
+      "vector_results": 10,
+      "keywords": [
+        "The Ready Set",
+        "Cell"
+      ],
+      "graph_results": 19,
+      "expanded_results": 30,
+      "reranked_results": 7,
+      "final_results": 7,
+      "latency": {
+        "vector": 0.3226206302642822,
+        "keywords": 0.6687543392181396,
+        "graph": 0.07665562629699707,
+        "expansion": 1.015831470489502,
+        "rerank": 0.9536519050598145,
+        "mapping": 0.0,
+        "scoring": 2.78458833694458,
+        "update": 0.04114532470703125
+      },
+      "routing_triggered": {
+        "vector": true,
+        "keywords": true,
+        "graph": true,
+        "expansion": true,
+        "rerank": true,
+        "scoring": true,
+        "update": true
+      }
+    }
+  },
+  {
+    "id": "5add5f925542997545bbbd48",
+    "question": "Tikkun and Moment are both what?",
+    "answer": "magazine",
+    "relevant_titles": [
+      "Tikkun (magazine)",
+      "Moment (magazine)"
+    ],
+    "retrieved_titles": [
+      "Moment (magazine)",
+      "Tikkun (magazine)",
+      "Tikkun (book)",
+      "Tikkun HaKlali",
+      "Tikkun Chatzot",
+      "Moments (One Direction song)"
+    ],
+    "generated_answer": "Tikkun and Moment are both Jewish magazines.",
+    "metrics": {
+      "recall_at_k": {
+        "7": 1.0
+      },
+      "precision_at_k": {
+        "7": 0.2857142857142857
+      },
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "map_score": 1.0,
+      "hit_rate": 1.0
+    },
+    "generation_metrics": {
+      "exact_match": 1.0,
+      "f1_score": 0.0,
+      "semantic_similarity": 0.6069412241279322,
+      "correctness": 0.0,
+      "faithfulness": 0.0,
+      "relevance": 0.0
+    },
+    "title_recall": 1.0,
+    "title_precision": 0.3333333333333333,
+    "context_length": 2440,
+    "stats": {
+      "vector_results": 10,
+      "keywords": [
+        "Tikkun",
+        "Moment",
+        "两者",
+        "共同点",
+        "是什么"
+      ],
+      "graph_results": 20,
+      "expanded_results": 12,
+      "reranked_results": 7,
+      "final_results": 6,
+      "latency": {
+        "vector": 0.29227685928344727,
+        "keywords": 1.7827603816986084,
+        "graph": 0.13215208053588867,
+        "expansion": 0.8492710590362549,
+        "rerank": 0.6028175354003906,
+        "mapping": 0.0,
+        "scoring": 1.864732265472412,
+        "update": 0.04586982727050781
+      },
+      "routing_triggered": {
+        "vector": true,
+        "keywords": true,
+        "graph": true,
+        "expansion": true,
+        "rerank": true,
+        "scoring": true,
+        "update": true
+      }
+    }
+  },
+  {
+    "id": "5a8622ae554299211dda2a7e",
+    "question": "When was the son of Kingsley Amis born ?",
+    "answer": "1949",
+    "relevant_titles": [
+      "Kingsley Amis",
+      "Martin Amis"
+    ],
+    "retrieved_titles": [
+      "Kingsley Amis",
+      "Martin Amis",
+      "Neil Gaiman",
+      "Paul Williams (songwriter)",
+      "Prince Harry",
+      "Sidney Lumet",
+      "Rick Harrison"
+    ],
+    "generated_answer": "The son of Kingsley Amis, Martin Louis Amis, was born on 25 August 1949.",
+    "metrics": {
+      "recall_at_k": {
+        "7": 1.0
+      },
+      "precision_at_k": {
+        "7": 0.2857142857142857
+      },
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "map_score": 1.0,
+      "hit_rate": 1.0
+    },
+    "generation_metrics": {
+      "exact_match": 1.0,
+      "f1_score": 0.14285714285714288,
+      "semantic_similarity": 0.5337509607563423,
+      "correctness": 0.0,
+      "faithfulness": 0.0,
+      "relevance": 0.0
+    },
+    "title_recall": 1.0,
+    "title_precision": 0.2857142857142857,
+    "context_length": 2952,
+    "stats": {
+      "vector_results": 10,
+      "keywords": [
+        "Kingsley Amis",
+        "son",
+        "born"
+      ],
+      "graph_results": 20,
+      "expanded_results": 8,
+      "reranked_results": 7,
+      "final_results": 7,
+      "latency": {
+        "vector": 0.27651214599609375,
+        "keywords": 0.6060466766357422,
+        "graph": 0.03705477714538574,
+        "expansion": 0.8842344284057617,
+        "rerank": 0.646233081817627,
+        "mapping": 0.0,
+        "scoring": 1.7257609367370605,
+        "update": 0.035985708236694336
+      },
+      "routing_triggered": {
+        "vector": true,
+        "keywords": true,
+        "graph": true,
+        "expansion": true,
+        "rerank": true,
+        "scoring": true,
+        "update": true
+      }
+    }
+  },
+  {
+    "id": "5ab28b395542993be8fa9941",
+    "question": "Is Dappy or Tobias Sammet German? ",
+    "answer": "Tobias Sammet (21 November 1977) is a German musician",
+    "relevant_titles": [
+      "Dappy",
+      "Tobias Sammet"
+    ],
+    "retrieved_titles": [
+      "Tobias Sammet",
+      "Dappy",
+      "Elected (Ayreon EP)",
+      "German Shepherd",
+      "Germans",
+      "German Warmblood",
+      "Carl Carlton (German musician)"
+    ],
+    "generated_answer": "Based on the provided documents:\n\n- Tobias Sammet is German.\n- Dappy is English.\n\nAnswer: Tobias Sammet is German, while Dappy is English.",
+    "metrics": {
+      "recall_at_k": {
+        "7": 1.0
+      },
+      "precision_at_k": {
+        "7": 0.2857142857142857
+      },
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "map_score": 1.0,
+      "hit_rate": 1.0
+    },
+    "generation_metrics": {
+      "exact_match": 0.0,
+      "f1_score": 0.3636363636363637,
+      "semantic_similarity": 0.6959579340038925,
+      "correctness": 0.0,
+      "faithfulness": 0.0,
+      "relevance": 0.0
+    },
+    "title_recall": 1.0,
+    "title_precision": 0.2857142857142857,
+    "context_length": 3151,
+    "stats": {
+      "vector_results": 10,
+      "keywords": [
+        "Dappy",
+        "Tobias Sammet",
+        "German"
+      ],
+      "graph_results": 20,
+      "expanded_results": 13,
+      "reranked_results": 7,
+      "final_results": 7,
+      "latency": {
+        "vector": 0.28773069381713867,
+        "keywords": 0.6354234218597412,
+        "graph": 0.14855098724365234,
+        "expansion": 1.0781757831573486,
+        "rerank": 0.6312096118927002,
+        "mapping": 0.0,
+        "scoring": 2.3207037448883057,
+        "update": 0.044721364974975586
+      },
+      "routing_triggered": {
+        "vector": true,
+        "keywords": true,
+        "graph": true,
+        "expansion": true,
+        "rerank": true,
+        "scoring": true,
+        "update": true
+      }
+    }
+  },
+  {
+    "id": "5ac274fc55429963665199c1",
+    "question": "The host of PokerFace is from where?",
+    "answer": "Newcastle upon Tyne, England",
+    "relevant_titles": [
+      "PokerFace",
+      "Ant &amp; Dec"
+    ],
+    "retrieved_titles": [
+      "PokerFace",
+      "Brett Hull",
+      "Darby Crash",
+      "Tom Clancy",
+      "Jeremy Kewley",
+      "Vanessa Rousso",
+      "Matt Graham (poker player)"
+    ],
+    "generated_answer": "The host of PokerFace is from the UK. The show is a British game show broadcast on ITV, and it was created and hosted by Ant & Dec, who are British. \n\n答案: The host of PokerFace is from the UK.",
+    "metrics": {
+      "recall_at_k": {
+        "7": 0.5
+      },
+      "precision_at_k": {
+        "7": 0.14285714285714285
+      },
+      "mrr": 1.0,
+      "ndcg": 0.6131471927654584,
+      "map_score": 0.5,
+      "hit_rate": 1.0
+    },
+    "generation_metrics": {
+      "exact_match": 0.0,
+      "f1_score": 0.0,
+      "semantic_similarity": 0.42943676548911824,
+      "correctness": 0.0,
+      "faithfulness": 0.0,
+      "relevance": 0.0
+    },
+    "title_recall": 0.5,
+    "title_precision": 0.14285714285714285,
+    "context_length": 4067,
+    "stats": {
+      "vector_results": 10,
+      "keywords": [
+        "PokerFace",
+        "host",
+        "origin"
+      ],
+      "graph_results": 20,
+      "expanded_results": 32,
+      "reranked_results": 7,
+      "final_results": 7,
+      "latency": {
+        "vector": 0.3774991035461426,
+        "keywords": 1.207728624343872,
+        "graph": 0.0638267993927002,
+        "expansion": 1.225860834121704,
+        "rerank": 0.8548398017883301,
+        "mapping": 0.0,
+        "scoring": 1.7308311462402344,
+        "update": 0.0397493839263916
+      },
+      "routing_triggered": {
+        "vector": true,
+        "keywords": true,
+        "graph": true,
+        "expansion": true,
+        "rerank": true,
+        "scoring": true,
+        "update": true
+      }
+    }
+  },
+  {
+    "id": "5ae086d35542993d6555eb97",
+    "question": "Are Ari Up and Boz Burrell both guitarists?",
+    "answer": "no",
+    "relevant_titles": [
+      "Boz Burrell",
+      "Ari Up"
+    ],
+    "retrieved_titles": [
+      "Ari Up",
+      "Boz Burrell",
+      "Before I Forget (album)",
+      "List of bass guitarists",
+      "Marc Bolan",
+      "Blessid Union of Souls"
+    ],
+    "generated_answer": "Ari Up was a vocalist, not a guitarist, and Boz Burrell was a guitarist and bass player. Therefore, they are not both guitarists. \n\n答案: No, Ari Up was a vocalist, and Boz Burrell was a guitarist and bass player.",
+    "metrics": {
+      "recall_at_k": {
+        "7": 1.0
+      },
+      "precision_at_k": {
+        "7": 0.2857142857142857
+      },
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "map_score": 1.0,
+      "hit_rate": 1.0
+    },
+    "generation_metrics": {
+      "exact_match": 1.0,
+      "f1_score": 0.1,
+      "semantic_similarity": 0.45493191884191425,
+      "correctness": 0.0,
+      "faithfulness": 0.0,
+      "relevance": 0.0
+    },
+    "title_recall": 1.0,
+    "title_precision": 0.3333333333333333,
+    "context_length": 1773,
+    "stats": {
+      "vector_results": 10,
+      "keywords": [
+        "Ari Up",
+        "Boz Burrell",
+        "guitarists"
+      ],
+      "graph_results": 3,
+      "expanded_results": 3,
+      "reranked_results": 7,
+      "final_results": 6,
+      "latency": {
+        "vector": 0.38188600540161133,
+        "keywords": 0.7540397644042969,
+        "graph": 0.1510167121887207,
+        "expansion": 1.01161527633667,
+        "rerank": 0.36061739921569824,
+        "mapping": 0.0,
+        "scoring": 2.1547725200653076,
+        "update": 0.04665207862854004
+      },
+      "routing_triggered": {
+        "vector": true,
+        "keywords": true,
+        "graph": true,
+        "expansion": true,
+        "rerank": true,
+        "scoring": true,
+        "update": true
+      }
+    }
+  },
+  {
+    "id": "5a8391f55542996488c2e45c",
+    "question": "Lear's and Oh Comely are both what?",
+    "answer": "magazine",
+    "relevant_titles": [
+      "Oh Comely (magazine)",
+      "Lear's"
+    ],
+    "retrieved_titles": [
+      "Lear's",
+      "Oh Comely (magazine)",
+      "Bill Lear",
+      "Live at Jittery Joe's",
+      "The Tomfoolery Show",
+      "Through the Looking-Glass",
+      "Tweedledum and Tweedledee"
+    ],
+    "generated_answer": "Lear's and Oh Comely are both magazines.",
+    "metrics": {
+      "recall_at_k": {
+        "7": 1.0
+      },
+      "precision_at_k": {
+        "7": 0.2857142857142857
+      },
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "map_score": 1.0,
+      "hit_rate": 1.0
+    },
+    "generation_metrics": {
+      "exact_match": 1.0,
+      "f1_score": 0.0,
+      "semantic_similarity": 0.589958529372804,
+      "correctness": 0.0,
+      "faithfulness": 0.0,
+      "relevance": 0.0
+    },
+    "title_recall": 1.0,
+    "title_precision": 0.2857142857142857,
+    "context_length": 2502,
+    "stats": {
+      "vector_results": 10,
+      "keywords": [
+        "Lear's",
+        "Oh Comely",
+        "书籍",
+        "系列"
+      ],
+      "graph_results": 2,
+      "expanded_results": 12,
+      "reranked_results": 7,
+      "final_results": 7,
+      "latency": {
+        "vector": 0.31192803382873535,
+        "keywords": 1.0753271579742432,
+        "graph": 0.08160090446472168,
+        "expansion": 0.4277212619781494,
+        "rerank": 0.43863606452941895,
+        "mapping": 0.0,
+        "scoring": 1.8219356536865234,
+        "update": 0.045789241790771484
+      },
+      "routing_triggered": {
+        "vector": true,
+        "keywords": true,
+        "graph": true,
+        "expansion": true,
+        "rerank": true,
+        "scoring": true,
+        "update": true
+      }
+    }
+  },
+  {
+    "id": "5a862da855429960ec39b640",
+    "question": "Who sponsors the award Alex Rodriguez won two of?",
+    "answer": "Rawlings",
+    "relevant_titles": [
+      "Alex Rodriguez",
+      "Rawlings Gold Glove Award"
+    ],
+    "retrieved_titles": [
+      "Alex Rodriguez",
+      "4th Empire Awards",
+      "Berk Communications",
+      "The National Classic",
+      "1993 Major League Baseball draft",
+      "Caesars Palace Grand Prix"
+    ],
+    "generated_answer": "根据文档内容，Alex Rodriguez 获得的奖项由 **Stella Artois** 赞助。文档2明确指出：“The awards were sponsored by Stella Artois for the second consecutive year.” 但文档中并未具体说明是哪两个奖项，仅提到赞助商为 Stella Artois。",
+    "metrics": {
+      "recall_at_k": {
+        "7": 0.5
+      },
+      "precision_at_k": {
+        "7": 0.14285714285714285
+      },
+      "mrr": 1.0,
+      "ndcg": 0.6131471927654584,
+      "map_score": 0.5,
+      "hit_rate": 1.0
+    },
+    "generation_metrics": {
+      "exact_match": 0.0,
+      "f1_score": 0.0,
+      "semantic_similarity": 0.5007378341659817,
+      "correctness": 0.0,
+      "faithfulness": 0.0,
+      "relevance": 0.0
+    },
+    "title_recall": 0.5,
+    "title_precision": 0.16666666666666666,
+    "context_length": 3395,
+    "stats": {
+      "vector_results": 10,
+      "keywords": [
+        "Alex Rodriguez",
+        "award",
+        "sponsor"
+      ],
+      "graph_results": 20,
+      "expanded_results": 7,
+      "reranked_results": 7,
+      "final_results": 6,
+      "latency": {
+        "vector": 0.31711506843566895,
+        "keywords": 0.731687068939209,
+        "graph": 0.07557225227355957,
+        "expansion": 1.0082697868347168,
+        "rerank": 0.6837093830108643,
+        "mapping": 0.0,
+        "scoring": 2.0581674575805664,
+        "update": 0.03753256797790527
+      },
+      "routing_triggered": {
+        "vector": true,
+        "keywords": true,
+        "graph": true,
+        "expansion": true,
+        "rerank": true,
+        "scoring": true,
+        "update": true
+      }
+    }
+  },
+  {
+    "id": "5ae0b8bb55429924de1b7145",
+    "question": "Who is a guitarist, Saffron or Myles Kennedy?",
+    "answer": "Myles Kennedy",
+    "relevant_titles": [
+      "Myles Kennedy",
+      "Saffron (singer)"
+    ],
+    "retrieved_titles": [
+      "Myles Kennedy",
+      "List of songs recorded by Myles Kennedy",
+      "Saffron (singer)",
+      "Cosmic Dust (band)",
+      "Made in Stoke 24/7/11",
+      "Myles Kennedy discography",
+      "Back from Cali"
+    ],
+    "generated_answer": "Based on the provided documents:\n\n- **Myles Kennedy** is a guitarist, as mentioned in both Document 1 and Document 2.\n- **Saffron** is not mentioned as a guitarist in the documents. She is described as a singer, songwriter, actress, and lead singer of the electronica band Republica.\n\n**Answer:** Myles Kennedy is a guitarist. Saffron is not mentioned as a guitarist in the documents.",
+    "metrics": {
+      "recall_at_k": {
+        "7": 1.0
+      },
+      "precision_at_k": {
+        "7": 0.2857142857142857
+      },
+      "mrr": 1.0,
+      "ndcg": 0.9197207891481876,
+      "map_score": 0.8333333333333333,
+      "hit_rate": 1.0
+    },
+    "generation_metrics": {
+      "exact_match": 1.0,
+      "f1_score": 0.12121212121212122,
+      "semantic_similarity": 0.6794203803054571,
+      "correctness": 0.0,
+      "faithfulness": 0.0,
+      "relevance": 0.0
+    },
+    "title_recall": 1.0,
+    "title_precision": 0.2857142857142857,
+    "context_length": 3449,
+    "stats": {
+      "vector_results": 10,
+      "keywords": [
+        "guitarist",
+        "Saffron",
+        "Myles Kennedy"
+      ],
+      "graph_results": 10,
+      "expanded_results": 10,
+      "reranked_results": 7,
+      "final_results": 7,
+      "latency": {
+        "vector": 0.33156275749206543,
+        "keywords": 0.7357313632965088,
+        "graph": 0.15286588668823242,
+        "expansion": 0.5173506736755371,
+        "rerank": 0.5012855529785156,
+        "mapping": 0.0,
+        "scoring": 2.024292469024658,
+        "update": 0.02806687355041504
+      },
+      "routing_triggered": {
+        "vector": true,
+        "keywords": true,
+        "graph": true,
+        "expansion": true,
+        "rerank": true,
+        "scoring": true,
+        "update": true
+      }
+    }
+  },
+  {
+    "id": "5ae358c05542990afbd1e10f",
+    "question": "Who sparked the 972 unrest in Lithuanian SSR?",
+    "answer": "Romas Kalanta",
+    "relevant_titles": [
+      "Romas Kalanta",
+      "1972 unrest in Lithuania"
+    ],
+    "retrieved_titles": [
+      "1972 unrest in Lithuania",
+      "Supreme Soviet of the Lithuanian SSR",
+      "Lithuanian Civil War (1389–92)",
+      "Council of Ministers of the Lithuanian SSR",
+      "People's Artist of the Lithuanian SSR",
+      "Lithuanians",
+      "Kaunas"
+    ],
+    "generated_answer": "The 972 unrest in the Lithuanian SSR was sparked by the self-immolation of a 19-year-old student named Romas Kalanta.",
+    "metrics": {
+      "recall_at_k": {
+        "7": 0.5
+      },
+      "precision_at_k": {
+        "7": 0.14285714285714285
+      },
+      "mrr": 1.0,
+      "ndcg": 0.6131471927654584,
+      "map_score": 0.5,
+      "hit_rate": 1.0
+    },
+    "generation_metrics": {
+      "exact_match": 1.0,
+      "f1_score": 0.21052631578947367,
+      "semantic_similarity": 0.5332241047208084,
+      "correctness": 0.0,
+      "faithfulness": 0.0,
+      "relevance": 0.0
+    },
+    "title_recall": 0.5,
+    "title_precision": 0.14285714285714285,
+    "context_length": 5618,
+    "stats": {
+      "vector_results": 10,
+      "keywords": [
+        "972 unrest",
+        "Lithuanian SSR"
+      ],
+      "graph_results": 4,
+      "expanded_results": 2,
+      "reranked_results": 7,
+      "final_results": 7,
+      "latency": {
+        "vector": 0.3457767963409424,
+        "keywords": 0.6955695152282715,
+        "graph": 0.10778617858886719,
+        "expansion": 0.5198776721954346,
+        "rerank": 0.4394874572753906,
+        "mapping": 0.0,
+        "scoring": 2.740220546722412,
+        "update": 0.049443721771240234
+      },
+      "routing_triggered": {
+        "vector": true,
+        "keywords": true,
+        "graph": true,
+        "expansion": true,
+        "rerank": true,
+        "scoring": true,
+        "update": true
+      }
+    }
+  },
+  {
+    "id": "5a8fab8c5542995b4424208a",
+    "question": "Who set Nietzche's philosophical novel to music? ",
+    "answer": "Richard Strauss",
+    "relevant_titles": [
+      "Thus Spoke Zarathustra",
+      "Also sprach Zarathustra (Strauss)"
+    ],
+    "retrieved_titles": [
+      "Thus Spoke Zarathustra",
+      "Also sprach Zarathustra (Strauss)",
+      "Ludwig van Beethoven",
+      "Tristan und Isolde",
+      "Theodor W. Adorno",
+      "An Sylvia"
+    ],
+    "generated_answer": "根据文档内容，Richard Strauss 将 Nietzsche 的哲学小说《Thus Spoke Zarathustra》谱成了音乐。",
+    "metrics": {
+      "recall_at_k": {
+        "7": 1.0
+      },
+      "precision_at_k": {
+        "7": 0.2857142857142857
+      },
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "map_score": 1.0,
+      "hit_rate": 1.0
+    },
+    "generation_metrics": {
+      "exact_match": 1.0,
+      "f1_score": 0.22222222222222224,
+      "semantic_similarity": 0.7155358486065256,
+      "correctness": 0.0,
+      "faithfulness": 0.0,
+      "relevance": 0.0
+    },
+    "title_recall": 1.0,
+    "title_precision": 0.3333333333333333,
+    "context_length": 2308,
+    "stats": {
+      "vector_results": 10,
+      "keywords": [
+        "Nietzsche",
+        "philosophical novel",
+        "music"
+      ],
+      "graph_results": 20,
+      "expanded_results": 6,
+      "reranked_results": 7,
+      "final_results": 6,
+      "latency": {
+        "vector": 0.2829160690307617,
+        "keywords": 1.9398469924926758,
+        "graph": 0.09489274024963379,
+        "expansion": 0.9800300598144531,
+        "rerank": 0.6578564643859863,
+        "mapping": 0.0,
+        "scoring": 2.523810863494873,
+        "update": 0.03631734848022461
+      },
+      "routing_triggered": {
+        "vector": true,
+        "keywords": true,
+        "graph": true,
+        "expansion": true,
+        "rerank": true,
+        "scoring": true,
+        "update": true
+      }
+    }
+  },
+  {
+    "id": "5ae4be5455429960a22e019c",
+    "question": "Which is a shrub, Mimosa or Cryptocoryne?",
+    "answer": "Mimosa",
+    "relevant_titles": [
+      "Cryptocoryne",
+      "Mimosa"
+    ],
+    "retrieved_titles": [
+      "Mimosa",
+      "Mimosa turneri",
+      "Mimosa hamata",
+      "Mimosa invisa",
+      "Mimosa tenuiflora",
+      "Mimosa texana",
+      "Mimosa diplotricha"
+    ],
+    "generated_answer": "根据文档内容，Mimosa 是一种灌木（shrub）。文档1和文档2都明确指出 Mimosa 属于灌木或小到中型灌木。而文档3提到 Mimosa hamata 是一种开花灌木，进一步确认了 Mimosa 属的植物是灌木。因此，答案是：**Mimosa** 是灌木。",
+    "metrics": {
+      "recall_at_k": {
+        "7": 0.5
+      },
+      "precision_at_k": {
+        "7": 0.14285714285714285
+      },
+      "mrr": 1.0,
+      "ndcg": 0.6131471927654584,
+      "map_score": 0.5,
+      "hit_rate": 1.0
+    },
+    "generation_metrics": {
+      "exact_match": 1.0,
+      "f1_score": 0.2222222222222222,
+      "semantic_similarity": 0.6852757056590081,
+      "correctness": 0.0,
+      "faithfulness": 0.0,
+      "relevance": 0.0
+    },
+    "title_recall": 0.5,
+    "title_precision": 0.14285714285714285,
+    "context_length": 1134,
+    "stats": {
+      "vector_results": 10,
+      "keywords": [
+        "Mimosa",
+        "Cryptocoryne"
+      ],
+      "graph_results": 11,
+      "expanded_results": 7,
+      "reranked_results": 7,
+      "final_results": 7,
+      "latency": {
+        "vector": 0.29489707946777344,
+        "keywords": 1.1469097137451172,
+        "graph": 0.13148951530456543,
+        "expansion": 0.4924449920654297,
+        "rerank": 0.3834102153778076,
+        "mapping": 0.0,
+        "scoring": 5.256479740142822,
+        "update": 0.0
+      },
+      "routing_triggered": {
+        "vector": true,
+        "keywords": true,
+        "graph": true,
+        "expansion": true,
+        "rerank": true,
+        "scoring": true,
+        "update": false
+      }
+    }
+  },
+  {
+    "id": "5add24375542992c1e3a2542",
+    "question": "Are Werther and The Odyssey both operas?",
+    "answer": "no",
+    "relevant_titles": [
+      "Odyssey",
+      "Werther"
+    ],
+    "retrieved_titles": [
+      "Werther",
+      "Werther (film)",
+      "Odyssey",
+      "Werther, North Rhine-Westphalia",
+      "Four Jacks (quartet)",
+      "The Novel of Werther"
+    ],
+    "generated_answer": "根据文档内容：\n\n- **Werther** 是一部由 Jules Massenet 创作的四幕歌剧（\"drame lyrique\"），因此它是一部歌剧。\n- **The Odyssey** 是古希腊诗人荷马创作的一部史诗，不是歌剧。\n\n答案：No, Werther is an opera, but The Odyssey is an ancient Greek epic poem, not an opera.",
+    "metrics": {
+      "recall_at_k": {
+        "7": 1.0
+      },
+      "precision_at_k": {
+        "7": 0.2857142857142857
+      },
+      "mrr": 1.0,
+      "ndcg": 0.9197207891481876,
+      "map_score": 0.8333333333333333,
+      "hit_rate": 1.0
+    },
+    "generation_metrics": {
+      "exact_match": 1.0,
+      "f1_score": 0.0,
+      "semantic_similarity": 0.44012082785599144,
+      "correctness": 0.0,
+      "faithfulness": 0.0,
+      "relevance": 0.0
+    },
+    "title_recall": 1.0,
+    "title_precision": 0.3333333333333333,
+    "context_length": 1874,
+    "stats": {
+      "vector_results": 10,
+      "keywords": [
+        "Werther",
+        "The Odyssey",
+        "operas"
+      ],
+      "graph_results": 10,
+      "expanded_results": 6,
+      "reranked_results": 7,
+      "final_results": 6,
+      "latency": {
+        "vector": 0.30644822120666504,
+        "keywords": 1.0737519264221191,
+        "graph": 0.1387310028076172,
+        "expansion": 0.6701271533966064,
+        "rerank": 0.5251045227050781,
+        "mapping": 0.0,
+        "scoring": 1.8745362758636475,
+        "update": 0.026687145233154297
+      },
+      "routing_triggered": {
+        "vector": true,
+        "keywords": true,
+        "graph": true,
+        "expansion": true,
+        "rerank": true,
+        "scoring": true,
+        "update": true
+      }
+    }
+  },
+  {
+    "id": "5a7335b55542992359bc3290",
+    "question": "who released the 2012 record of red?",
+    "answer": "Big Machine Records",
+    "relevant_titles": [
+      "Red (Taylor Swift song)",
+      "Red (Taylor Swift album)"
+    ],
+    "retrieved_titles": [
+      "Red (Taylor Swift song)",
+      "We Are Never Ever Getting Back Together",
+      "1989 (Taylor Swift album)",
+      "Begin Again (Taylor Swift song)",
+      "Red (Taylor Swift album)",
+      "Timeless (Jim Ankan Deka album)"
+    ],
+    "generated_answer": "根据文档内容，\"Red\" 是 Taylor Swift 的第四张同名专辑，于 2012 年发行。文档中并没有明确提到是谁发布了这张专辑，但根据上下文可以推断，Taylor Swift 是该专辑的创作者和发行者。因此，答案是：Taylor Swift 发布了 2012 年的 \"Red\" 专辑。",
+    "metrics": {
+      "recall_at_k": {
+        "7": 1.0
+      },
+      "precision_at_k": {
+        "7": 0.2857142857142857
+      },
+      "mrr": 1.0,
+      "ndcg": 0.8503449055347546,
+      "map_score": 0.7,
+      "hit_rate": 1.0
+    },
+    "generation_metrics": {
+      "exact_match": 0.0,
+      "f1_score": 0.0,
+      "semantic_similarity": 0.43164341286367575,
+      "correctness": 0.0,
+      "faithfulness": 0.0,
+      "relevance": 0.0
+    },
+    "title_recall": 1.0,
+    "title_precision": 0.3333333333333333,
+    "context_length": 2337,
+    "stats": {
+      "vector_results": 10,
+      "keywords": [
+        "red",
+        "2012",
+        "record",
+        "released"
+      ],
+      "graph_results": 20,
+      "expanded_results": 12,
+      "reranked_results": 7,
+      "final_results": 6,
+      "latency": {
+        "vector": 0.2866942882537842,
+        "keywords": 1.1645421981811523,
+        "graph": 0.04471707344055176,
+        "expansion": 1.2225158214569092,
+        "rerank": 0.6867496967315674,
+        "mapping": 0.0,
+        "scoring": 2.8578338623046875,
+        "update": 0.03658270835876465
+      },
+      "routing_triggered": {
+        "vector": true,
+        "keywords": true,
+        "graph": true,
+        "expansion": true,
+        "rerank": true,
+        "scoring": true,
+        "update": true
+      }
+    }
+  },
+  {
+    "id": "5a7557d75542992d0ec05f68",
+    "question": "Which \"Roseanne\" star is in Scream 2?",
+    "answer": "Laurie Metcalf",
+    "relevant_titles": [
+      "Laurie Metcalf",
+      "Scream 2"
+    ],
+    "retrieved_titles": [
+      "Scream 2 (Markus Schulz album)",
+      "List of Scream characters",
+      "Scream 2",
+      "Roseanne Barr",
+      "Natalie West",
+      "Glenn Quinn",
+      "Roseanne Roseannadanna"
+    ],
+    "generated_answer": "根据文档内容，Scream 2 是一部1997年的美国恐怖电影，其主演包括 David Arquette、Neve Campbell、Courteney Cox、Sarah Michelle Gellar、Jamie Kennedy、Laurie Metcalf、Jerry O'Connell、Jada Pinkett 和 Liev Schreiber。\n\n在这些演员中，Courteney Cox 是《Roseanne》的明星之一。因此，答案是：**Courteney Cox**。",
+    "metrics": {
+      "recall_at_k": {
+        "7": 0.5
+      },
+      "precision_at_k": {
+        "7": 0.14285714285714285
+      },
+      "mrr": 0.3333333333333333,
+      "ndcg": 0.3065735963827292,
+      "map_score": 0.16666666666666666,
+      "hit_rate": 1.0
+    },
+    "generation_metrics": {
+      "exact_match": 1.0,
+      "f1_score": 0.0,
+      "semantic_similarity": 0.490275337084524,
+      "correctness": 0.0,
+      "faithfulness": 0.0,
+      "relevance": 0.0
+    },
+    "title_recall": 0.5,
+    "title_precision": 0.14285714285714285,
+    "context_length": 2701,
+    "stats": {
+      "vector_results": 10,
+      "keywords": [
+        "Roseanne",
+        "Scream 2"
+      ],
+      "graph_results": 4,
+      "expanded_results": 15,
+      "reranked_results": 7,
+      "final_results": 7,
+      "latency": {
+        "vector": 0.3089253902435303,
+        "keywords": 0.7295165061950684,
+        "graph": 0.07572078704833984,
+        "expansion": 0.4242987632751465,
+        "rerank": 0.7417693138122559,
+        "mapping": 0.0,
+        "scoring": 1.9095678329467773,
+        "update": 0.035803794860839844
+      },
+      "routing_triggered": {
+        "vector": true,
+        "keywords": true,
+        "graph": true,
+        "expansion": true,
+        "rerank": true,
+        "scoring": true,
+        "update": true
+      }
+    }
+  },
+  {
+    "id": "5ae2b794554299495565db10",
+    "question": "When was the producer of  Michel'le born? ",
+    "answer": "February 18, 1965",
+    "relevant_titles": [
+      "Dr. Dre",
+      "Michel'le (album)"
+    ],
+    "retrieved_titles": [
+      "Michel'le",
+      "Michel'le (album)",
+      "Rio Ferdinand",
+      "Prince Harry",
+      "Pharrell Williams",
+      "Charlotte of Mecklenburg-Strelitz",
+      "Henri, Count of Paris (born 1933)"
+    ],
+    "generated_answer": "根据文档内容，Michel'le Denise Toussaint（即Michel'le）出生于1970年12月5日。因此，Michel'le的出生日期是1970年12月5日。",
+    "metrics": {
+      "recall_at_k": {
+        "7": 0.5
+      },
+      "precision_at_k": {
+        "7": 0.14285714285714285
+      },
+      "mrr": 0.5,
+      "ndcg": 0.38685280723454163,
+      "map_score": 0.25,
+      "hit_rate": 1.0
+    },
+    "generation_metrics": {
+      "exact_match": 0.0,
+      "f1_score": 0.0,
+      "semantic_similarity": 0.4991990073893441,
+      "correctness": 0.0,
+      "faithfulness": 0.0,
+      "relevance": 0.0
+    },
+    "title_recall": 0.5,
+    "title_precision": 0.14285714285714285,
+    "context_length": 2667,
+    "stats": {
+      "vector_results": 10,
+      "keywords": [
+        "producer",
+        "Michel'le",
+        "born",
+        "year",
+        "date"
+      ],
+      "graph_results": 20,
+      "expanded_results": 24,
+      "reranked_results": 7,
+      "final_results": 7,
+      "latency": {
+        "vector": 0.4885866641998291,
+        "keywords": 1.1743931770324707,
+        "graph": 0.05324268341064453,
+        "expansion": 0.9516911506652832,
+        "rerank": 0.8761827945709229,
+        "mapping": 0.0,
+        "scoring": 2.484732151031494,
+        "update": 0.04842710494995117
+      },
+      "routing_triggered": {
+        "vector": true,
+        "keywords": true,
+        "graph": true,
+        "expansion": true,
+        "rerank": true,
+        "scoring": true,
+        "update": true
+      }
+    }
+  },
+  {
+    "id": "5ab8736455429916710eb058",
+    "question": "Are Yut and Tsuro both board games?",
+    "answer": "yes",
+    "relevant_titles": [
+      "Yut",
+      "Tsuro"
+    ],
+    "retrieved_titles": [
+      "Tsuro",
+      "Yut",
+      "Tables (board game)",
+      "Dungeons &amp; Dragons Basic Game",
+      "Monopoly (game)",
+      "Kolejka (game)",
+      "Poleconomy"
+    ],
+    "generated_answer": "Yes, both Yut and Tsuro are board games. \n\n- Tsuro is a tile-based board game as described in **Document 1**.\n- Yut, also known as Yut Nori, is a traditional board game from Korea mentioned in **Document 2**. \n\nTherefore, the answer is: **Yes**.",
+    "metrics": {
+      "recall_at_k": {
+        "7": 1.0
+      },
+      "precision_at_k": {
+        "7": 0.2857142857142857
+      },
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "map_score": 1.0,
+      "hit_rate": 1.0
+    },
+    "generation_metrics": {
+      "exact_match": 1.0,
+      "f1_score": 0.0689655172413793,
+      "semantic_similarity": 0.46671595049035336,
+      "correctness": 0.0,
+      "faithfulness": 0.0,
+      "relevance": 0.0
+    },
+    "title_recall": 1.0,
+    "title_precision": 0.2857142857142857,
+    "context_length": 2906,
+    "stats": {
+      "vector_results": 10,
+      "keywords": [
+        "Yut",
+        "Tsuro",
+        "board games"
+      ],
+      "graph_results": 6,
+      "expanded_results": 17,
+      "reranked_results": 7,
+      "final_results": 7,
+      "latency": {
+        "vector": 0.29917430877685547,
+        "keywords": 0.6517713069915771,
+        "graph": 0.12414431571960449,
+        "expansion": 0.5393238067626953,
+        "rerank": 0.5283944606781006,
+        "mapping": 0.0,
+        "scoring": 2.051652669906616,
+        "update": 0.03466010093688965
+      },
+      "routing_triggered": {
+        "vector": true,
+        "keywords": true,
+        "graph": true,
+        "expansion": true,
+        "rerank": true,
+        "scoring": true,
+        "update": true
+      }
+    }
+  }
+]

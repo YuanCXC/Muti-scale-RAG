@@ -1,0 +1,17 @@
+Query_Type,Metric,K=7,Value
+bridge,Recall@K,0.6839303818857723,
+bridge,Precision@K,0.195408680538792,
+bridge,Recall提升率(%),583.9303818857722,
+bridge,MRR,,0.695845201886094
+bridge,NDCG,,0.6002311521062971
+bridge,MAP,,0.5013318930140491
+bridge,Hit Rate,,0.9085839810746874
+bridge,Title Recall,,0.6839303818857723
+bridge,Title Precision,,0.2170014000869019
+bridge,Exact Match,,0.34893545116593444
+bridge,F1 Score,,0.10788968415047244
+bridge,Semantic Similarity,,0.568880450049932
+bridge,图谱覆盖率,,899091.0
+bridge,平均向量检索延迟(s),,0.30864564052664295
+bridge,平均图谱检索延迟(s),,0.07792972599827547
+bridge,平均总延迟(s),,5.597308714472792

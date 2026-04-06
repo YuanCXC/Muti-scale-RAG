@@ -1,0 +1,102 @@
+{
+  "exp1_coarse_vector_retrieval": {
+    "name": "仅粗粒度检索",
+    "sample_count": 7405,
+    "avg_context_length": 6585.963943281567,
+    "avg_token_count": 1506.9889264010803,
+    "avg_evidence_count": 10.0,
+    "total_token_cost": 11159253,
+    "em": 0.2509115462525321,
+    "f1": 0.2919676726947239
+  },
+  "exp2_fine_grained_vector_retrieval": {
+    "name": "仅细粒度检索",
+    "sample_count": 7405,
+    "avg_context_length": 10949.884672518569,
+    "avg_token_count": 2532.2569885212692,
+    "avg_evidence_count": 20.0,
+    "total_token_cost": 18751363,
+    "em": 0.38338960162052665,
+    "f1": 0.41893907845444794
+  },
+  "exp3_unified_chunking": {
+    "name": "统一父块映射",
+    "sample_count": 7405,
+    "avg_context_length": 4554.922484807563,
+    "avg_token_count": 1055.0559081701554,
+    "avg_evidence_count": 8.921134368669819,
+    "total_token_cost": 7812689,
+    "em": 0.36178257933828495,
+    "f1": 0.46784177456978243
+  },
+  "exp4_1hop_expansion": {
+    "name": "固定1-hop图扩展",
+    "sample_count": 7405,
+    "avg_context_length": 5627.3481431465225,
+    "avg_token_count": 1290.308980418636,
+    "avg_evidence_count": 9.974341661039839,
+    "total_token_cost": 9554738,
+    "em": 0.47292370020256586,
+    "f1": 0.5829499251133696
+  },
+  "exp5_2hop_expansion": {
+    "name": "固定2-hop图扩展",
+    "sample_count": 7405,
+    "avg_context_length": 11436.54301147873,
+    "avg_token_count": 2615.034166103984,
+    "avg_evidence_count": 19.634166103983794,
+    "total_token_cost": 19364328,
+    "em": 0.31600270087778526,
+    "f1": 0.39465500081525945
+  },
+  "exp6_adaptive_strategy_improved": {
+    "name": "本文自适应策略",
+    "sample_count": 7405,
+    "avg_context_length": 3351.9773126266036,
+    "avg_token_count": 768.9303173531398,
+    "avg_evidence_count": 6.406482106684672,
+    "total_token_cost": 5693929,
+    "em": 0.35705604321404455,
+    "f1": 0.47382677189737066
+  },
+  "exp7_bridge": {
+    "name": "桥接型问题",
+    "sample_count": 5918,
+    "avg_context_length": 2416.0201081446435,
+    "avg_token_count": 556.7353835755323,
+    "avg_evidence_count": 6.477695167286245,
+    "total_token_cost": 3294760,
+    "em": 0.36059479553903345,
+    "f1": 0.45589249045504365
+  },
+  "exp7_comparison": {
+    "name": "比较型问题",
+    "sample_count": 1487,
+    "avg_context_length": 1720.483523873571,
+    "avg_token_count": 403.93611297915265,
+    "avg_evidence_count": 6.590450571620713,
+    "total_token_cost": 600653,
+    "em": 0.39878950907868194,
+    "f1": 0.5821466652383619
+  },
+  "exp10_medium": {
+    "name": "中复杂度",
+    "sample_count": 64,
+    "avg_context_length": 3299.0625,
+    "avg_token_count": 792.625,
+    "avg_evidence_count": 6.65625,
+    "total_token_cost": 50728,
+    "em": 0.515625,
+    "f1": 0.5607593438016232
+  },
+  "exp10_high": {
+    "name": "高复杂度",
+    "sample_count": 64,
+    "avg_context_length": 3315.8125,
+    "avg_token_count": 764.203125,
+    "avg_evidence_count": 6.25,
+    "total_token_cost": 48909,
+    "em": 0.3125,
+    "f1": 0.4187213827838828
+  }
+}

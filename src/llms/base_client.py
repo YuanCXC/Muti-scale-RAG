@@ -94,7 +94,7 @@ class BaseLLMClient(ABC):
         
         self.max_retries = kwargs.get("max_retries", 3)
         self.retry_delay = kwargs.get("retry_delay", 1.0)
-        self.timeout = kwargs.get("timeout", 60)
+        self.timeout = kwargs.get("timeout", 120)
         
         logger.info(f"初始化 {self.__class__.__name__}: model={model}")
     

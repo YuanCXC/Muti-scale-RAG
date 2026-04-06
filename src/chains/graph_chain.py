@@ -243,7 +243,11 @@ class GraphRAGChain(RAGChainBase):
         
         if relations:
             for relation in relations:
-                edge_type = EdgeType(relation.get("type", "related_to").upper())
+                edge_type_str = relation.get("type", "related_to").lower()
+                try:
+                    edge_type = EdgeType(edge_type_str)
+                except ValueError:
+                    edge_type = EdgeType.OTHER
                 edge = Edge(
                     id=relation.get("id"),
                     source_id=relation["source_id"],
@@ -298,7 +302,7 @@ if __name__ == "__main__":
     mock_llm = MockLLMClient()
     
     chain = GraphRAGChain(llm_client=mock_llm)
-    print(f"✓ 创建 GraphRAGChain")
+    print(f"[OK] 创建 GraphRAGChain")
     
     entities = [
         {"id": "ai", "name": "人工智能", "type": "concept", "properties": {"category": "技术"}},
@@ -312,16 +316,16 @@ if __name__ == "__main__":
         {"source_id": "ai", "target_id": "nlp", "type": "applies_to", "weight": 0.85},
     ]
     chain.add_entities(entities, relations)
-    print(f"✓ 添加实体和关系: nodes={chain.graph_store.count_nodes()}, edges={chain.graph_store.count_edges()}")
+    print(f"[OK] 添加实体和关系: nodes={chain.graph_store.count_nodes()}, edges={chain.graph_store.count_edges()}")
     
     result = chain.run("人工智能")
-    print(f"✓ 执行 RAG: answer='{result.answer[:50]}...'")
+    print(f"[OK] 执行 RAG: answer='{result.answer[:50]}...'")
     print(f"  - 检索结果数: {len(result.retrieval_results)}")
     
     paths = chain.find_paths("ai", "dl")
-    print(f"✓ 路径查找: ai -> dl, paths={len(paths)}")
+    print(f"[OK] 路径查找: ai -> dl, paths={len(paths)}")
     
     stats = chain.get_stats()
-    print(f"✓ 统计信息: {stats}")
+    print(f"[OK] 统计信息: {stats}")
     
     print("\n所有测试通过!")

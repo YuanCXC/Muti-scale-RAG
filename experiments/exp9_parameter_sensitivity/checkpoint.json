@@ -1,0 +1,322 @@
+{
+  "results": [
+    {
+      "params": {
+        "k1": 5,
+        "k2": 10,
+        "k4": 3,
+        "threshold": 0.2
+      },
+      "metrics": {
+        "recall_at_k": 0.589,
+        "precision_at_k": 0.3926666666666666,
+        "mrr": 0.6863333333333332,
+        "ndcg": 0.5525712655649936,
+        "map_score": 0.46249999999999997,
+        "hit_rate": 0.876,
+        "title_recall": 0.589,
+        "title_precision": 0.416,
+        "exact_match": 0.0,
+        "f1_score": 0.11765478539230781,
+        "semantic_similarity": 0.5697542949185979
+      }
+    },
+    {
+      "params": {
+        "k1": 5,
+        "k2": 20,
+        "k4": 5,
+        "threshold": 0.4
+      },
+      "metrics": {
+        "recall_at_k": 0.688,
+        "precision_at_k": 0.27520000000000006,
+        "mrr": 0.6960333333333333,
+        "ndcg": 0.6057651949570436,
+        "map_score": 0.5092499999999999,
+        "hit_rate": 0.906,
+        "title_recall": 0.688,
+        "title_precision": 0.2942666666666667,
+        "exact_match": 0.0,
+        "f1_score": 0.11165777781578967,
+        "semantic_similarity": 0.5649850865638438
+      }
+    },
+    {
+      "params": {
+        "k1": 5,
+        "k2": 30,
+        "k4": 7,
+        "threshold": 0.5
+      },
+      "metrics": {
+        "recall_at_k": 0.701,
+        "precision_at_k": 0.20028571428571423,
+        "mrr": 0.6892333333333334,
+        "ndcg": 0.6080576385604928,
+        "map_score": 0.5095404761904762,
+        "hit_rate": 0.91,
+        "title_recall": 0.701,
+        "title_precision": 0.21645714285714282,
+        "exact_match": 0.0,
+        "f1_score": 0.11323072802930995,
+        "semantic_similarity": 0.5673162456376738
+      }
+    },
+    {
+      "params": {
+        "k1": 5,
+        "k2": 10,
+        "k4": 10,
+        "threshold": 0.3
+      },
+      "metrics": {
+        "recall_at_k": 0.712,
+        "precision_at_k": 0.14240000000000003,
+        "mrr": 0.6967436507936509,
+        "ndcg": 0.6163249686934166,
+        "map_score": 0.5169123015873015,
+        "hit_rate": 0.918,
+        "title_recall": 0.712,
+        "title_precision": 0.1590968253968254,
+        "exact_match": 0.0,
+        "f1_score": 0.11577550669170328,
+        "semantic_similarity": 0.5585683610524527
+      }
+    },
+    {
+      "params": {
+        "k1": 10,
+        "k2": 10,
+        "k4": 5,
+        "threshold": 0.5
+      },
+      "metrics": {
+        "recall_at_k": 0.704,
+        "precision_at_k": 0.2816,
+        "mrr": 0.7045333333333333,
+        "ndcg": 0.6178198562369448,
+        "map_score": 0.5203333333333332,
+        "hit_rate": 0.924,
+        "title_recall": 0.704,
+        "title_precision": 0.3089666666666667,
+        "exact_match": 0.0,
+        "f1_score": 0.11448150825241589,
+        "semantic_similarity": 0.5698703246384998
+      }
+    },
+    {
+      "params": {
+        "k1": 10,
+        "k2": 20,
+        "k4": 3,
+        "threshold": 0.3
+      },
+      "metrics": {
+        "recall_at_k": 0.606,
+        "precision_at_k": 0.404,
+        "mrr": 0.692,
+        "ndcg": 0.565753347505017,
+        "map_score": 0.47333333333333333,
+        "hit_rate": 0.892,
+        "title_recall": 0.606,
+        "title_precision": 0.43266666666666664,
+        "exact_match": 0.0,
+        "f1_score": 0.11402953815834087,
+        "semantic_similarity": 0.5709970685986734
+      }
+    },
+    {
+      "params": {
+        "k1": 10,
+        "k2": 30,
+        "k4": 10,
+        "threshold": 0.2
+      },
+      "metrics": {
+        "recall_at_k": 0.747,
+        "precision_at_k": 0.1494,
+        "mrr": 0.7005523809523809,
+        "ndcg": 0.6317720366856406,
+        "map_score": 0.5268119047619048,
+        "hit_rate": 0.938,
+        "title_recall": 0.747,
+        "title_precision": 0.16389682539682543,
+        "exact_match": 0.0,
+        "f1_score": 0.11361060727870002,
+        "semantic_similarity": 0.571250892783185
+      }
+    },
+    {
+      "params": {
+        "k1": 10,
+        "k2": 10,
+        "k4": 7,
+        "threshold": 0.4
+      },
+      "metrics": {
+        "recall_at_k": 0.728,
+        "precision_at_k": 0.20799999999999993,
+        "mrr": 0.7065999999999999,
+        "ndcg": 0.6294685225317863,
+        "map_score": 0.5297047619047619,
+        "hit_rate": 0.928,
+        "title_recall": 0.728,
+        "title_precision": 0.2307285714285714,
+        "exact_match": 0.0,
+        "f1_score": 0.11508720777668194,
+        "semantic_similarity": 0.5703924568950551
+      }
+    },
+    {
+      "params": {
+        "k1": 15,
+        "k2": 10,
+        "k4": 7,
+        "threshold": 0.3
+      },
+      "metrics": {
+        "recall_at_k": 0.732,
+        "precision_at_k": 0.20914285714285707,
+        "mrr": 0.711152380952381,
+        "ndcg": 0.6328816631173784,
+        "map_score": 0.5322857142857143,
+        "hit_rate": 0.94,
+        "title_recall": 0.732,
+        "title_precision": 0.23405714285714282,
+        "exact_match": 0.0,
+        "f1_score": 0.11019327151239024,
+        "semantic_similarity": 0.568766337832538
+      }
+    },
+    {
+      "params": {
+        "k1": 15,
+        "k2": 20,
+        "k4": 10,
+        "threshold": 0.5
+      },
+      "metrics": {
+        "recall_at_k": 0.753,
+        "precision_at_k": 0.15059999999999998,
+        "mrr": 0.7028380952380954,
+        "ndcg": 0.6357563061857215,
+        "map_score": 0.5304436507936507,
+        "hit_rate": 0.944,
+        "title_recall": 0.753,
+        "title_precision": 0.16772619047619047,
+        "exact_match": 0.0,
+        "f1_score": 0.11355643166286244,
+        "semantic_similarity": 0.5729127341642045
+      }
+    },
+    {
+      "params": {
+        "k1": 15,
+        "k2": 30,
+        "k4": 3,
+        "threshold": 0.4
+      },
+      "metrics": {
+        "recall_at_k": 0.606,
+        "precision_at_k": 0.40399999999999997,
+        "mrr": 0.691,
+        "ndcg": 0.5652425857458573,
+        "map_score": 0.4711666666666666,
+        "hit_rate": 0.892,
+        "title_recall": 0.606,
+        "title_precision": 0.432,
+        "exact_match": 0.0,
+        "f1_score": 0.11143417615131676,
+        "semantic_similarity": 0.5700690318014772
+      }
+    },
+    {
+      "params": {
+        "k1": 15,
+        "k2": 10,
+        "k4": 5,
+        "threshold": 0.2
+      },
+      "metrics": {
+        "recall_at_k": 0.703,
+        "precision_at_k": 0.28120000000000006,
+        "mrr": 0.7055666666666666,
+        "ndcg": 0.6181924982296718,
+        "map_score": 0.52115,
+        "hit_rate": 0.926,
+        "title_recall": 0.703,
+        "title_precision": 0.3093,
+        "exact_match": 0.0,
+        "f1_score": 0.11175820135305538,
+        "semantic_similarity": 0.5706954773622672
+      }
+    },
+    {
+      "params": {
+        "k1": 20,
+        "k2": 10,
+        "k4": 10,
+        "threshold": 0.4
+      },
+      "metrics": {
+        "recall_at_k": 0.753,
+        "precision_at_k": 0.1506,
+        "mrr": 0.7084460317460317,
+        "ndcg": 0.6403666759369067,
+        "map_score": 0.5372523809523809,
+        "hit_rate": 0.946,
+        "title_recall": 0.753,
+        "title_precision": 0.1695,
+        "exact_match": 0.0,
+        "f1_score": 0.11492207070999418,
+        "semantic_similarity": 0.5698363406907963
+      }
+    },
+    {
+      "params": {
+        "k1": 20,
+        "k2": 20,
+        "k4": 7,
+        "threshold": 0.2
+      },
+      "metrics": {
+        "recall_at_k": 0.73,
+        "precision_at_k": 0.20857142857142852,
+        "mrr": 0.7009857142857142,
+        "ndcg": 0.627064372860302,
+        "map_score": 0.5258642857142857,
+        "hit_rate": 0.936,
+        "title_recall": 0.73,
+        "title_precision": 0.23414285714285715,
+        "exact_match": 0.0,
+        "f1_score": 0.11288377691194075,
+        "semantic_similarity": 0.5705037623752319
+      }
+    },
+    {
+      "params": {
+        "k1": 20,
+        "k2": 30,
+        "k4": 5,
+        "threshold": 0.5
+      },
+      "metrics": {
+        "recall_at_k": 0.708,
+        "precision_at_k": 0.28320000000000006,
+        "mrr": 0.6930333333333333,
+        "ndcg": 0.6135894777196415,
+        "map_score": 0.5143499999999999,
+        "hit_rate": 0.924,
+        "title_recall": 0.708,
+        "title_precision": 0.31126666666666664,
+        "exact_match": 0.0,
+        "f1_score": 0.11865785346581197,
+        "semantic_similarity": 0.573870491909194
+      }
+    }
+  ],
+  "completed_combinations": 15,
+  "total_combinations": 16,
+  "timestamp": "2026-04-02T07:37:23.613460"
+}

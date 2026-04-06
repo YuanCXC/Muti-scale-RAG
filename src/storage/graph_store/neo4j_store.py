@@ -593,7 +593,7 @@ class Neo4jGraphStore(GraphStoreBase):
         """获取节点总数"""
         try:
             with self._get_session() as session:
-                result = session.run("MATCH (n:Node) RETURN count(n) as count")
+                result = session.run("MATCH (n) RETURN count(n) as count")
                 record = result.single()
                 return record["count"] if record else 0
         except Exception as e:
@@ -603,7 +603,7 @@ class Neo4jGraphStore(GraphStoreBase):
         """获取边总数"""
         try:
             with self._get_session() as session:
-                result = session.run("MATCH ()-[r:EDGE]->() RETURN count(r) as count")
+                result = session.run("MATCH ()-[r]->() RETURN count(r) as count")
                 record = result.single()
                 return record["count"] if record else 0
         except Exception as e:

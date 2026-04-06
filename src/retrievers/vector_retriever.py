@@ -66,7 +66,7 @@ class VectorRetriever(RetrieverBase):
         """
         embeddings = self.llm_client.embed([query])
         
-        if not embeddings:
+        if embeddings is None or len(embeddings) == 0:
             raise ValueError("Failed to generate embedding for query")
         
         return np.array(embeddings[0], dtype=np.float32)

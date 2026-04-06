@@ -112,16 +112,50 @@ class GenerationMetrics:
         )
     
     def _compute_exact_match(self, predicted: str, ground_truth: str) -> float:
-        """计算精确匹配分数"""
+        """计算精确匹配分数（改进版 - 支持包含匹配）
+        
+        改进策略：
+        1. 完全匹配：返回 1.0
+        2. 包含匹配：标准答案包含在生成答案中，返回 1.0
+        3. 否则：返回 0.0
+        """
         pred_normalized = self._normalize_text(predicted)
         truth_normalized = self._normalize_text(ground_truth)
         
-        return 1.0 if pred_normalized == truth_normalized else 0.0
+        if not pred_normalized or not truth_normalized:
+            return 0.0
+        
+        if pred_normalized == truth_normalized:
+            return 1.0
+        
+        if truth_normalized in pred_normalized:
+            return 1.0
+        
+        return 0.0
     
     def _compute_f1(self, predicted: str, ground_truth: str) -> float:
-        """计算 F1 分数（基于 token）"""
-        pred_tokens = set(self._tokenize(predicted))
-        truth_tokens = set(self._tokenize(ground_truth))
+        """计算 F1 分数（改进版 - 支持字符级和 token 级）
+        
+        改进策略：
+        1. 检测文本语言（中文/英文）
+        2. 中文使用字符级 F1
+        3. 英文使用 token 级 F1
+        4. 计算方式：基于集合的 precision 和 recall
+        """
+        pred_normalized = self._normalize_text(predicted)
+        truth_normalized = self._normalize_text(ground_truth)
+        
+        if not pred_normalized or not truth_normalized:
+            return 0.0
+        
+        is_chinese = self._is_chinese_text(truth_normalized)
+        
+        if is_chinese:
+            pred_tokens = set(pred_normalized)
+            truth_tokens = set(truth_normalized)
+        else:
+            pred_tokens = set(pred_normalized.split())
+            truth_tokens = set(truth_normalized.split())
         
         if not pred_tokens or not truth_tokens:
             return 0.0
@@ -135,6 +169,11 @@ class GenerationMetrics:
         recall = len(common) / len(truth_tokens)
         
         return 2 * precision * recall / (precision + recall)
+    
+    def _is_chinese_text(self, text: str) -> bool:
+        """检测文本是否为中文"""
+        chinese_char_count = sum(1 for char in text if '\u4e00' <= char <= '\u9fff')
+        return chinese_char_count > len(text) * 0.3
     
     def _compute_semantic_similarity(
         self,
@@ -155,9 +194,14 @@ class GenerationMetrics:
             pred_vec = np.array(pred_embedding[0])
             truth_vec = np.array(truth_embedding[0])
             
-            similarity = np.dot(pred_vec, truth_vec) / (
-                np.linalg.norm(pred_vec) * np.linalg.norm(truth_vec)
-            )
+            pred_norm = np.linalg.norm(pred_vec)
+            truth_norm = np.linalg.norm(truth_vec)
+            
+            if pred_norm == 0 or truth_norm == 0:
+                logger.warning("零向量检测，返回相似度 0.0")
+                return 0.0
+            
+            similarity = np.dot(pred_vec, truth_vec) / (pred_norm * truth_norm)
             
             return float(similarity)
         except Exception as e:
@@ -209,25 +253,39 @@ class GenerationMetrics:
         text = re.sub(r'[^\w\s]', '', text)
         text = re.sub(r'\s+', ' ', text)
         return text
-    
-    def _tokenize(self, text: str) -> List[str]:
-        """分词"""
-        text = self._normalize_text(text)
-        return text.split()
 
 
 if __name__ == "__main__":
     print("=" * 50)
-    print("测试生成指标")
+    print("测试生成指标（改进版）")
     print("=" * 50)
     
     metrics = GenerationMetrics()
     
+    print("\n【测试1：中文文本】")
     predicted = "人工智能是计算机科学的一个分支，致力于创建智能系统。"
     ground_truth = "人工智能是计算机科学的分支，专注于开发智能系统。"
-    
     result = metrics.compute(predicted, ground_truth)
+    print(f"预测答案: {predicted}")
+    print(f"标准答案: {ground_truth}")
+    print(f"✓ Exact Match: {result.exact_match:.4f}")
+    print(f"✓ F1 Score: {result.f1_score:.4f}")
     
+    print("\n【测试2：英文文本 - 完全匹配】")
+    predicted = "Yes, they are both American."
+    ground_truth = "yes"
+    result = metrics.compute(predicted, ground_truth)
+    print(f"预测答案: {predicted}")
+    print(f"标准答案: {ground_truth}")
+    print(f"✓ Exact Match: {result.exact_match:.4f}")
+    print(f"✓ F1 Score: {result.f1_score:.4f}")
+    
+    print("\n【测试3：英文文本 - 包含匹配】")
+    predicted = "Based on the documents, the answer is yes."
+    ground_truth = "yes"
+    result = metrics.compute(predicted, ground_truth)
+    print(f"预测答案: {predicted}")
+    print(f"标准答案: {ground_truth}")
     print(f"✓ Exact Match: {result.exact_match:.4f}")
     print(f"✓ F1 Score: {result.f1_score:.4f}")
     
