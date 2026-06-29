@@ -64,3 +64,9 @@ htmlcov/
 .mypy_cache/
 .dmypy.json
 dmypy.json
+
+
+*.pkl
+
+*.json
+*.csv

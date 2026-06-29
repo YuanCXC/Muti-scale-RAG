@@ -55,10 +55,7 @@ class GraphRetriever(RetrieverBase):
         self.max_depth = max_depth
         self.entity_types = entity_types or ["entity", "concept"]
         
-        logger.info(
-            f"初始化知识图谱检索器: top_k={self.top_k}, "
-            f"max_depth={max_depth}, entity_types={entity_types}"
-        )
+        logger.debug(f"初始化知识图谱检索器: top_k={self.top_k}")
     
     def retrieve(
         self,
@@ -117,10 +114,7 @@ class GraphRetriever(RetrieverBase):
         # 根据阈值过滤
         results = self._filter_by_threshold(results)
         
-        logger.info(
-            f"知识图谱检索完成: query='{query[:50]}...', "
-            f"results={len(results)}"
-        )
+        logger.debug(f"知识图谱检索完成: results={len(results)}")
         
         return results
     

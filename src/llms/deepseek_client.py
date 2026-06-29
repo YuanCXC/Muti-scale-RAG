@@ -56,7 +56,7 @@ class DeepSeekClient(BaseLLMClient):
             base_url=self.base_url,
             timeout=self.timeout,
         )
-        logger.info(f"LLM 客户端初始化成功: model={self.model}, base_url={self.base_url}")
+        logger.debug(f"LLM 客户端初始化: model={self.model}")
     
     def generate(
         self,

@@ -62,11 +62,7 @@ class HybridRetriever(RetrieverBase):
                 f"keyword={keyword_weight}"
             )
         
-        logger.info(
-            f"初始化混合检索器: top_k={self.top_k}, "
-            f"vector_weight={vector_weight}, keyword_weight={keyword_weight}, "
-            f"rrf_k={rrf_k}"
-        )
+        logger.debug(f"初始化混合检索器: top_k={self.top_k}")
     
     def retrieve(
         self,
@@ -118,12 +114,7 @@ class HybridRetriever(RetrieverBase):
         # 根据阈值过滤
         fused_results = self._filter_by_threshold(fused_results)
         
-        logger.info(
-            f"混合检索完成: query='{query[:50]}...', "
-            f"vector_results={len(vector_results)}, "
-            f"keyword_results={len(keyword_results)}, "
-            f"fused_results={len(fused_results)}"
-        )
+        logger.debug(f"混合检索完成: results={len(fused_results)}")
         
         return fused_results
     

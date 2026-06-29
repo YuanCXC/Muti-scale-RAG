@@ -74,30 +74,21 @@ class EmbeddingClient:
             try:
                 from sentence_transformers import SentenceTransformer
                 
-                logger.info(f"正在加载 Embedding 模型: {self.model}")
                 self._model = SentenceTransformer(self.model, device=self.device)
                 self._dimension = self._model.get_sentence_embedding_dimension()
                 
-                logger.info(
-                    f"Embedding 模型加载成功: model={self.model}, "
-                    f"dimension={self._dimension}, device={self.device}"
-                )
+                logger.debug(f"Embedding 模型加载: model={self.model}, dimension={self._dimension}")
                 return
             except ImportError:
-                logger.warning(
-                    "未安装 sentence-transformers 库。"
-                    "请运行: pip install sentence-transformers"
-                )
+                logger.warning("未安装 sentence-transformers 库，尝试使用 API 模式")
                 if self.provider == "auto":
-                    logger.info("尝试使用 API 模式...")
                     self.provider = "api"
                 else:
                     self._dimension = 1024
                     return
             except Exception as e:
-                logger.warning(f"本地模型加载失败: {e}")
+                logger.warning(f"本地模型加载失败: {e}，尝试使用 API 模式")
                 if self.provider == "auto":
-                    logger.info("尝试使用 API 模式...")
                     self.provider = "api"
                 else:
                     self._dimension = 1024
@@ -105,7 +96,7 @@ class EmbeddingClient:
         
         if self.provider == "api" or self.provider == "openai":
             self._dimension = 1024
-            logger.info(f"使用 API Embedding: model={self.model}, base_url={self.base_url}")
+            logger.debug(f"使用 API Embedding: model={self.model}")
     
     @property
     def dimension(self) -> int:

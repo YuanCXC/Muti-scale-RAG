@@ -76,10 +76,7 @@ class Reranker:
         self.model = None
         self._init_model(**kwargs)
         
-        logger.info(
-            f"初始化重排序器: model={self.model_name}, "
-            f"batch_size={batch_size}, max_length={max_length}"
-        )
+        logger.debug(f"初始化重排序器: model={self.model_name}")
     
     def _init_model(self, **kwargs: Any) -> None:
         """初始化模型
@@ -89,7 +86,6 @@ class Reranker:
         """
         # 优先使用 FlagEmbedding（针对 BGE 模型优化）
         if FLAG_EMBEDDING_AVAILABLE and "bge" in self.model_name.lower():
-            logger.info("使用 FlagEmbedding 加载 BGE reranker")
             self.model = FlagReranker(
                 self.model_name,
                 use_fp16=self.use_fp16,
@@ -98,7 +94,6 @@ class Reranker:
             self._backend = "flag_embedding"
         # 使用 sentence-transformers
         elif SENTENCE_TRANSFORMERS_AVAILABLE:
-            logger.info("使用 sentence-transformers 加载 cross-encoder")
             self.model = CrossEncoder(
                 self.model_name,
                 max_length=self.max_length,
@@ -155,10 +150,7 @@ class Reranker:
         if top_k is not None:
             candidates = candidates[:top_k]
         
-        logger.info(
-            f"重排序完成: query='{query[:50]}...', "
-            f"candidates={len(candidates)}"
-        )
+        logger.debug(f"重排序完成: candidates={len(candidates)}")
         
         return candidates
     
@@ -278,7 +270,7 @@ class LLMBasedReranker:
         self.prompt_template = prompt_template or self.DEFAULT_PROMPT
         self.batch_size = batch_size
         
-        logger.info("初始化 LLM 重排序器")
+        logger.debug("初始化 LLM 重排序器")
     
     def rerank(
         self,
@@ -403,10 +395,7 @@ class APIBasedReranker:
         
         self._init_client()
         
-        logger.info(
-            f"初始化 API 重排序器: model={self.model}, "
-            f"base_url={self.base_url}"
-        )
+        logger.debug(f"初始化 API 重排序器: model={self.model}")
     
     def _init_client(self) -> None:
         """初始化 OpenAI 客户端"""
@@ -498,10 +487,7 @@ class APIBasedReranker:
             
             reranked.sort(key=lambda x: x.score, reverse=True)
             
-            logger.info(
-                f"API 重排序完成: query='{query[:50]}...', "
-                f"results={len(reranked)}"
-            )
+            logger.debug(f"API 重排序完成: results={len(reranked)}")
             
             return reranked
             

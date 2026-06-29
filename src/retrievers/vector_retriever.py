@@ -50,10 +50,7 @@ class VectorRetriever(RetrieverBase):
         self.llm_client = llm_client
         self.embedding_model = embedding_model
         
-        logger.info(
-            f"初始化向量检索器: top_k={self.top_k}, "
-            f"score_threshold={self.score_threshold}"
-        )
+        logger.debug(f"初始化向量检索器: top_k={self.top_k}")
     
     def _get_query_embedding(self, query: str) -> np.ndarray:
         """获取查询文本的嵌入向量
@@ -121,10 +118,7 @@ class VectorRetriever(RetrieverBase):
         # 根据阈值过滤
         results = self._filter_by_threshold(results)
         
-        logger.info(
-            f"向量检索完成: query='{query[:50]}...', "
-            f"results={len(results)}"
-        )
+        logger.debug(f"向量检索完成: results={len(results)}")
         
         return results
     

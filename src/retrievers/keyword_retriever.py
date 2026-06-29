@@ -141,10 +141,7 @@ class BM25:
         # 计算平均文档长度
         self.avgdl = total_len / self.doc_count if self.doc_count > 0 else 0
         
-        logger.info(
-            f"BM25 索引构建完成: docs={self.doc_count}, "
-            f"avg_len={self.avgdl:.2f}, vocab={len(self.inverted_index)}"
-        )
+        logger.debug(f"BM25 索引构建完成: docs={self.doc_count}, vocab={len(self.inverted_index)}")
     
     def _calc_idf(self, term: str) -> float:
         """计算逆文档频率 IDF
@@ -272,10 +269,7 @@ class KeywordRetriever(RetrieverBase):
         self.bm25 = BM25(k1=k1, b=b)
         self.documents: List[Dict[str, Any]] = []
         
-        logger.info(
-            f"初始化关键词检索器: top_k={self.top_k}, "
-            f"score_threshold={self.score_threshold}, k1={k1}, b={b}"
-        )
+        logger.debug(f"初始化关键词检索器: top_k={self.top_k}")
     
     def add_documents(
         self,
@@ -326,10 +320,7 @@ class KeywordRetriever(RetrieverBase):
         # 根据阈值过滤
         results = self._filter_by_threshold(results)
         
-        logger.info(
-            f"关键词检索完成: query='{query[:50]}...', "
-            f"results={len(results)}"
-        )
+        logger.debug(f"关键词检索完成: results={len(results)}")
         
         return results
     

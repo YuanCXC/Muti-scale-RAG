@@ -6,6 +6,7 @@
 - 不同日志级别
 - 彩色输出
 - 日志文件轮转
+- 第三方库日志抑制
 """
 
 import sys
@@ -16,13 +17,11 @@ from datetime import datetime
 from logging.handlers import RotatingFileHandler, TimedRotatingFileHandler
 from functools import lru_cache
 
-# ANSI 颜色代码
 class ColorCodes:
     """ANSI 颜色代码"""
     RESET = "\033[0m"
     BOLD = "\033[1m"
     
-    # 前景色
     RED = "\033[31m"
     GREEN = "\033[32m"
     YELLOW = "\033[33m"
@@ -31,7 +30,6 @@ class ColorCodes:
     CYAN = "\033[36m"
     WHITE = "\033[37m"
     
-    # 背景色
     BG_RED = "\033[41m"
     BG_YELLOW = "\033[43m"
 
@@ -42,7 +40,6 @@ class ColoredFormatter(logging.Formatter):
     根据日志级别使用不同的颜色输出。
     """
     
-    # 日志级别对应的颜色
     LEVEL_COLORS = {
         logging.DEBUG: ColorCodes.CYAN,
         logging.INFO: ColorCodes.GREEN,
@@ -60,18 +57,14 @@ class ColoredFormatter(logging.Formatter):
         Returns:
             格式化后的日志字符串
         """
-        # 保存原始级别名称
         original_levelname = record.levelname
         
-        # 添加颜色
         if record.levelno in self.LEVEL_COLORS:
             color = self.LEVEL_COLORS[record.levelno]
             record.levelname = f"{color}{record.levelname}{ColorCodes.RESET}"
         
-        # 格式化消息
         result = super().format(record)
         
-        # 恢复原始级别名称
         record.levelname = original_levelname
         
         return result
@@ -112,27 +105,22 @@ class LoggerManager:
         log_file = config.log_file
         log_dir = config.log_dir if hasattr(config, 'log_dir') else ""
         
-        # 默认格式
         if format_string is None:
             format_string = (
                 "%(asctime)s | %(levelname)-8s | %(name)s:%(lineno)d | %(message)s"
             )
         
-        # 创建日志目录
         if log_file:
             log_path = Path(log_file)
             if not log_path.is_absolute():
                 log_path = Path(log_dir) / log_file
             log_path.parent.mkdir(parents=True, exist_ok=True)
         
-        # 配置根日志记录器
         root_logger = logging.getLogger()
         root_logger.setLevel(getattr(logging, log_level.upper()))
         
-        # 清除现有处理器
         root_logger.handlers.clear()
         
-        # 控制台处理器
         console_handler = logging.StreamHandler(sys.stdout)
         console_handler.setLevel(getattr(logging, log_level.upper()))
         
@@ -144,7 +132,6 @@ class LoggerManager:
         console_handler.setFormatter(console_formatter)
         root_logger.addHandler(console_handler)
         
-        # 文件处理器
         if log_file:
             file_handler = RotatingFileHandler(
                 log_path,
@@ -157,7 +144,34 @@ class LoggerManager:
             file_handler.setFormatter(file_formatter)
             root_logger.addHandler(file_handler)
         
+        cls._suppress_third_party_loggers()
+        
         cls._initialized = True
+    
+    @classmethod
+    def _suppress_third_party_loggers(cls) -> None:
+        """抑制第三方库的日志输出
+        
+        将 httpx、openai、urllib3 等库的日志级别设置为 WARNING，
+        减少控制台日志刷新频率。
+        """
+        third_party_loggers = [
+            "httpx",
+            "httpcore",
+            "openai",
+            "urllib3",
+            "requests",
+            "asyncio",
+            "aiohttp",
+            "websockets",
+            "neo4j",
+            "faiss",
+        ]
+        
+        for logger_name in third_party_loggers:
+            third_party_logger = logging.getLogger(logger_name)
+            third_party_logger.setLevel(logging.WARNING)
+            third_party_logger.propagate = False
     
     @classmethod
     def get_logger(cls, name: str) -> logging.Logger:
@@ -217,14 +231,12 @@ def get_logger(name: str) -> logging.Logger:
         >>> logger = get_logger(__name__)
         >>> logger.info("This is an info message")
     """
-    # 如果日志系统未初始化，使用默认配置
     if not LoggerManager._initialized:
         LoggerManager.setup()
     
     return LoggerManager.get_logger(name)
 
 
-# 创建默认日志记录器
 logger = get_logger("rag")
 
 if __name__ == '__main__':
@@ -232,22 +244,18 @@ if __name__ == '__main__':
     print("测试 Logger 模块")
     print("=" * 50)
     
-    # 测试 1: 获取日志记录器
     test_logger = get_logger("test_module")
     print(f"✓ 获取日志记录器: {test_logger.name}")
     
-    # 测试 2: 各级别日志
     test_logger.debug("这是 debug 消息")
     test_logger.info("这是 info 消息")
     test_logger.warning("这是 warning 消息")
     test_logger.error("这是 error 消息")
     print("✓ 各级别日志输出正常")
     
-    # 测试 3: LoggerManager
     LoggerManager.setup(use_color=True)
     print(f"✓ LoggerManager 初始化状态: {LoggerManager._initialized}")
     
-    # 测试 4: 缓存功能
     logger1 = get_logger("module_a")
     logger2 = get_logger("module_a")
     print(f"✓ 缓存功能: {logger1 is logger2}")
