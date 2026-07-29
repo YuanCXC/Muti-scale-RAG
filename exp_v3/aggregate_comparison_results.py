@@ -44,10 +44,12 @@ SUMMARY_COLUMNS = (
     "Method",
     "Samples",
     "Generation Success Samples",
+    "Generation Success Rate",
     "Valid Judge Samples",
     "Refusal Rate",
     "Recall",
     "Precision",
+    "F1",
     "MRR",
     "NDCG",
     "MAP",
@@ -66,6 +68,8 @@ TYPE_COLUMNS = (
     "Samples",
     "Recall",
     "Precision",
+    "F1",
+    "Generation Success Rate",
     "Correctness",
     "Faithfulness",
     "Answer Relevance",
@@ -147,11 +151,61 @@ def _validate_sample_rows(method: str, rows: Sequence[Mapping[str, Any]]) -> Non
         retrieval = row.get("retrieval_metrics")
         if not isinstance(retrieval, Mapping):
             raise ValueError(f"{method} 的样本 {_sample_id(row)} 缺少 retrieval_metrics")
-        for key in ("recall", "precision", "avg_len", "time_ms", "expanded_nodes"):
+        for key in (
+            "recall",
+            "precision",
+            "mrr",
+            "ndcg",
+            "map_score",
+            "avg_len",
+            "time_ms",
+            "expanded_nodes",
+        ):
             if key not in retrieval:
                 raise ValueError(
                     f"{method} 的样本 {_sample_id(row)} 缺少检索指标 {key}"
                 )
+            value = retrieval.get(key)
+            if not isinstance(value, (int, float)) or not math.isfinite(float(value)):
+                raise ValueError(
+                    f"{method} 的样本 {_sample_id(row)} 指标 {key} 不是有限数值"
+                )
+            if key in {"recall", "precision", "mrr", "ndcg", "map_score"}:
+                if not 0.0 <= float(value) <= 1.0:
+                    raise ValueError(
+                        f"{method} 的样本 {_sample_id(row)} 指标 {key} 超出 [0,1]"
+                    )
+
+        semantic = row.get("semantic_metrics")
+        if isinstance(semantic, Mapping) and semantic:
+            score_keys = (
+                "correctness",
+                "faithfulness",
+                "answer_relevance",
+                "context_relevance",
+            )
+            present_scores = [key for key in score_keys if key in semantic]
+            if present_scores and len(present_scores) != len(score_keys):
+                raise ValueError(
+                    f"{method} 的样本 {_sample_id(row)} 语义指标不完整"
+                )
+            score_values = [semantic.get(key) for key in present_scores]
+            if score_values and all(value is None for value in score_values):
+                continue
+            if any(value is None for value in score_values):
+                raise ValueError(
+                    f"{method} 的样本 {_sample_id(row)} 语义指标部分缺失"
+                )
+            for key in present_scores:
+                value = semantic.get(key)
+                if not isinstance(value, (int, float)) or not math.isfinite(float(value)):
+                    raise ValueError(
+                        f"{method} 的样本 {_sample_id(row)} 语义指标 {key} 非法"
+                    )
+                if not 0.0 <= float(value) <= 1.0:
+                    raise ValueError(
+                        f"{method} 的样本 {_sample_id(row)} 语义指标 {key} 超出 [0,1]"
+                    )
 
 
 def load_run(run_dir: Path, method: str) -> LoadedRun:
@@ -239,6 +293,10 @@ def validate_runs(
     warnings: List[str] = []
 
     reference_seed = reference.config.get("random_seed")
+    reference_modes = (
+        reference.config.get("run_generation"),
+        reference.config.get("run_judge"),
+    )
     for method in EXPECTED_METHODS:
         run = runs[method]
         sample_ids = _ids(run)
@@ -263,6 +321,15 @@ def validate_runs(
             raise ValueError(
                 f"{method} 的 random_seed={seed!r}，"
                 f"与 Proposed 的 {reference_seed!r} 不一致"
+            )
+        modes = (
+            run.config.get("run_generation"),
+            run.config.get("run_judge"),
+        )
+        if modes != reference_modes:
+            raise ValueError(
+                f"{method} 的生成/评判模式 {modes!r}，"
+                f"与 Proposed 的 {reference_modes!r} 不一致"
             )
 
     if not common_ids:
@@ -312,9 +379,58 @@ def _generation_success(row: Mapping[str, Any]) -> bool:
     return bool(str(row.get("generated_answer") or "").strip())
 
 
+def _judge_valid(row: Mapping[str, Any]) -> bool:
+    semantic = row.get("semantic_metrics")
+    if not isinstance(semantic, Mapping):
+        return False
+    if "_judge_valid" in semantic:
+        return bool(semantic.get("_judge_valid"))
+    return all(
+        _number(semantic.get(key)) is not None
+        for key in (
+            "correctness",
+            "faithfulness",
+            "answer_relevance",
+            "context_relevance",
+        )
+    )
+
+
 def _is_refusal(row: Mapping[str, Any]) -> bool:
     semantic = row.get("semantic_metrics")
-    return bool(semantic.get("_is_refusal")) if isinstance(semantic, Mapping) else False
+    if isinstance(semantic, Mapping) and "_is_refusal" in semantic:
+        return bool(semantic.get("_is_refusal"))
+    answer = str(row.get("generated_answer") or "").strip().lower()
+    if not answer:
+        return True
+    refusal_markers = (
+        "insufficient information",
+        "not enough information",
+        "cannot determine",
+        "cannot be determined",
+        "can not be determined",
+        "can't determine",
+        "unable to determine",
+        "insufficient evidence",
+        "not enough evidence",
+        "unknown",
+        "无法确定",
+        "信息不足",
+    )
+    return any(marker in answer for marker in refusal_markers)
+
+
+def _f1(row: Mapping[str, Any]) -> float:
+    value = _number(_metric(row, "f1"))
+    if value is not None:
+        return value
+    recall = _number(_metric(row, "recall")) or 0.0
+    precision = _number(_metric(row, "precision")) or 0.0
+    return (
+        2 * precision * recall / (precision + recall)
+        if precision + recall
+        else 0.0
+    )
 
 
 def aggregate_rows(method: str, rows: Sequence[Mapping[str, Any]]) -> Dict[str, Any]:
@@ -324,16 +440,16 @@ def aggregate_rows(method: str, rows: Sequence[Mapping[str, Any]]) -> Dict[str, 
         "Method": method,
         "Samples": total,
         "Generation Success Samples": sum(_generation_success(row) for row in rows),
-        "Valid Judge Samples": sum(
-            bool(
-                isinstance(row.get("semantic_metrics"), Mapping)
-                and row["semantic_metrics"].get("_judge_valid")
-            )
-            for row in rows
+        "Generation Success Rate": _round(
+            sum(_generation_success(row) for row in rows) / total
+            if total
+            else 0.0
         ),
+        "Valid Judge Samples": sum(_judge_valid(row) for row in rows),
         "Refusal Rate": _round(sum(_is_refusal(row) for row in rows) / total if total else 0.0),
         "Recall": _round(_mean(_metric(row, "recall") for row in rows)),
         "Precision": _round(_mean(_metric(row, "precision") for row in rows)),
+        "F1": _round(_mean(_f1(row) for row in rows)),
         "MRR": _round(_mean(_metric(row, "mrr") for row in rows)),
         "NDCG": _round(_mean(_metric(row, "ndcg") for row in rows)),
         "MAP": _round(_mean(_metric(row, "map_score") for row in rows)),
@@ -370,6 +486,12 @@ def aggregate_by_type(
                 "Samples": total,
                 "Recall": _round(_mean(_metric(row, "recall") for row in group)),
                 "Precision": _round(_mean(_metric(row, "precision") for row in group)),
+                "F1": _round(_mean(_f1(row) for row in group)),
+                "Generation Success Rate": _round(
+                    sum(_generation_success(row) for row in group) / total
+                    if total
+                    else 0.0
+                ),
                 "Correctness": _round(
                     _mean((_semantic(row, "correctness") for row in group), total)
                 ),
@@ -467,6 +589,15 @@ def aggregate(args: argparse.Namespace) -> Dict[str, Any]:
         "sample_count": len(common_ids),
         "random_seed": runs["Proposed"].config.get("random_seed"),
         "warnings": warnings,
+        "arguments": {
+            "results_root": str(results_root),
+            "output_dir": str(output_root),
+            "allow_intersection": bool(args.allow_intersection),
+            "explicit_run_dirs": {
+                method: str(path.resolve()) if path is not None else None
+                for method, path in explicit_dirs.items()
+            },
+        },
     }
     _write_json(run_dir / "manifest.json", manifest)
 

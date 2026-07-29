@@ -9,6 +9,7 @@ from __future__ import annotations
 
 import copy
 import csv
+import hashlib
 import html
 import json
 import math
@@ -22,7 +23,7 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 from dataclasses import asdict, dataclass, field
 from datetime import datetime
 from pathlib import Path
-from typing import Any, Callable, Dict, Iterable, List, Optional, Sequence, Set, Tuple
+from typing import Any, Callable, Dict, Iterable, List, Mapping, Optional, Sequence, Set, Tuple
 
 # 允许脚本放在项目根目录或 exp_v3 子目录中直接运行。
 SCRIPT_DIR = Path(__file__).resolve().parent
@@ -99,6 +100,7 @@ class RetrievalConfig:
     retrieval_workers: int = 32
     llm_max_concurrency: int = 200
     rerank_max_concurrency: int = 5
+    rerank_max_retries: int = 3
 
     checkpoint_interval: int = 10
     generation_max_retries: int = 3
@@ -109,6 +111,7 @@ class RetrievalConfig:
 
     retrieval_cache_dir: str = ""
     skip_retrieval: bool = False
+    resume_checkpoint: str = ""
 
 
 @dataclass
@@ -155,6 +158,7 @@ class EvidenceStatus:
 class ExperimentMetrics:
     recall: float = 0.0
     precision: float = 0.0
+    f1: float = 0.0
     mrr: float = 0.0
     ndcg: float = 0.0
     map_score: float = 0.0
@@ -305,6 +309,11 @@ def compute_retrieval_metrics(
     hit_count = sum(hits)
     recall = hit_count / len(relevant)
     precision = hit_count / len(retrieved) if retrieved else 0.0
+    f1 = (
+        2 * precision * recall / (precision + recall)
+        if precision + recall
+        else 0.0
+    )
 
     mrr = 0.0
     for idx, hit in enumerate(hits, start=1):
@@ -328,6 +337,7 @@ def compute_retrieval_metrics(
     return ExperimentMetrics(
         recall=recall,
         precision=precision,
+        f1=f1,
         mrr=mrr,
         ndcg=ndcg,
         map_score=map_score,
@@ -383,6 +393,69 @@ def context_len(units: Sequence[EvidenceUnit]) -> int:
     return sum(unit.token_count for unit in units)
 
 
+def build_retrieval_cache_manifest(
+    config: RetrievalConfig,
+    samples: Sequence[Tuple[Any, pd.Series]],
+    method_names: Sequence[str],
+    desc: str,
+) -> Dict[str, Any]:
+    excluded = {
+        "output_dir",
+        "run_generation",
+        "run_judge",
+        "max_workers",
+        "retrieval_workers",
+        "llm_max_concurrency",
+        "rerank_max_concurrency",
+        "checkpoint_interval",
+        "generation_max_retries",
+        "judge_max_retries",
+        "llm_retry_base_seconds",
+        "llm_retry_max_seconds",
+        "llm_retry_jitter_seconds",
+        "retrieval_cache_dir",
+        "skip_retrieval",
+        "resume_checkpoint",
+    }
+    retrieval_config = {
+        key: str(value) if isinstance(value, Path) else value
+        for key, value in asdict(config).items()
+        if key not in excluded
+    }
+    payload = {
+        "schema_version": 2,
+        "description": desc,
+        "methods": list(method_names),
+        "sample_ids": [str(sample.get("id")) for _, sample in samples],
+        "retrieval_config": retrieval_config,
+        "script_sha256": hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
+    }
+    serialized = json.dumps(payload, ensure_ascii=False, sort_keys=True)
+    return {
+        **payload,
+        "fingerprint": hashlib.sha256(serialized.encode("utf-8")).hexdigest(),
+    }
+
+
+def build_checkpoint_manifest(
+    config: RetrievalConfig,
+    retrieval_manifest: Mapping[str, Any],
+) -> Dict[str, Any]:
+    payload = {
+        "schema_version": 1,
+        "retrieval_fingerprint": retrieval_manifest["fingerprint"],
+        "run_generation": config.run_generation,
+        "run_judge": config.run_judge,
+        "generation_max_retries": config.generation_max_retries,
+        "judge_max_retries": config.judge_max_retries,
+    }
+    serialized = json.dumps(payload, ensure_ascii=False, sort_keys=True)
+    return {
+        **payload,
+        "fingerprint": hashlib.sha256(serialized.encode("utf-8")).hexdigest(),
+    }
+
+
 class MacRAGExperiment:
     """按查询复杂度切换检索尺度的基线。"""
 
@@ -407,12 +480,15 @@ class MacRAGExperiment:
         self._llm_semaphore = threading.BoundedSemaphore(
             max(1, int(self.config.llm_max_concurrency))
         )
+        self._checkpoint_path: Optional[Path] = None
 
         # 同一个查询在各消融方法中必须复用完全相同的重排序结果。
         # 全局锁只保护字典；每个 cache key 使用独立锁，不阻塞其他查询。
         self._rerank_cache: Dict[str, List[EvidenceUnit]] = {}
+        self._rerank_status_cache: Dict[str, Tuple[bool, str]] = {}
         self._rerank_cache_lock = threading.RLock()
         self._rerank_key_locks: Dict[str, threading.Lock] = {}
+        self._rerank_state = threading.local()
 
     # ------------------------------------------------------------------
     # 资源加载
@@ -517,11 +593,16 @@ class MacRAGExperiment:
         if not units:
             return []
         limit = top_k or self.config.k3
+        self._rerank_state.fallback = self.reranker is None
+        self._rerank_state.error = "API 重排序器不可用" if self.reranker is None else ""
 
         cache_key = f"{query}::{','.join(u.id for u in units)}::{limit}"
         with self._rerank_cache_lock:
             cached = self._rerank_cache.get(cache_key)
+            cached_status = self._rerank_status_cache.get(cache_key)
         if cached is not None:
+            if cached_status is not None:
+                self._rerank_state.fallback, self._rerank_state.error = cached_status
             return copy.deepcopy(cached)
 
         # 防止同一问题的五个消融方法同时调用 API 重排序器。
@@ -529,26 +610,51 @@ class MacRAGExperiment:
         with key_lock:
             with self._rerank_cache_lock:
                 cached = self._rerank_cache.get(cache_key)
+                cached_status = self._rerank_status_cache.get(cache_key)
             if cached is not None:
+                if cached_status is not None:
+                    self._rerank_state.fallback, self._rerank_state.error = cached_status
                 return copy.deepcopy(cached)
 
             result: List[EvidenceUnit] = []
             if self.reranker is not None:
-                try:
-                    with self._rerank_semaphore:
-                        search_results = [
-                            RerankSearchResult(
-                                doc_id=u.id,
-                                content=u.content,
-                                score=u.score,
-                                metadata={"unit": u},
+                search_results = [
+                    RerankSearchResult(
+                        doc_id=u.id,
+                        content=u.content,
+                        score=u.score,
+                        metadata={"unit": u},
+                    )
+                    for u in units
+                ]
+                max_attempts = max(1, int(self.config.rerank_max_retries))
+                for attempt in range(max_attempts):
+                    try:
+                        with self._rerank_semaphore:
+                            reranked = self.reranker.rerank(
+                                query,
+                                search_results,
+                                top_k=limit,
                             )
-                            for u in units
-                        ]
-                        reranked = self.reranker.rerank(query, search_results, top_k=limit)
-                    result = [r.metadata["unit"] for r in reranked]
-                except Exception as exc:
-                    logger.warning("API 重排序失败，改用词汇重排序：%s", exc)
+                        result = [r.metadata["unit"] for r in reranked]
+                        if result:
+                            self._rerank_state.fallback = False
+                            self._rerank_state.error = ""
+                            break
+                        self._rerank_state.error = "empty_rerank_response"
+                        if attempt + 1 < max_attempts:
+                            time.sleep(min(0.5 * (attempt + 1), 2.0))
+                    except Exception as exc:
+                        self._rerank_state.error = str(exc)
+                        if attempt + 1 < max_attempts:
+                            time.sleep(min(0.5 * (attempt + 1), 2.0))
+                if not result:
+                    logger.warning(
+                        "API 重排序连续失败 %s 次，改用词汇重排序：%s",
+                        max_attempts,
+                        self._rerank_state.error,
+                    )
+                    self._rerank_state.fallback = True
 
             if not result:
                 query_terms = set(t.lower() for t in re.findall(r"[A-Za-z0-9]+", query))
@@ -565,6 +671,10 @@ class MacRAGExperiment:
 
             with self._rerank_cache_lock:
                 self._rerank_cache[cache_key] = copy.deepcopy(result)
+                self._rerank_status_cache[cache_key] = (
+                    bool(self._rerank_state.fallback),
+                    str(self._rerank_state.error),
+                )
             return copy.deepcopy(result)
 
 
@@ -605,7 +715,7 @@ class MacRAGExperiment:
                     continue
 
                 unit_tokens = unit.token_count
-                if total_tokens + unit_tokens > budget and selected:
+                if total_tokens + unit_tokens > budget:
                     continue
 
                 relevance = len(query_terms & terms) / max(len(query_terms), 1)
@@ -647,6 +757,8 @@ class MacRAGExperiment:
     def retrieve_method(self, query: str) -> MethodResult:
         """按查询复杂度在句子、混合与段落粒度间切换。"""
         start = time.perf_counter()
+        self._rerank_state.fallback = False
+        self._rerank_state.error = ""
         complexity = self.complexity_scorer.compute(query)
 
         if complexity.score < 0.45:
@@ -694,6 +806,12 @@ class MacRAGExperiment:
             candidate_count=len(candidates),
         )
         stats["complexity_score"] = complexity.score
+        stats["rerank_fallback"] = bool(
+            getattr(self._rerank_state, "fallback", False)
+        )
+        stats["rerank_error"] = str(
+            getattr(self._rerank_state, "error", "")
+        )
         return MethodResult(units=units, stats=stats)
 
 
@@ -998,20 +1116,171 @@ Rules:
 
             return method_name, result
 
+        def safe_generation_phase(
+            method_name: str,
+            sample: pd.Series,
+            method_result: MethodResult,
+            relevant_titles: Set[str],
+        ) -> Tuple[str, Dict[str, Any]]:
+            """确保生成或评判异常不会导致样本行丢失。"""
+            try:
+                return generation_phase(
+                    method_name,
+                    sample,
+                    method_result,
+                    relevant_titles,
+                )
+            except Exception as exc:
+                logger.exception(
+                    "生成阶段异常（method=%s, id=%s）",
+                    method_name,
+                    sample.get("id"),
+                )
+                question = str(sample.get("question", ""))
+                retrieved_titles = [unit.title for unit in method_result.units]
+                metrics = compute_retrieval_metrics(
+                    retrieved_titles=retrieved_titles,
+                    relevant_titles=relevant_titles,
+                    avg_context_len=method_result.stats.get(
+                        "avg_len",
+                        context_len(method_result.units),
+                    ),
+                    latency_ms=method_result.stats.get("time_ms", 0.0),
+                    expanded_nodes=method_result.stats.get("expanded_nodes", 0),
+                )
+                return method_name, {
+                    "id": sample.get("id"),
+                    "question": question,
+                    "answer": str(sample.get("answer", "")),
+                    "type": sample.get("type"),
+                    "level": sample.get("level"),
+                    "relevant_titles": sorted(relevant_titles),
+                    "retrieved_titles": retrieved_titles,
+                    "retrieved_contexts": [
+                        unit.content for unit in method_result.units
+                    ],
+                    "generated_answer": "",
+                    "generation_success": False,
+                    "generation_attempts": 0,
+                    "generation_error": str(exc),
+                    "retrieval_metrics": metrics,
+                    "semantic_metrics": {
+                        "_judge_valid": False,
+                        "_judge_error": str(exc),
+                        "_is_refusal": False,
+                    },
+                    "stats": method_result.stats,
+                    "complexity_score": self.complexity_scorer.compute(question).score,
+                    "route": method_result.stats.get("route", ""),
+                }
+
         cache_file = None
         if self.config.retrieval_cache_dir:
             cache_dir = Path(self.config.retrieval_cache_dir)
             cache_dir.mkdir(parents=True, exist_ok=True)
             cache_file = cache_dir / f"retrieval_{desc.replace(' ', '_')}.pkl"
+        cache_manifest = build_retrieval_cache_manifest(
+            self.config,
+            samples,
+            method_names,
+            desc,
+        )
+        checkpoint_manifest = build_checkpoint_manifest(
+            self.config,
+            cache_manifest,
+        )
+        checkpoint_lock = threading.Lock()
+
+        def write_checkpoint(status: str) -> None:
+            if self._checkpoint_path is None:
+                return
+            with checkpoint_lock:
+                with rows_lock:
+                    snapshot = copy.deepcopy(rows_by_method)
+                payload = {
+                    "status": status,
+                    "manifest": checkpoint_manifest,
+                    "rows_by_method": self._json_safe(snapshot),
+                    "completed_samples": sum(len(rows) for rows in snapshot.values()),
+                    "updated_at": datetime.now().isoformat(),
+                }
+                temp_path = self._checkpoint_path.with_suffix(".json.tmp")
+                with open(temp_path, "w", encoding="utf-8") as f:
+                    json.dump(payload, f, ensure_ascii=False, indent=2)
+                temp_path.replace(self._checkpoint_path)
+
+        def maybe_write_checkpoint() -> None:
+            interval = max(1, int(self.config.checkpoint_interval))
+            with rows_lock:
+                completed = sum(len(rows) for rows in rows_by_method.values())
+            if completed and completed % interval == 0:
+                write_checkpoint("running")
+
+        completed_keys: Set[Tuple[str, str]] = set()
+        if self.config.resume_checkpoint:
+            resume_path = Path(self.config.resume_checkpoint)
+            if not resume_path.is_file():
+                raise FileNotFoundError(f"检查点不存在：{resume_path}")
+            with open(resume_path, "r", encoding="utf-8") as f:
+                resume_payload = json.load(f)
+            saved_manifest = resume_payload.get("manifest")
+            if (
+                not isinstance(saved_manifest, dict)
+                or saved_manifest.get("fingerprint")
+                != checkpoint_manifest["fingerprint"]
+            ):
+                raise ValueError("检查点与当前脚本、配置或样本不匹配")
+            saved_rows = resume_payload.get("rows_by_method")
+            if not isinstance(saved_rows, dict):
+                raise ValueError("检查点缺少 rows_by_method")
+            for method_name in method_names:
+                method_rows = saved_rows.get(method_name, [])
+                if not isinstance(method_rows, list):
+                    raise ValueError(f"检查点中的 {method_name} 结果格式错误")
+                for row in method_rows:
+                    retrieval = row.get("retrieval_metrics")
+                    if isinstance(retrieval, dict):
+                        allowed = {
+                            field_name
+                            for field_name in ExperimentMetrics.__dataclass_fields__
+                        }
+                        row["retrieval_metrics"] = ExperimentMetrics(
+                            **{
+                                key: value
+                                for key, value in retrieval.items()
+                                if key in allowed
+                            }
+                        )
+                rows_by_method[method_name] = method_rows
+                completed_keys.update(
+                    (method_name, str(row.get("id")))
+                    for row in method_rows
+                    if isinstance(row, dict) and row.get("id") is not None
+                )
 
         retrieval_results: List[Tuple[str, pd.Series, MethodResult, Set[str]]] = []
         generation_workers = max(1, int(self.config.max_workers))
 
-        if self.config.skip_retrieval and cache_file and cache_file.exists():
+        if self.config.skip_retrieval:
+            if cache_file is None:
+                raise ValueError("--skip-retrieval 必须同时指定 --retrieval-cache-dir")
+            if not cache_file.exists():
+                raise FileNotFoundError(f"检索缓存不存在：{cache_file}")
             logger.info("从缓存加载检索结果：%s", cache_file)
             import pickle
             with open(cache_file, "rb") as f:
-                retrieval_results = pickle.load(f)
+                cache_payload = pickle.load(f)
+            if not isinstance(cache_payload, dict):
+                raise ValueError("检索缓存为旧格式，必须重新执行检索")
+            saved_manifest = cache_payload.get("manifest")
+            if (
+                not isinstance(saved_manifest, dict)
+                or saved_manifest.get("fingerprint") != cache_manifest["fingerprint"]
+            ):
+                raise ValueError("检索缓存与当前脚本、配置或样本不匹配")
+            retrieval_results = cache_payload.get("results")
+            if not isinstance(retrieval_results, list):
+                raise ValueError("检索缓存缺少结果列表")
             logger.info("已加载 %d 条检索结果", len(retrieval_results))
         elif self.config.retrieval_workers > 1:
             total_tasks = len(samples) * len(method_names)
@@ -1043,16 +1312,28 @@ Rules:
 
             pbar.close()
 
-            if cache_file:
-                logger.info("保存检索结果到缓存：%s", cache_file)
-                import pickle
-                with open(cache_file, "wb") as f:
-                    pickle.dump(retrieval_results, f)
         else:
             for idx, sample in tqdm(samples, desc=f"{desc} - 检索阶段"):
                 for method_name in method_names:
                     method_name_r, sample_r, method_result, relevant_titles = retrieval_phase(idx, sample, method_name)
                     retrieval_results.append((method_name_r, sample_r, method_result, relevant_titles))
+
+        if cache_file and not self.config.skip_retrieval:
+            logger.info("保存检索结果到缓存：%s", cache_file)
+            import pickle
+            temp_cache_file = cache_file.with_suffix(cache_file.suffix + ".tmp")
+            with open(temp_cache_file, "wb") as f:
+                pickle.dump(
+                    {"manifest": cache_manifest, "results": retrieval_results},
+                    f,
+                )
+            temp_cache_file.replace(cache_file)
+
+        retrieval_results = [
+            item
+            for item in retrieval_results
+            if (item[0], str(item[1].get("id"))) not in completed_keys
+        ]
 
         if not self.config.run_generation and not self.config.run_judge:
             logger.info("跳过生成阶段（run_generation=False, run_judge=False）")
@@ -1089,19 +1370,22 @@ Rules:
                 }
                 with rows_lock:
                     rows_by_method[method_name].append(result)
+                maybe_write_checkpoint()
+            write_checkpoint("completed")
             return rows_by_method
 
         if generation_workers > 1:
             pbar2 = tqdm(total=len(retrieval_results), desc=f"{desc} - 生成阶段")
 
             with ThreadPoolExecutor(max_workers=generation_workers) as generation_executor:
-                futures = {generation_executor.submit(generation_phase, *r): r for r in retrieval_results}
+                futures = {generation_executor.submit(safe_generation_phase, *r): r for r in retrieval_results}
 
                 for future in as_completed(futures):
                     try:
                         method_name, result = future.result()
                         with rows_lock:
                             rows_by_method[method_name].append(result)
+                        maybe_write_checkpoint()
                     except Exception as exc:
                         logger.error("生成阶段异常：%s", exc)
 
@@ -1110,10 +1394,12 @@ Rules:
             pbar2.close()
         else:
             for method_name, sample, method_result, relevant_titles in tqdm(retrieval_results, desc=f"{desc} - 生成阶段"):
-                method_name_g, result = generation_phase(method_name, sample, method_result, relevant_titles)
+                method_name_g, result = safe_generation_phase(method_name, sample, method_result, relevant_titles)
                 with rows_lock:
                     rows_by_method[method_name].append(result)
+                maybe_write_checkpoint()
 
+        write_checkpoint("completed")
         return rows_by_method
 
     # ------------------------------------------------------------------
@@ -1144,10 +1430,14 @@ Rules:
         return {
             "Samples": total_rows,
             "Generation Success Samples": generation_successes,
+            "Generation Success Rate": round2(
+                generation_successes / total_rows if total_rows else 0.0
+            ) or 0.0,
             "Valid Judge Samples": valid_judges,
             "Refusal Rate": round2(refusals / total_rows if total_rows else 0.0) or 0.0,
             "Recall": round2(mean_or_none(m.recall for m in metrics)) or 0.0,
             "Precision": round2(mean_or_none(m.precision for m in metrics)) or 0.0,
+            "F1": round2(mean_or_none(m.f1 for m in metrics)) or 0.0,
             "MRR": round2(mean_or_none(m.mrr for m in metrics)) or 0.0,
             "NDCG": round2(mean_or_none(m.ndcg for m in metrics)) or 0.0,
             "MAP": round2(mean_or_none(m.map_score for m in metrics)) or 0.0,
@@ -1170,6 +1460,12 @@ Rules:
                 "Method": method,
                 "Samples": total_rows,
                 "Generation Success Samples": sum(1 for row in rows if bool(row.get("generation_success"))),
+                "Generation Success Rate": round2(
+                    sum(1 for row in rows if bool(row.get("generation_success")))
+                    / total_rows
+                    if total_rows
+                    else 0.0
+                ) or 0.0,
                 "Valid Judge Samples": sum(1 for s in semantic if bool(s.get("_judge_valid"))),
                 "Refusal Rate": round2(sum(1 for s in semantic if bool(s.get("_is_refusal"))) / total_rows if total_rows else 0.0),
             }
@@ -1197,6 +1493,14 @@ Rules:
                         "Type": question_type,
                         "Samples": total,
                         "Recall": round2(mean_or_none(m.recall for m in metrics)) or 0.0,
+                        "Precision": round2(mean_or_none(m.precision for m in metrics)) or 0.0,
+                        "F1": round2(mean_or_none(m.f1 for m in metrics)) or 0.0,
+                        "Generation Success Rate": round2(
+                            sum(1 for row in group_rows if bool(row.get("generation_success")))
+                            / total
+                            if total
+                            else 0.0
+                        ) or 0.0,
                         "Correctness": round2(self._mean_all_rows((s.get("correctness") for s in semantic), total)),
                         "Faithfulness": round2(self._mean_all_rows((s.get("faithfulness") for s in semantic), total)),
                         "Context Relevance": round2(self._mean_all_rows((s.get("context_relevance") for s in semantic), total)),
@@ -1305,6 +1609,7 @@ Rules:
         assert self.test_data is not None
 
         run_dir = self._create_run_dir()
+        self._checkpoint_path = run_dir / "checkpoint.json"
 
         method_fns: Dict[str, Callable[[str], MethodResult]] = {
             "MacRAG": self.retrieve_method,
@@ -1337,18 +1642,7 @@ Rules:
         with open(config_path, "w", encoding="utf-8") as f:
             json.dump(self._json_safe(asdict(self.config)), f, ensure_ascii=False, indent=2)
 
-        checkpoint_path = run_dir / "checkpoint.json"
-        with open(checkpoint_path, "w", encoding="utf-8") as f:
-            json.dump(
-                {
-                    "status": "completed",
-                    "method": "MacRAG",
-                    "sample_count": len(method_rows),
-                },
-                f,
-                ensure_ascii=False,
-                indent=2,
-            )
+        checkpoint_path = self._checkpoint_path
 
         logger.info("MacRAG 实验完成，结果目录：%s", run_dir)
         return {
@@ -1395,6 +1689,7 @@ def main() -> int:
     parser.add_argument("--judge-max-retries", type=int, default=None, help="评价模型最大重试次数")
     parser.add_argument("--retrieval-cache-dir", type=str, default=None, help="检索结果缓存目录")
     parser.add_argument("--skip-retrieval", action="store_true", help="从已有缓存恢复并跳过检索")
+    parser.add_argument("--resume-checkpoint", type=str, default=None, help="从生成/评判检查点继续")
     args = parser.parse_args()
 
     config_kwargs: Dict[str, Any] = {}
@@ -1420,6 +1715,8 @@ def main() -> int:
         config_kwargs["retrieval_cache_dir"] = args.retrieval_cache_dir
     if args.skip_retrieval:
         config_kwargs["skip_retrieval"] = True
+    if args.resume_checkpoint is not None:
+        config_kwargs["resume_checkpoint"] = args.resume_checkpoint
     for arg_name in [
         "context_budget",
         "complexity_threshold",
