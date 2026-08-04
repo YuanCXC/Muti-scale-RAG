@@ -70,3 +70,8 @@ dmypy.json
 
 *.json
 *.csv
+
+# Documents (论文稿件等不放入代码仓库)
+*.docx
+*.doc
+*.pdf
