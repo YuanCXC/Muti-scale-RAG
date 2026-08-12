@@ -75,3 +75,11 @@ dmypy.json
 *.docx
 *.doc
 *.pdf
+
+# 第三方 vendor 仓库（graphrag、hipporag 等独立 git 仓库，不纳入主仓库）
+expv4/vendor/
+
+# 规划过程文件（Manus 风格规划系统产物，不纳入版本管理）
+task_plan.md
+progress.md
+findings.md
